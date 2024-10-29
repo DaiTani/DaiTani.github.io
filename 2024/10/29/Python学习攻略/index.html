@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="YDZR">
+
+
+
+
+
+<title>Python学习攻略 | want to be the moon</title>
+
+
+
+    <link rel="icon" href="/tubiao.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">YZDR&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">YZDR&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Python学习攻略</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">YDZR</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">October 29, 2024&nbsp;&nbsp;19:48:30</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/experience-of-studying/">experience of studying</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <blockquote>
+<p>计算机不仅能处理数字之间的运算，也能对文本、图片、音频、视频等数据进行处理。在程序中，每个数据都有自己的数据类型。Python 的数据类型有 int(整数)、float(浮点数)、字符串、布尔值、None、列表、元组、字典、集合等。</p>
+</blockquote>
+<ul>
+<li>下面介绍几种基本数据类型。</li>
+</ul>
+<h4 id="💡-int-整数"><a href="#💡-int-整数" class="headerlink" title="💡 int - 整数"></a>💡 int - 整数</h4><p>即数学意义上的整数，可以是正整数或负整数，不带小数点。</p>
+<h4 id="💡-float-浮点数"><a href="#💡-float-浮点数" class="headerlink" title="💡 float - 浮点数"></a>💡 float - 浮点数</h4><p>浮点数就是小数。所谓浮点，指的是小数的表示形式多变，3.14 可以表示为 0.314 x 10，小数点可以改变位置，故称为浮点数。</p>
+<p>在计算机中，整数、浮点数字、字符串等所有的数据，都会被转换为二进制数值进行处理，处理完成后再转换为你想要的信息。转换的过程中可能就会出现精度的丢失，试试在 Python 命令行中输出 <code>1.1 + 2.2</code> ，猜猜结果是多少？</p>
+<p><img src="https://doc.shiyanlou.com/courses/uid8504-20190712-1562913492724" alt="图片描述"></p>
+<p>结果并不是 <code>3.3</code>，而是 <code>3.3000000000000003</code>。</p>
+<h4 id="💡-布尔值"><a href="#💡-布尔值" class="headerlink" title="💡 布尔值"></a>💡 布尔值</h4><p>布尔值只有 <code>True</code> 和 <code>False</code> 两种，注意大小写。布尔值通常用来比较和判断，举例如下：</p>
+<p><img src="https://doc.shiyanlou.com/courses/uid8504-20190520-1558342147834" alt="图片描述"></p>
+<h4 id="💡-空值-None"><a href="#💡-空值-None" class="headerlink" title="💡 空值 None"></a>💡 空值 None</h4><p><code>None</code> 在 Python 中是一个特殊的值，表示“无”。注意它与数值 0 不同，0 是一个整数，而 <code>无</code> 表示什么都没有。</p>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>我们再来学习一个很重要的概念 —— <strong>「变量」</strong>。你可以将它理解为一个盒子 —— 把常用的数据放在里面，起一个好记的名字，下次用到时可以快速找到它。</p>
+<p>比如说在游戏中，你会频繁用到 「血量（HP）、攻击力、防御力」等数据，这些数据需要用名字储存起来。</p>
+<p><img src="https://doc.shiyanlou.com/courses/uid8504-20190513-1557734239611" alt="图片描述"></p>
+<p>定义这些变量的代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Level = <span class="number">1</span></span><br><span class="line">ATK = <span class="number">5</span></span><br><span class="line">HP = <span class="number">100</span></span><br></pre></td></tr></table></figure>
+
+<p>左边是<strong>「变量名」</strong></p>
+<p>右边是<strong>「数据」</strong></p>
+<p>而等号在 Python 里的意思是<strong>「赋值符」</strong>，代表把右边的数据赋值给左边。</p>
+<p><img src="https://doc.shiyanlou.com/courses/uid8504-20190513-1557735685130" alt="图片描述"></p>
+<p>其实，早在小学的数学课上，你就开始使用 <strong>变量</strong> 的概念了。比如「鸡兔同笼」问题中，你可以“设鸡的数量为 x，兔子的数量为 y ”， x、y 就是变量：</p>
+<blockquote>
+<p>x &#x3D; 鸡的数量</p>
+<p>y &#x3D; 兔子的数量</p>
+<p>则：</p>
+<p>x + y &#x3D; 头数</p>
+<p>2x + 4y &#x3D; 脚数</p>
+</blockquote>
+<p><strong>变量中的数据，除了可以是整数，还可以是一段文字</strong>，比如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">word = <span class="string">&#x27;Hello World!&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(word)</span><br></pre></td></tr></table></figure>
+
+<p>试一下上面的代码，看看会打印出什么结果。</p>
+<p><strong>变量的右边，甚至可以是另一个变量，如：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">word2 = word</span><br><span class="line"><span class="built_in">print</span>(word2)</span><br></pre></td></tr></table></figure>
+
+<p>上面这段代码的意思是把「word」中的数据，赋值给「word2」这一变量。</p>
+<p><strong>亲手操作一下试试：</strong></p>
+<p><img src="https://doc.shiyanlou.com/courses/uid8504-20190513-1557736326637" alt="图片描述"></p>
+<p>🔥 <strong>小练习：</strong>把 「实小楼」 存入名为的「name」的变量中，并打印出来。</p>
+<p>💡 <strong>提示</strong>：「实小楼」是字符串，需要加引号</p>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><p>任何一本编程书籍之中，<strong>字符串</strong>的内容总是很长。这是因为：处理字符串是计算机程序中最普遍的需求之一 ，人和计算机交互，所用的就是字符串而不是二进制数字。</p>
+<p>用 <strong>引号</strong> 包裹起来的数据就是字符串。计算机无法识别人类的文字，所以引号的作用就是告诉计算机：我是字符串，不用管里面是什么内容。</p>
+<p>包裹字符串的引号必须前后对应，成对出现。如果字符串中还有引号，要特别注意，如 <code>He said &quot;Today&#39;s weather is good.&quot;</code>，直接写 <code>print(&#39;He said &quot;Today&#39;s weather is good.&quot;&#39;)</code> 就会报错。因为：</p>
+<p><img src="https://doc.shiyanlou.com/courses/uid8504-20190520-1558341931710" alt="图片描述"></p>
+<p>正确的写法是，在 Today 后面加入转义符 <code>\</code>：</p>
+<p><img src="https://doc.shiyanlou.com/courses/uid8504-20190520-1558341938677" alt="图片描述"></p>
+<p>亲手在终端中试一下：</p>
+<p><img src="https://doc.shiyanlou.com/courses/uid8504-20190520-1558340185992" alt="图片描述"></p>
+<p>转义符 <code>\</code> 还有一个常用形式是和 n 连起来用，<code>\n</code> 代表换行符，就是用 Enter（回车）键敲出来的东西。</p>
+<p><img src="https://doc.shiyanlou.com/courses/uid8504-20190712-1562914411068" alt="图片描述"></p>
+<h4 id="💡-索引"><a href="#💡-索引" class="headerlink" title="💡 索引"></a>💡 索引</h4><blockquote>
+<p>字符串是一堆字符的集合，可以通过位置编号，来获得对应的字符。如 <code>&#39;hello_shiyanlou&#39;</code>，编号 0 对应第一个字符 h，1 对应第二个字符 e，依次类推。这个位置的编号，我们称之为：<strong>索引</strong>。</p>
+</blockquote>
+<p>这里你又学到了计算机世界的一大概念：</p>
+<p><strong>在计算机世界中，计数从 0 开始。</strong></p>
+<p><strong>在计算机世界中，计数从 0 开始。</strong></p>
+<p><strong>在计算机世界中，计数从 0 开始。</strong></p>
+<p>索引除了是正数，也可以是 <strong>负值</strong>，表示倒数第几个。比如最后一个字符的索引为 -1，倒数第二个字符的索引为 -2。</p>
+<p><strong>简单的示例：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>string = <span class="string">&#x27;hello_shiyanlou&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>string[<span class="number">0</span>]  <span class="comment"># 获取第一个字符</span></span><br><span class="line"><span class="string">&#x27;h&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>string[<span class="number">1</span>]  <span class="comment"># 获取第二个字符</span></span><br><span class="line"><span class="string">&#x27;e&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>string[<span class="number">2</span>]</span><br><span class="line"><span class="string">&#x27;l&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>string[-<span class="number">1</span>]  <span class="comment"># 获取倒数第一个字符</span></span><br><span class="line"><span class="string">&#x27;u&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>string[-<span class="number">2</span>]  <span class="comment"># 获取倒数第二个字符</span></span><br><span class="line"><span class="string">&#x27;o&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="💡format"><a href="#💡format" class="headerlink" title="💡format()"></a>💡format()</h4><p><code>format()</code> 是专门用来 <strong>格式化字符串</strong> 的函数，它最常用的功能就是「插入数据」和「数字格式化」。</p>
+<p><strong>插入数据：</strong></p>
+<p>先看下面的代码，相信现在的你已经能看懂是什么意思了。我们让用户输入姓名和年龄，并用 name 和 age 变量接收数据。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="built_in">input</span>(<span class="string">&#x27;请输入姓名：&#x27;</span>)</span><br><span class="line">age = <span class="built_in">input</span>(<span class="string">&#x27;请输入年龄&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>现在我想打印 “你叫 xxx，今年 x 岁了”，代码该怎么写？</p>
+<p>有两种写法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;你叫&#x27;</span>+name+<span class="string">&#x27;，今年&#x27;</span> + age + <span class="string">&#x27;岁了&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>这种方法用 + 号串联打印的内容，虽然可行，但是比较麻烦，而且有局限性。</p>
+<p>这时，你可以使用 <code>format()</code> 函数，实现插入效果，用法如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;你叫&#123;&#125;，今年&#123;&#125;岁了&#x27;</span>.<span class="built_in">format</span>(name,age))</span><br></pre></td></tr></table></figure>
+
+<p><code>&#123;&#125;</code> 为占位符，我先把这个位置占住，具体数据在后面导入。</p>
+<p>下图可以让你有更好的理解：</p>
+<p><img src="https://doc.shiyanlou.com/courses/uid8504-20190522-1558507543867" alt="图片描述"></p>
+<p><strong>数字格式化：</strong></p>
+<p><code>format()</code> 的第二种常用功能，是格式化数字，比如我们要输出圆周率，但只保留两位小数，可以这么写：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;&#123;:.2f&#125;&quot;</span>.<span class="built_in">format</span>(<span class="number">3.1415926</span>))</span><br></pre></td></tr></table></figure>
+
+<p>如果要保留三位，则改成 <code>&#123;:.3f&#125;</code>；不带小数，则改成 <code>&#123;:.0f&#125;</code>，依次类推。</p>
+<p><code>format()</code>功能还有很多，我们之后用到时在做学习。</p>
+<h2 id="💡-注释"><a href="#💡-注释" class="headerlink" title="💡 注释"></a>💡 注释</h2><blockquote>
+<p>注释，可理解为程序的注解、提示，用来帮助他人和自己阅读、理解、编写代码。python 中，<code>#</code> 常被用作写单行注释，<code>#</code> 号后的内容会被忽略，不会被当作代码处理。</p>
+</blockquote>
+<p>如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 注释可以写在开头：下面要打印 “hello shiyanlou”</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;hello shiyanlou&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;hello world&quot;</span>)  <span class="comment"># 注释也可以写在后面：这里打印 “hello world”</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>注释</strong> 对程序员来说非常重要，甚至直接决定了你的寿命……写注释可以帮你理清思路，提高程序的可维护性；如果没有注释，你会连自己的代码都看不懂，而且极可能会被同事、上司打死……</p>
+<p>另外，如果有一些代码暂时不需要被执行，可以先不要删掉它（因为后面可能还会使用），而是使用 <code>#</code> 将其注释掉。这样代码就暂时不会被执行了，之后再需要这段代码时，删掉 <code>#</code> 就好了。</p>
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><p><strong>运算</strong>，是计算机最基本的功能，我们先来学习一下运算符。</p>
+<blockquote>
+<p>运算符用于执行程序的运算，我们这里先学习最简单的几种：「算术运算符」、「比较运算符」、「赋值运算符」、「逻辑运算符」。</p>
+</blockquote>
+<p>不要被这些名词吓到，其实大多都是些你小学就学过的概念……</p>
+<h4 id="💡-算术运算符"><a href="#💡-算术运算符" class="headerlink" title="💡 算术运算符"></a>💡 算术运算符</h4><p>即小学数学中的运算符，最常用的还是「加减乘除余」这五种：</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+</td>
+<td>加</td>
+<td>两个对象相加</td>
+</tr>
+<tr>
+<td>-</td>
+<td>减</td>
+<td>得到负数或是一个数减去另一个数</td>
+</tr>
+<tr>
+<td>*</td>
+<td>乘</td>
+<td>两个数相乘或是返回一个被重复若干次的字符串</td>
+</tr>
+<tr>
+<td>&#x2F;</td>
+<td>除</td>
+<td>x 除以 y</td>
+</tr>
+<tr>
+<td>%</td>
+<td>取模</td>
+<td>返回除法的余数</td>
+</tr>
+<tr>
+<td>**</td>
+<td>幂</td>
+<td>返回 x 的 y 次幂</td>
+</tr>
+<tr>
+<td>&#x2F;&#x2F;</td>
+<td>取整除</td>
+<td>返回商的整数部分（向下取整）</td>
+</tr>
+</tbody></table>
+<p>🔥 <strong>练习一下：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = <span class="number">12</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = <span class="number">3</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c = <span class="number">5</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a + b</span><br><span class="line"><span class="number">15</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a - b</span><br><span class="line"><span class="number">9</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a * b</span><br><span class="line"><span class="number">36</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a / b</span><br><span class="line"><span class="number">4.0</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a / c</span><br><span class="line"><span class="number">2.4</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a % c</span><br><span class="line"><span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="💡-比较运算符"><a href="#💡-比较运算符" class="headerlink" title="💡 比较运算符"></a>💡 比较运算符</h2><blockquote>
+<p><strong>比较运算符</strong> 就是小学课本中的「大于、小于、等于……」，通常用于程序执行 <strong>循环和判断</strong> 中：</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&#x3D;&#x3D;</td>
+<td>等于：比较对象是否相等</td>
+</tr>
+<tr>
+<td>!&#x3D;</td>
+<td>不等于：比较两个对象是否不相等</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>大于：返回 x 是否大于 y</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>小于：返回 x 是否小于 y</td>
+</tr>
+<tr>
+<td>&gt;&#x3D;</td>
+<td>大于等于：返回 x 是否大于等于 y</td>
+</tr>
+<tr>
+<td>&lt;&#x3D;</td>
+<td>小于等于：返回 x 是否小于等于 y</td>
+</tr>
+</tbody></table>
+<p><strong>⚠️ 注意： 在 Python 和大多数高级语言中：一个等号代表赋值符，两个等号才代表数学意义上的“相等”。</strong></p>
+<p>🔥 <strong>练习一下：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = <span class="number">1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = <span class="number">2</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c = <span class="number">3</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d = <span class="number">2</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a == b</span><br><span class="line"><span class="literal">False</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a != b</span><br><span class="line"><span class="literal">True</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a &gt; b</span><br><span class="line"><span class="literal">False</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a &lt; b</span><br><span class="line"><span class="literal">True</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c &gt;= d</span><br><span class="line"><span class="literal">True</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b &lt;= c</span><br><span class="line"><span class="literal">True</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="💡-赋值运算符"><a href="#💡-赋值运算符" class="headerlink" title="💡 赋值运算符"></a>💡 赋值运算符</h2><blockquote>
+<p><strong>赋值运算符</strong> 主要是为了简写，<strong>如果看不懂可以先跳过，在以后的项目中会更容易理解。</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&#x3D;</td>
+<td>赋值运算符</td>
+<td>c &#x3D; a + b ：将 a + b 的运算结果赋值为 c</td>
+</tr>
+<tr>
+<td>+&#x3D;</td>
+<td>加法赋值运算符</td>
+<td>c +&#x3D; a ：等效于 c &#x3D; c + a</td>
+</tr>
+<tr>
+<td>-&#x3D;</td>
+<td>减法赋值运算符</td>
+<td>c -&#x3D; a ：等效于 c &#x3D; c - a</td>
+</tr>
+<tr>
+<td>*&#x3D;</td>
+<td>乘法赋值运算符</td>
+<td>c *&#x3D; a ：等效于 c &#x3D; c * a</td>
+</tr>
+<tr>
+<td>&#x2F;&#x3D;</td>
+<td>除法赋值运算符</td>
+<td>c &#x2F;&#x3D; a ：等效于 c &#x3D; c &#x2F; a</td>
+</tr>
+<tr>
+<td>%&#x3D;</td>
+<td>取模赋值运算符</td>
+<td>c %&#x3D; a ：等效于 c &#x3D; c % a</td>
+</tr>
+<tr>
+<td>**&#x3D;</td>
+<td>幂赋值运算符</td>
+<td>c **&#x3D; a ：等效于 c &#x3D; c ** a</td>
+</tr>
+<tr>
+<td>&#x2F;&#x2F;&#x3D;</td>
+<td>取整除赋值运算符</td>
+<td>c &#x2F;&#x2F;&#x3D; a ：等效于 c &#x3D; c &#x2F;&#x2F; a</td>
+</tr>
+</tbody></table>
+<p>🔥 <strong>练习一下：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = <span class="number">3</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = <span class="number">12</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c = <span class="number">10</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c += a</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span>(c)</span><br><span class="line"><span class="number">13</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b -= a</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b</span><br><span class="line"><span class="number">9</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c *= <span class="number">5</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c</span><br><span class="line"><span class="number">65</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>💡 逻辑运算符</p>
+<p>如果计算机只有计算功能，那它顶多是一个计算器；而我们今天使用的计算机之所以智能、可编程，最重要的原因是：它能够进行 <strong>逻辑处理</strong>。</p>
+<p><strong>逻辑运算符</strong>，即高中数学中的「 且、或、非 」，Python 中用 <code>and</code>、<code>or</code>、<code>not</code> 表示这三种逻辑。</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>逻辑表达式</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>and（逻辑与）</td>
+<td>a and b</td>
+<td>当 a、b 都为 True 时，返回 True；否则返回 False</td>
+</tr>
+<tr>
+<td>or（逻辑或）</td>
+<td>a or b</td>
+<td>当 a、b 任意一个为 True，就返回 True</td>
+</tr>
+<tr>
+<td>not（逻辑非）</td>
+<td>not a</td>
+<td>当 a 为 True 时，返回 False；反之亦然</td>
+</tr>
+</tbody></table>
+<p>🔥 <strong>练习一下：</strong></p>
+<p>⚠️ <strong>补充：在逻辑运算中，数字 <code>0</code> 代表 False，<code>1</code> 代表 True。</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">not</span> <span class="number">1</span></span><br><span class="line"><span class="literal">False</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">not</span> <span class="number">0</span></span><br><span class="line"><span class="literal">True</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">1</span> <span class="keyword">and</span> <span class="number">1</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">1</span> <span class="keyword">and</span> <span class="number">0</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">1</span> <span class="keyword">or</span> <span class="number">0</span></span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="小结："><a href="#小结：" class="headerlink" title="小结："></a>小结：</h1><p><img src="https://doc.shiyanlou.com/courses/uid8504-20191108-1573182587000" alt="img"></p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>YDZR</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://422home.icu/2024/10/29/Python%E5%AD%A6%E4%B9%A0%E6%94%BB%E7%95%A5/">https://422home.icu/2024/10/29/Python%E5%AD%A6%E4%B9%A0%E6%94%BB%E7%95%A5/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY</strong>?</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2024/10/29/Linux%E5%AD%A6%E4%B9%A0-1/">Linux学习_1</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© YDZR | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
