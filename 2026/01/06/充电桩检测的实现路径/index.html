@@ -9,7 +9,7 @@
     
     <title>
         
-            Hello World |
+            齐鲁工大充电桩实时监控：从协议逆向到多线程自动化实战 |
         
         YZDR&#39;s Blog
     </title>
@@ -269,7 +269,7 @@
             <div class="post-content-bottom border-box">
                 
                     <div class="post-title">
-                        Hello World
+                        齐鲁工大充电桩实时监控：从协议逆向到多线程自动化实战
                     </div>
                 
 
@@ -297,30 +297,57 @@
         
             <span class="meta-info-item post-create-date">
                 <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
-                <span class="datetime">2026-01-02 13:30:43</span>
+                <span class="datetime">2026-01-06 13:03:38</span>
             </span>
 
             
                 <span class="meta-info-item post-update-date">
                     <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                    <span class="datetime" data-updated="Fri Jan 02 2026 13:30:43 GMT+0800">2026-01-02 13:30:43</span>
+                    <span class="datetime" data-updated="Tue Jan 06 2026 13:49:49 GMT+0800">2026-01-06 13:49:49</span>
                 </span>
             
         
 
         
+            <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul class="post-category-ul">
+                    
+                            <li class="category-item"><a href="/categories/%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97/">开发日志</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
 
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Python/">Python</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E7%88%AC%E8%99%AB/">爬虫</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/">逆向工程</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E6%A0%A1%E5%9B%AD%E7%94%9F%E6%B4%BB/">校园生活</a></li>
+                        
+                    
+                </ul>
+            </span>
         
 
         
         
             <span class="meta-info-item post-wordcount">
-                <i class="icon fas fa-file-word"></i>&nbsp;<span>75 字</span>
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>1k 字</span>
             </span>
         
         
             <span class="meta-info-item post-min2read">
-                <i class="icon fas fa-clock"></i>&nbsp;<span>1 分钟</span>
+                <i class="icon fas fa-clock"></i>&nbsp;<span>4 分钟</span>
             </span>
         
         
@@ -338,19 +365,36 @@
                     
 
                     
-                         <p>Welcome to <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/" >Hexo<i class="fas fa-external-link-alt"></i></a>! This is your very first post. Check <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/" >documentation<i class="fas fa-external-link-alt"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html" >troubleshooting<i class="fas fa-external-link-alt"></i></a> or you can ask me on <a class="link"   target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues" >GitHub<i class="fas fa-external-link-alt"></i></a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+                         <h2 id="一、-项目背景"><a href="#一、-项目背景" class="headerlink" title="一、 项目背景"></a>一、 项目背景</h2><p>齐鲁工业大学 23 号楼下的充电桩由威胜集团提供技术支持。由于官方小程序仅支持近距离扫码查看，无法远程获知全场 70 多个桩位的实时状态。在北方的严冬深夜，为了找一个空桩而在寒风中逐一尝试显然不是最优解。</p>
+<p>本项目旨在通过 <strong>Python 逆向监测</strong>，将全场状态聚合为一个实时更新的可视化看板。</p>
+<p><img   src="https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/img/20260106134939686.png?imageSlim"  alt="image-20260106134939643"></p>
+<hr>
+<h2 id="二、-协议逆向全流程"><a href="#二、-协议逆向全流程" class="headerlink" title="二、 协议逆向全流程"></a>二、 协议逆向全流程</h2><h3 id="1-流量嗅探与抓包"><a href="#1-流量嗅探与抓包" class="headerlink" title="1. 流量嗅探与抓包"></a>1. 流量嗅探与抓包</h3><p>使用 <strong>Fiddler</strong> 对微信小程序进行 SSL 解密。通过分析发现，查询一个充电桩的状态需要遵循严格的顺序逻辑：</p>
+<ul>
+<li><strong>第一步：Session 激活 (AddSession)</strong><br>告知服务器“我要查看某个桩”。如果跳过此步直接取数，后端会报错。</li>
+<li><strong>第二步：数据拉取 (getWxInfo)</strong><br>服务器根据当前 Session 绑定的设备 ID，返回详细的 JSON 数据（包含剩余时间、占用状态等）。<br><img   src="https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/img/20260106133349934.png?imageSlim" ></li>
+</ul>
+<h3 id="2-身份凭证拆解"><a href="#2-身份凭证拆解" class="headerlink" title="2. 身份凭证拆解"></a>2. 身份凭证拆解</h3><p>接口校验的核心在于 Header 中的 <strong>Cookie</strong>：</p>
+<ul>
+<li><code>ASP.NET_SessionId</code>: 服务端生成的会话标识，具有时效性。</li>
+<li><code>OpenID</code>: 用户在微信生态下的唯一标识。</li>
+</ul>
+<hr>
+<h2 id="三、-核心架构设计"><a href="#三、-核心架构设计" class="headerlink" title="三、 核心架构设计"></a>三、 核心架构设计</h2><h3 id="1-负载均衡与-Cookie-池"><a href="#1-负载均衡与-Cookie-池" class="headerlink" title="1. 负载均衡与 Cookie 池"></a>1. 负载均衡与 Cookie 池</h3><p>由于单 Session 存在严重的频率限制，且极易因“操作频繁”被封禁。我设计了一个 <strong>Cookie 池 (Cookie Pool)</strong>。<br>通过维护多个有效的 Session，系统可以利用多线程并发技术，将 70 个点位的查询压力平摊给多个“虚拟用户”。</p>
+<h3 id="2-关键代码片段"><a href="#2-关键代码片段" class="headerlink" title="2. 关键代码片段"></a>2. 关键代码片段</h3><h4 id="A-核心通信逻辑"><a href="#A-核心通信逻辑" class="headerlink" title="A. 核心通信逻辑"></a>A. 核心通信逻辑</h4><p>这是避开 <code>.NET</code> 后台 <code>NullReferenceException</code> 报错的关键。必须保证 Body 中的 <code>openid</code> 与 Cookie 严格一致。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">fetch_status</span>(<span class="params">device_id, cookie, openid</span>):</span><br><span class="line">    headers = &#123;</span><br><span class="line">        <span class="string">&quot;User-Agent&quot;</span>: <span class="string">&quot;Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X)...&quot;</span>,</span><br><span class="line">        <span class="string">&quot;Cookie&quot;</span>: cookie,</span><br><span class="line">        <span class="string">&quot;Content-Type&quot;</span>: <span class="string">&quot;application/x-www-form-urlencoded; charset=UTF-8&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 1. 激活 Session 绑定</span></span><br><span class="line">    reg_url = <span class="string">&quot;[https://semiot.wasion.cn/Main/AddSession](https://semiot.wasion.cn/Main/AddSession)&quot;</span></span><br><span class="line">    requests.post(reg_url, headers=headers, data=&#123;<span class="string">&quot;AdminName&quot;</span>: <span class="string">&quot;共享用电&quot;</span>, <span class="string">&quot;DeviceNumber&quot;</span>: device_id, <span class="string">&quot;PageTaype&quot;</span>: <span class="string">&quot;1&quot;</span>&#125;)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 2. 拉取实时 JSON 报文</span></span><br><span class="line">    info_url = <span class="string">&quot;[https://semiot.wasion.cn/DeviceCurrentData/getWxInfo](https://semiot.wasion.cn/DeviceCurrentData/getWxInfo)&quot;</span></span><br><span class="line">    response = requests.post(info_url, headers=headers, data=&#123;<span class="string">&quot;DeviceNumber&quot;</span>: device_id, <span class="string">&quot;openid&quot;</span>: openid&#125;)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> response.json()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html" >Writing<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h4 id="B-多线程任务调度"><a href="#B-多线程任务调度" class="headerlink" title="B. 多线程任务调度"></a>B. 多线程任务调度</h4><p>使用 <code>Queue</code> 队列实现生产者-消费者模型。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">worker</span>(<span class="params">cookie, task_queue</span>):</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        pos, d_id = task_queue.get()</span><br><span class="line">        <span class="comment"># 提取当前线程分配到的 OpenID</span></span><br><span class="line">        current_oid = extract_openid(cookie)</span><br><span class="line">        </span><br><span class="line">        result = fetch_status(d_id, cookie, current_oid)</span><br><span class="line">        <span class="keyword">if</span> result:</span><br><span class="line">            update_local_json(pos, result) <span class="comment"># 线程安全写入</span></span><br><span class="line">        </span><br><span class="line">        time.sleep(<span class="number">10</span>) <span class="comment"># 模拟人类操作间隔，保护 Session</span></span><br><span class="line">        task_queue.task_done()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/server.html" >Server<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html" >Generating<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html" >Deployment<i class="fas fa-external-link-alt"></i></a></p>
+<hr>
+<h2 id="四、-坑位总结-Post-Mortem"><a href="#四、-坑位总结-Post-Mortem" class="headerlink" title="四、 坑位总结 (Post-Mortem)"></a>四、 坑位总结 (Post-Mortem)</h2><h3 id="1-致命的-500-错误"><a href="#1-致命的-500-错误" class="headerlink" title="1. 致命的 500 错误"></a>1. 致命的 500 错误</h3><p><strong>现象</strong>：程序运行初期，频繁收到服务器返回的 HTML 错误页面，提示“未将对象引用设置到对象的实例”。<br><strong>分析</strong>：威胜后台代码鲁棒性不足。当 <code>AddSession</code> 与 <code>getWxInfo</code> 之间的调用间隔过短，或者 <code>openid</code> 参数大小写不敏感时，后端无法在内存中初始化用户对象。<br><strong>解决</strong>：严格对齐参数，并在两步操作间加入 0.5 秒的微小延迟。</p>
+<h3 id="2-动态-Session-过期"><a href="#2-动态-Session-过期" class="headerlink" title="2. 动态 Session 过期"></a>2. 动态 Session 过期</h3><p><strong>现象</strong>：脚本运行数小时后，所有桩位显示“离线”。<br><strong>解决</strong>：编写了一个 <strong>Cookie Check 脚本</strong>。每隔一小时对池内 Cookie 进行“健康检查”，若失效则通过钉钉或企业微信机器人提醒手动更新抓包。</p>
+<h3 id="五、伦理与安全性思考"><a href="#五、伦理与安全性思考" class="headerlink" title="五、伦理与安全性思考"></a>五、伦理与安全性思考</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">本项目的初衷是公共数据透明化，而非恶意攻击。在实现过程中，我严格限制了请求频率（单个 Cookie 间隔 10s 以上），确保不对官方服务器造成额外压力。</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="六、-项目成果"><a href="#六、-项目成果" class="headerlink" title="六、 项目成果"></a>六、 项目成果</h2><p>通过这套系统，全场 70 个充电桩的巡检周期从<strong>手工扫码（约 1 小时）缩短到了自动化轮询（约 3 分钟）</strong>。<br>可视化看板不仅能显示哪个桩空着，还能通过 <code>sytime</code> 字段预测该桩位何时会释放，极大地优化了排队体验。</p>
+<p><img   src="https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/img/20260106134519913.png?imageSlim"  alt="image-20260106134519753"></p>
+<p><strong>技术栈：</strong> Python &#x2F; Flask &#x2F; Requests &#x2F; Fiddler &#x2F; Threading</p>
 
                     
                 </div>
@@ -359,6 +403,26 @@
 
                 <div class="post-bottom-tags-and-share border-box">
                     <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/Python/">Python</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E7%88%AC%E8%99%AB/">爬虫</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/">逆向工程</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E6%A0%A1%E5%9B%AD%E7%94%9F%E6%B4%BB/">校园生活</a>
+                                    </li>
+                                
+                            </ul>
                         
                     </div>
                     <div>
@@ -394,22 +458,22 @@
                 
                     <div class="post-nav border-box">
                         
-                            <div class="prev-post">
-                                <a class="prev"
-                                   rel="prev"
-                                   href="/2026/01/06/%E5%85%85%E7%94%B5%E6%A1%A9%E6%A3%80%E6%B5%8B%E7%9A%84%E5%AE%9E%E7%8E%B0%E8%B7%AF%E5%BE%84/"
-                                   title="齐鲁工大充电桩实时监控：从协议逆向到多线程自动化实战"
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/2026/01/02/hello-world/"
+                                   title="Hello World"
                                 >
-                                    <span class="left arrow-icon flex-center">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </span>
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">齐鲁工大充电桩实时监控：从协议逆向到多线程自动化实战</span>
-                                        <span class="post-nav-item">上一篇</span>
+                                        <span class="post-nav-title-item text-ellipsis">Hello World</span>
+                                        <span class="post-nav-item">下一篇</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
                                     </span>
                                 </a>
                             </div>
-                        
                         
                     </div>
                 
@@ -508,7 +572,7 @@
             <div class="pc-post-toc right-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81-%E9%A1%B9%E7%9B%AE%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">一、 项目背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81-%E5%8D%8F%E8%AE%AE%E9%80%86%E5%90%91%E5%85%A8%E6%B5%81%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">二、 协议逆向全流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%B5%81%E9%87%8F%E5%97%85%E6%8E%A2%E4%B8%8E%E6%8A%93%E5%8C%85"><span class="nav-number">2.1.</span> <span class="nav-text">1. 流量嗅探与抓包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%BA%AB%E4%BB%BD%E5%87%AD%E8%AF%81%E6%8B%86%E8%A7%A3"><span class="nav-number">2.2.</span> <span class="nav-text">2. 身份凭证拆解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81-%E6%A0%B8%E5%BF%83%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1"><span class="nav-number">3.</span> <span class="nav-text">三、 核心架构设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E4%B8%8E-Cookie-%E6%B1%A0"><span class="nav-number">3.1.</span> <span class="nav-text">1. 负载均衡与 Cookie 池</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%85%B3%E9%94%AE%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5"><span class="nav-number">3.2.</span> <span class="nav-text">2. 关键代码片段</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#A-%E6%A0%B8%E5%BF%83%E9%80%9A%E4%BF%A1%E9%80%BB%E8%BE%91"><span class="nav-number">3.2.1.</span> <span class="nav-text">A. 核心通信逻辑</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#B-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6"><span class="nav-number">3.2.2.</span> <span class="nav-text">B. 多线程任务调度</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81-%E5%9D%91%E4%BD%8D%E6%80%BB%E7%BB%93-Post-Mortem"><span class="nav-number">4.</span> <span class="nav-text">四、 坑位总结 (Post-Mortem)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E8%87%B4%E5%91%BD%E7%9A%84-500-%E9%94%99%E8%AF%AF"><span class="nav-number">4.1.</span> <span class="nav-text">1. 致命的 500 错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%8A%A8%E6%80%81-Session-%E8%BF%87%E6%9C%9F"><span class="nav-number">4.2.</span> <span class="nav-text">2. 动态 Session 过期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E4%BC%A6%E7%90%86%E4%B8%8E%E5%AE%89%E5%85%A8%E6%80%A7%E6%80%9D%E8%80%83"><span class="nav-number">4.3.</span> <span class="nav-text">五、伦理与安全性思考</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81-%E9%A1%B9%E7%9B%AE%E6%88%90%E6%9E%9C"><span class="nav-number">5.</span> <span class="nav-text">六、 项目成果</span></a></li></ol>
     </div>
 </div>
 
@@ -690,7 +754,7 @@
             <div class="tablet-post-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81-%E9%A1%B9%E7%9B%AE%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">一、 项目背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81-%E5%8D%8F%E8%AE%AE%E9%80%86%E5%90%91%E5%85%A8%E6%B5%81%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">二、 协议逆向全流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%B5%81%E9%87%8F%E5%97%85%E6%8E%A2%E4%B8%8E%E6%8A%93%E5%8C%85"><span class="nav-number">2.1.</span> <span class="nav-text">1. 流量嗅探与抓包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%BA%AB%E4%BB%BD%E5%87%AD%E8%AF%81%E6%8B%86%E8%A7%A3"><span class="nav-number">2.2.</span> <span class="nav-text">2. 身份凭证拆解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81-%E6%A0%B8%E5%BF%83%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1"><span class="nav-number">3.</span> <span class="nav-text">三、 核心架构设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E4%B8%8E-Cookie-%E6%B1%A0"><span class="nav-number">3.1.</span> <span class="nav-text">1. 负载均衡与 Cookie 池</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%85%B3%E9%94%AE%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5"><span class="nav-number">3.2.</span> <span class="nav-text">2. 关键代码片段</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#A-%E6%A0%B8%E5%BF%83%E9%80%9A%E4%BF%A1%E9%80%BB%E8%BE%91"><span class="nav-number">3.2.1.</span> <span class="nav-text">A. 核心通信逻辑</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#B-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6"><span class="nav-number">3.2.2.</span> <span class="nav-text">B. 多线程任务调度</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81-%E5%9D%91%E4%BD%8D%E6%80%BB%E7%BB%93-Post-Mortem"><span class="nav-number">4.</span> <span class="nav-text">四、 坑位总结 (Post-Mortem)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E8%87%B4%E5%91%BD%E7%9A%84-500-%E9%94%99%E8%AF%AF"><span class="nav-number">4.1.</span> <span class="nav-text">1. 致命的 500 错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%8A%A8%E6%80%81-Session-%E8%BF%87%E6%9C%9F"><span class="nav-number">4.2.</span> <span class="nav-text">2. 动态 Session 过期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E4%BC%A6%E7%90%86%E4%B8%8E%E5%AE%89%E5%85%A8%E6%80%A7%E6%80%9D%E8%80%83"><span class="nav-number">4.3.</span> <span class="nav-text">五、伦理与安全性思考</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81-%E9%A1%B9%E7%9B%AE%E6%88%90%E6%9E%9C"><span class="nav-number">5.</span> <span class="nav-text">六、 项目成果</span></a></li></ol>
     </div>
 </div>
 
