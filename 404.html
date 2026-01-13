@@ -238,17 +238,49 @@
             <div class="main-content border-box">
                 
 
-                    <div class="fade-in-down-animation">
-    <div class="error-404-container border-box">
-        <div class="text-1 border-box flex-center">404</div>
-        <div class="text-2 border-box flex-center">
-            页面找不到
-        </div>
-        <div class="text-3 border-box flex-center">
-            <a class="go-home" href="/">前往首页</a>
-        </div>
-    </div>
-</div>
+                    .error-404-container {
+  disable-user-select()
+
+  .text-1 {
+    width 100%
+    height 8rem
+    color var(--text-color-3)
+    font-weight 600
+    font-size 8rem
+  }
+
+  .text-2 {
+    width 100%
+    height 3rem
+    color var(--text-color-4)
+    font-size 2rem
+    letter-spacing 1.2px
+  }
+
+  .text-3 {
+    width 100%
+    height 4rem
+
+    .go-home {
+      position relative
+      box-sizing border-box
+      padding 0.3rem 0.8rem
+      color var(--text-color-3)
+      font-size 1rem
+      background transparent
+      border-color var(--text-color-3)
+      border-style solid
+      border-width 0.1rem
+      border-radius 0.6rem
+      cursor pointer
+
+      &:hover {
+        color var(--primary-color)
+        border-color var(--primary-color)
+      }
+    }
+  }
+}
 
 
                 
@@ -276,7 +308,7 @@
             
                 <span class="count-item border-box word">
                     <span class="item-type border-box">总字数</span>
-                    <span class="item-value border-box word">2.9k</span>
+                    <span class="item-value border-box word">2.8k</span>
                 </span>
             
 
@@ -357,9 +389,38 @@
     </div>
 
     <!-- image mask -->
-    <div class="zoom-in-image-mask">
-    <img class="zoom-in-image">
-</div>
+    .zoom-in-image-mask {
+  position fixed
+  top 0
+  right 0
+  bottom 0
+  left 0
+  z-index $z-index-8
+  display flex
+  align-items center
+  justify-content center
+  box-sizing border-box
+  background rgba(0, 0, 0, 0)
+  visibility hidden
+  transition-t("visibility, background", "0, 0", "0.3, 0.3", "linear, linear")
+
+  &.show {
+    background rgba(0, 0, 0, 0.5)
+    visibility visible
+
+    .zoom-in-image {
+      cursor zoom-out
+    }
+  }
+
+  .zoom-in-image {
+    position absolute
+    z-index $z-index-9
+    transform-origin center center
+    will-change transform
+    transition-t("transform", "0", "0.3", "linear")
+  }
+}
 
 
     <!-- local search -->
