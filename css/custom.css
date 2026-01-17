@@ -1,5 +1,8 @@
+/* 网站字体设置 */
+:root {
+    --base-font-family: STSong;
+}
 /* --- Waline 评论区二次元风格定制 --- */
-
 /* 1. 全局面板美化 */
 #waline .wl-panel {
     border-radius: 12px !important;
@@ -105,3 +108,4 @@
 .wl-editor::placeholder {
     color: #666 !important;
 }
+
