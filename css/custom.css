@@ -1,7 +1,12 @@
 /* 网站字体设置 */
 :root {
     --base-font-family: STSong;
+    --first-screen-font-color-dark: #a8dadc;
+    --first-screen-font-color-light: #c2a366;
+    --first-screen-header-font-color-light: #526e25;
+    --first-screen-header-font-color-dark: #84cae7;
 }
+
 /* --- Waline 评论区二次元风格定制 --- */
 /* 1. 全局面板美化 */
 #waline .wl-panel {
