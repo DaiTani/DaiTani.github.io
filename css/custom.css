@@ -1,0 +1,107 @@
+/* --- Waline 评论区二次元风格定制 --- */
+
+/* 1. 全局面板美化 */
+#waline .wl-panel {
+    border-radius: 12px !important;
+    margin: 20px 0 !important;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+/* 浅色模式面板 */
+[theme-mode="light"] #waline .wl-panel {
+    background: #ffffff !important;
+    border: 1px solid #e1e1e1 !important;
+}
+
+/* 深色模式面板 */
+[theme-mode="dark"] #waline .wl-panel {
+    background: #282c34 !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+/* 2. 顶部用户信息栏改为纵向排列，并添加虚线 */
+.wl-header {
+    display: flex !important;
+    flex-direction: column !important;
+    /* 强制纵向 */
+    padding: 10px 15px 0 15px !important;
+    border-bottom: none !important;
+}
+
+.wl-header .wl-input {
+    width: 100% !important;
+    border: none !important;
+    border-bottom: 1px dashed #555 !important;
+    /* 灰色虚线分隔 */
+    padding: 12px 5px !important;
+    background: transparent !important;
+    color: #abb2bf !important;
+    transition: all 0.3s;
+}
+
+/* 浅色模式虚线 */
+[theme-mode="light"] #waline .wl-header .wl-input {
+    border-bottom: 1px dashed #cccccc !important;
+    color: #333333 !important;
+}
+
+/* 深色模式虚线 */
+[theme-mode="dark"] #waline .wl-header .wl-input {
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.2) !important;
+    color: #abb2bf !important;
+}
+
+/* 每一个输入框聚焦时虚线变色 */
+.wl-header .wl-input:focus {
+    border-bottom: 1px dashed #e67e22 !important;
+    /* 聚焦变为橙色 */
+}
+
+/* 3. 评论输入框及背景图设置 */
+.wl-editor {
+    background-color: transparent !important;
+    /* 引用你上传的 gif 图 */
+    background-image: url('/images/background.gif') !important;
+    background-size: 140px !important;
+    /* 调整小人大小 */
+    background-repeat: no-repeat !important;
+    /* 固定在右下角 */
+    background-position: right 10px bottom 10px !important;
+    min-height: 160px !important;
+    transition: background-position 0.6s ease-in-out !important;
+}
+
+[theme-mode="light"] #waline .wl-editor {
+    color: #333 !important;
+}
+
+[theme-mode="dark"] #waline .wl-editor {
+    color: #abb2bf !important;
+}
+/* 4. 输入文字时小人向下躲藏，避免遮挡 */
+.wl-editor:focus {
+    background-position: right 5px bottom -150px !important;
+}
+
+/* 5. 底部工具栏与按钮 */
+.wl-footer {
+    border-top: 1px solid #444 !important;
+}
+
+/* 提交按钮：橙色风格 */
+.wl-btn.wl-btn-primary {
+    background-color: #e67e22 !important;
+    border: none !important;
+    transition: 0.3s;
+}
+
+.wl-btn.wl-btn-primary:hover {
+    background-color: #d35400 !important;
+    box-shadow: 0 0 10px rgba(230, 126, 34, 0.5) !important;
+}
+
+/* 修改占位文字颜色 */
+.wl-editor::placeholder {
+    color: #666 !important;
+}
