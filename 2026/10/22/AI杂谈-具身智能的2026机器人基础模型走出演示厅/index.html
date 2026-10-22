@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Always remember that you are absolutely unique. Just like everyone else.">
+    <meta name="author" content="YZDR">
+    
+    <title>
+        
+            AI杂谈 | 具身智能的2026：机器人基础模型走出演示厅 |
+        
+        YZDR&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="/images/title.ico">
+    
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    
+        
+            
+                
+<link rel="stylesheet" href="/css/custom.css">
+
+            
+        
+    
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"daitanyu.top","root":"/","language":"zh-CN","path":"search.json"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#d35400","title":"YZDR's Blog","author":"YZDR","avatar":"/images/touxiang.jpg","logo":"/images/touxiang.jpg","favicon":"/images/title.ico"},"menu":{"home":"/                        || fa-solid fa-home","article":{"icon":"fa-solid fa-newspaper","children":[{"archives":"/archives          || fa-solid fa-box-archive"},{"tags":"/tags                  || fa-solid fa-tags"},{"categories":"/categories      || fa-solid fa-layer-group"}]},"me":{"icon":"fa-solid fa-user","children":[{"about":"/about || fa-solid fa-user-graduate"},{"links":"/links || fa-solid fa-link"}]},"emini":"https://gemini.google.com || fa-brands fa-google"},"first_screen":{"enable":true,"background_img":"/images/bg_light.jpg","background_img_dark":"/images/bg_dark.svg","description":"Keep writing and Keep loving.","hitokoto":true},"social_contact":{"enable":true,"links":{"github":"https://github.com/DaiTani","weixin":"img | /images/wechat.png","qq":"img | /images/qq.png","zhihu":"https://www.zhihu.com/people/wei-zhi-de-tian-cai","x":"https://x.com/T0nkJam","email":"2425476264@qq.com","bilibili":"https://space.bilibili.com/101675377"}},"scroll":{"progress_bar":true,"percent":true,"hide_header":true},"home":{"announcement":null,"category":false,"tag":true,"post_datetime":"updated   || fa-solid fa-star"},"post":{"author_badge":{"enable":true,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":true,"min2read":true},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":false,"share":true,"reward":{"enable":false,"img_link":null,"text":null,"icon":null}},"img_align":"center","code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"obsidian"},"toc":{"enable":true,"number":true,"expand_all":false,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":false,"site_uv":false,"site_pv":false,"page_pv":false}},"local_search":{"enable":true,"preload":true},"comment":{"enable":true,"use":"waline","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.39"},"waline":{"server_url":"https://comment.daitanyu.top","reaction":false,"version":"2.15.8"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":false},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":false},"footer":{"since":2026,"word_count":true,"site_deploy":{"enable":false,"provider":"aliyun","url":null},"record":{"enable":true,"list":[{"code":"湘ICP备2026001287号","link":"Https://beian.miit.gov.cn"}]}},"inject":{"enable":true,"css":["/css/custom.css"],"js":[null]},"root":"","source_data":{"links":[{"title":"朋友"},{"name":"Wang Saixin","link":"https://wsx.daitanyu.top/","description":"我の大学舍友","avatar":"https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/img/20260117220256846.jpg?imageSlim"},{"title":"友情链接"},{"name":"Qlu","link":"https://www.qlu.edu.cn","description":"齐鲁工业大学（山东省科学院）官方网页","avatar":"https://favicon.im/www.qlu.edu.cn?larger=true"},{"name":"齐鲁工业大学网络运维","link":"https://wlyw.qlu.edu.cn","description":"校园网络服务与支持","avatar":"https://favicon.im/wlyw.qlu.edu.cn?larger=true"},{"name":"澧县一中","link":"https://www.lxyz.net","description":"湖南省澧县第一中学官方网页","avatar":"https://favicon.im/www.lxyz.net?larger=true"},{"title":"生物信息学"},{"name":"Rosalind","link":"https://rosalind.info/","description":"生物信息练习网站","avatar":"https://favicon.im/rosalind.info?larger=true"},{"name":"Galaxy","link":"https://usegalaxy.org/","description":"基于 Web 的生物信息分析平台，无需编程即可运行流程","avatar":"https://favicon.im/usegalaxy.org?larger=true"},{"name":"Primer3Web","link":"https://primer3.ut.ee/","description":"最经典的 PCR 引物设计在线工具","avatar":"https://favicon.im/primer3.ut.ee?larger=true"},{"name":"Bioconductor","link":"https://www.bioconductor.org/","description":"基于 R 语言的开源生物信息软件包集合","avatar":"https://favicon.im/www.bioconductor.org?larger=true"},{"name":"BioRender","link":"https://biorender.com/","description":"专业的生物医学绘图工具，生信论文配图神器","avatar":"https://favicon.im/biorender.com?larger=true"},{"name":"Bioinformatics.org","link":"https://www.bioinformatics.org","description":"历史悠久的生物信息学开源社区","avatar":"https://favicon.im/www.bioinformatics.org?larger=true"},{"name":"OMICTOOLS","link":"https://omictools.com","description":"组学分析工具的百科全书","avatar":"https://favicon.im/omictools.com?larger=true"},{"name":"arXiv Quantitative Biology","link":"https://arxiv.org/list/q-bio/new","description":"追踪定量生物学领域最前沿的预印本论文","avatar":"https://favicon.im/arxiv.org?larger=true"},{"title":"核心生物数据库"},{"name":"NCBI","link":"https://www.ncbi.nlm.nih.gov/","description":"美国国家生物技术信息中心","avatar":"https://favicon.im/www.ncbi.nlm.nih.gov?larger=true"},{"name":"UniProt","link":"https://www.uniprot.org/","description":"权威的蛋白质序列和功能信息数据库","avatar":"https://favicon.im/www.uniprot.org?larger=true"},{"name":"PDB (RCSB)","link":"https://www.rcsb.org/","description":"蛋白质及核酸的三维结构数据库","avatar":"https://favicon.im/www.rcsb.org?larger=true"},{"name":"Ensembl","link":"https://www.ensembl.org/","description":"脊椎动物基因组浏览器，包含基因注释和比对","avatar":"https://favicon.im/www.ensembl.org?larger=true"},{"name":"KEGG","link":"https://www.genome.jp/kegg/","description":"京都基因与基因组百科全书，代谢通路图必备","avatar":"https://favicon.im/www.genome.jp?larger=true"},{"name":"TCGA (GDC)","link":"https://portal.gdc.cancer.gov/","description":"癌症基因组图谱，肿瘤生信分析核心数据源","avatar":"https://favicon.im/portal.gdc.cancer.gov?larger=true"},{"name":"EBI (EMBL-EBI)","link":"https://www.ebi.ac.uk/","description":"欧洲生物信息学研究所，欧洲版 NCBI","avatar":"https://favicon.im/www.ebi.ac.uk?larger=true"},{"title":"学术资源"},{"name":"PubMed","link":"https://pubmed.ncbi.nlm.nih.gov/","description":"生物医学领域最全的文献搜索数据库","avatar":"https://favicon.im/pubmed.ncbi.nlm.nih.gov?larger=true"},{"name":"Sci-Hub","link":"https://sci-hub.se/","description":"知识无国界，免费获取学术论文的工具","avatar":"https://favicon.im/sci-hub.se?larger=true"},{"name":"Connected Papers","link":"https://www.connectedpapers.com/","description":"论文引文网络可视化工具，快速了解领域脉络","avatar":"https://favicon.im/www.connectedpapers.com?larger=true"},{"name":"DeepL","link":"https://www.deepl.com/translator","description":"比谷歌翻译更专业的学术论文翻译工具","avatar":"https://favicon.im/www.deepl.com?larger=true"},{"title":"工具"},{"name":"Font Awesome","link":"https://fontawesome.com","description":"世界上最流行的图标库。","avatar":"https://favicon.im/fontawesome.com?larger=true"},{"name":"网站图标获取器","link":"https://favicon.im/zh","description":"即时获取和下载任何网站的图标。","avatar":"https://favicon.im/favicon.im?larger=true"},{"name":"Gemini","link":"https://gemini.google.com/app","description":"Google 旗下 AI 聊天对话工具","avatar":"https://favicon.im/gemini.google.com?larger=true"},{"name":"ChatGPT","link":"https://chat.openai.com/","description":"OpenAI 旗下 AI 聊天对话工具","avatar":"https://favicon.im/openai.com?larger=true"},{"name":"GitHub 镜像站","link":"https://kkgithub.com/","description":"国内极速访问 GitHub 的加速镜像","avatar":"https://favicon.im/github.com?larger=true"},{"name":"Carbon","link":"https://carbon.now.sh/","description":"将你的代码块转换成精美的分享图片","avatar":"https://favicon.im/carbon.now.sh?larger=true"},{"name":"TinyPNG","link":"https://tinypng.com/","description":"智能压缩图片，大幅提升网页加载速度","avatar":"https://favicon.im/tinypng.com?larger=true"},{"name":"Shields.io","link":"https://shields.io/","description":"为你的博客和项目生成精美的 SVG 徽章","avatar":"https://favicon.im/shields.io?larger=true"}],"tools":[{"category":"聊天 AI","anchorId":"JUU4JTgxJThBJUU1JUE0JUE5JTIwQUk0"},{"name":"ChatGPT","link":"https://chat.openai.com/","description":"OpenAI 旗下 AI 聊天对话工具","image":"/images/tools/chatgpt.svg"},{"name":"Gemini","link":"https://gemini.google.com/app","description":"Google 旗下 AI 聊天对话工具","image":"/images/tools/gemini.svg"}]},"version":"4.2.5"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left flex-start border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="/images/touxiang.jpg">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               YZDR&#39;s Blog
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc border-box">
+                <ul class="menu-list border-box">
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-home"></i>
+                                
+                                首页
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box has-sub-menu">
+                            <a class="menu-text-color border-box" href="javascript:void(0);">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-newspaper"></i>
+                                
+                                ARTICLE
+                                
+                                    <i class="menu-text-color collapse-icon fa-solid fa-angle-down"></i>
+                                
+                            </a>
+                            
+                                <ul class="sub-menu-list border-box">
+                                    
+                                        
+                                        <li class="sub-menu-item border-box ">
+                                            <a class="menu-text-color border-box flex-start" href="/archives">
+                                                
+                                                    <i class="menu-text-color sub-menu-icon fa-solid fa-box-archive"></i>
+                                                
+                                                归档
+                                            </a>
+                                        </li>
+                                    
+                                        
+                                        <li class="sub-menu-item border-box ">
+                                            <a class="menu-text-color border-box flex-start" href="/tags">
+                                                
+                                                    <i class="menu-text-color sub-menu-icon fa-solid fa-tags"></i>
+                                                
+                                                标签
+                                            </a>
+                                        </li>
+                                    
+                                        
+                                        <li class="sub-menu-item border-box ">
+                                            <a class="menu-text-color border-box flex-start" href="/categories">
+                                                
+                                                    <i class="menu-text-color sub-menu-icon fa-solid fa-layer-group"></i>
+                                                
+                                                分类
+                                            </a>
+                                        </li>
+                                    
+                                </ul>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box has-sub-menu">
+                            <a class="menu-text-color border-box" href="javascript:void(0);">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-user"></i>
+                                
+                                我的
+                                
+                                    <i class="menu-text-color collapse-icon fa-solid fa-angle-down"></i>
+                                
+                            </a>
+                            
+                                <ul class="sub-menu-list border-box">
+                                    
+                                        
+                                        <li class="sub-menu-item border-box ">
+                                            <a class="menu-text-color border-box flex-start" href="/about">
+                                                
+                                                    <i class="menu-text-color sub-menu-icon fa-solid fa-user-graduate"></i>
+                                                
+                                                关于
+                                            </a>
+                                        </li>
+                                    
+                                        
+                                        <li class="sub-menu-item border-box ">
+                                            <a class="menu-text-color border-box flex-start" href="/links">
+                                                
+                                                    <i class="menu-text-color sub-menu-icon fa-solid fa-link"></i>
+                                                
+                                                友链
+                                            </a>
+                                        </li>
+                                    
+                                </ul>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" target="_blank" rel="noopener" href="https://gemini.google.com">
+                                
+                                    <i class="menu-text-color menu-icon fa-brands fa-google"></i>
+                                
+                                EMINI
+                                
+                            </a>
+                            
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="menu-text-color fas search fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile border-box flex-start">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list border-box">
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-home"></i>
+                                </span>
+                            
+                            首页
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box has-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="javascript:void(0);">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-newspaper"></i>
+                                </span>
+                            
+                            ARTICLE
+                        </a>
+                        
+                            <i class="right-side collapse-icon fa-solid fa-angle-left"></i>
+                        
+                    </label>
+                    
+                        <ul class="drawer-sub-menu-list border-box">
+                            
+                                
+                                <li class="sub-menu-item border-box">
+                                    <a class="drawer-menu-text-color border-box flex-start" href="/archives">
+                                        
+                                            <span class="sub-menu-icon-wrap border-box flex-center">
+                                                <i class="drawer-menu-text-color sub-menu-icon fa-solid fa-box-archive"></i>
+                                            </span>
+                                        
+                                        归档
+                                    </a>
+                                </li>
+                            
+                                
+                                <li class="sub-menu-item border-box">
+                                    <a class="drawer-menu-text-color border-box flex-start" href="/tags">
+                                        
+                                            <span class="sub-menu-icon-wrap border-box flex-center">
+                                                <i class="drawer-menu-text-color sub-menu-icon fa-solid fa-tags"></i>
+                                            </span>
+                                        
+                                        标签
+                                    </a>
+                                </li>
+                            
+                                
+                                <li class="sub-menu-item border-box">
+                                    <a class="drawer-menu-text-color border-box flex-start" href="/categories">
+                                        
+                                            <span class="sub-menu-icon-wrap border-box flex-center">
+                                                <i class="drawer-menu-text-color sub-menu-icon fa-solid fa-layer-group"></i>
+                                            </span>
+                                        
+                                        分类
+                                    </a>
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box has-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="javascript:void(0);">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-user"></i>
+                                </span>
+                            
+                            我的
+                        </a>
+                        
+                            <i class="right-side collapse-icon fa-solid fa-angle-left"></i>
+                        
+                    </label>
+                    
+                        <ul class="drawer-sub-menu-list border-box">
+                            
+                                
+                                <li class="sub-menu-item border-box">
+                                    <a class="drawer-menu-text-color border-box flex-start" href="/about">
+                                        
+                                            <span class="sub-menu-icon-wrap border-box flex-center">
+                                                <i class="drawer-menu-text-color sub-menu-icon fa-solid fa-user-graduate"></i>
+                                            </span>
+                                        
+                                        关于
+                                    </a>
+                                </li>
+                            
+                                
+                                <li class="sub-menu-item border-box">
+                                    <a class="drawer-menu-text-color border-box flex-start" href="/links">
+                                        
+                                            <span class="sub-menu-icon-wrap border-box flex-center">
+                                                <i class="drawer-menu-text-color sub-menu-icon fa-solid fa-link"></i>
+                                            </span>
+                                        
+                                        友链
+                                    </a>
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" target="_blank" rel="noopener" href="https://gemini.google.com">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-brands fa-google"></i>
+                                </span>
+                            
+                            EMINI
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+                
+
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+
+            <div class="post-content-bottom border-box">
+                
+                    <div class="post-title">
+                        AI杂谈 | 具身智能的2026：机器人基础模型走出演示厅
+                    </div>
+                
+
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="/images/touxiang.jpg">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">YZDR</span>
+                                
+                                    <span class="author-badge">Lv3</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2026-10-22 10:00:00</span>
+            </span>
+
+            
+                <span class="meta-info-item post-update-date">
+                    <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                    <span class="datetime" data-updated="Thu Oct 22 2026 10:09:45 GMT+0800">2026-10-22 10:09:45</span>
+                </span>
+            
+        
+
+        
+            <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul class="post-category-ul">
+                    
+                            <li class="category-item"><a href="/categories/AI%E6%9D%82%E8%B0%88/">AI杂谈</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/AI/">AI</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/">大模型</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E5%85%B7%E8%BA%AB%E6%99%BA%E8%83%BD/">具身智能</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA/">机器人</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/VLA/">VLA</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E4%B8%96%E7%95%8C%E6%A8%A1%E5%9E%8B/">世界模型</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+            <span class="meta-info-item post-wordcount">
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>4k 字</span>
+            </span>
+        
+        
+            <span class="meta-info-item post-min2read">
+                <i class="icon fas fa-clock"></i>&nbsp;<span>14 分钟</span>
+            </span>
+        
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>2026 年，人形机器人出现在工厂、仓库和实验室里的频率，已经高到让人有些麻木。视频里叠衣服、搬箱子、拧螺丝的片段每天都有新的，但真正值得写下来的变化不在视频里，而在产线的节拍表上：Figure 的第三代机器人在 BMW 工厂承担了实际的物料搬运工位，Agility 的 Digit 在商业部署中累计搬运超过 10 万个周转箱，宇树把 G1、R1 这类硬件的价格压到了过去只有实验室才敢想的区间。</p>
+<p>三年前，这个行业的关键词是”能不能动”；两年前是”能不能听懂指令”；到了 2026 年，问题变成了”能不能连续干满一个班次，出错率是否低于人类，坏了谁来负责”。</p>
+<p>这一转向的技术底座，是机器人基础模型（Robot Foundation Model）的成熟。本文想梳理的是：这一轮具身智能的进展究竟建立在什么之上，VLA 与世界模型的路线之争意味着什么，真机数据这道坎为什么这么难跨，以及当机器人真的走进产线时，工程与安全会提出哪些模型层面回答不了的问题。</p>
+<p><img   src="https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/blog-img/embodied-ai-01.jpg"  alt="人形机器人的&quot;大脑&quot;正在被重新设计"></p>
+<hr>
+<h2 id="一、从预编程到基础模型：机器人”大脑”的三级跳"><a href="#一、从预编程到基础模型：机器人”大脑”的三级跳" class="headerlink" title="一、从预编程到基础模型：机器人”大脑”的三级跳"></a>一、从预编程到基础模型：机器人”大脑”的三级跳</h2><p>要理解 2026 年的进展，得先回看起点。上世纪 90 年代到 2010 年代，本田 ASIMO 代表了具身智能的第一次高潮：它能走路、上楼梯、挥手打招呼，动作优雅得令人惊叹。但 ASIMO 的每一个动作都是工程师逐帧编排的状态机，换一个场景就要重新写一遍代码。它演示的是控制工程的极致，而不是智能。</p>
+<p>第二次跃迁发生在 2022 至 2024 年，模仿学习与大规模示教数据让机器人第一次具备了”从数据里学动作”的能力，但模型仍然任务专用——一个模型叠衣服，另一个模型开抽屉，彼此不通。</p>
+<p>第三次跃迁就是当下：把视觉、语言、动作放进同一个模型，用互联网规模的语义先验去支撑物理世界的操作。这就是 VLA（Vision-Language-Action）范式的核心主张——机器人不必为每个任务重新编程，而是像人一样”看懂场景、听懂人话、做出动作”。</p>
+<p><img   src="https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/blog-img/embodied-ai-02.jpg"  alt="本田 ASIMO：控制工程时代的巅峰，也是预编程范式的终点"></p>
+<p>2026 年的代表性模型，基本可以把格局看得比较清楚：</p>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>机构</th>
+<th>关键特征</th>
+<th>2026 年状态</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>π0 &#x2F; π0.6 &#x2F; π0.7</td>
+<td>Physical Intelligence</td>
+<td>视觉-语言骨干 + 流匹配（Flow Matching）动作头，输出连续、平滑的动作轨迹</td>
+<td>π0.6 用真机强化学习把单任务推到极限；π0.7（2026.04）主打组合泛化，零样本跨本体叠衣</td>
+</tr>
+<tr>
+<td>GR00T N1 → N1.7</td>
+<td>NVIDIA</td>
+<td>基于 Isaac Lab 大规模仿真预训练，再叠加真机微调，强调跨形态迁移</td>
+<td>N1.6 于 2026 年 1 月发布；截至 2026 年 5 月，3B 的 N1.7 是中型主力版本</td>
+</tr>
+<tr>
+<td>Gemini Robotics 1.5</td>
+<td>Google DeepMind</td>
+<td>直接构建在 Gemini 多模态底座上，继承视觉理解与语言推理</td>
+<td>灵巧操作能力突出，能完成叠衣、组装积木等精细任务</td>
+</tr>
+<tr>
+<td>GEN-1</td>
+<td>Generalist AI</td>
+<td>从零训练，主张”目标比方法更重要”</td>
+<td>2026 年 4 月发布，走的是与 VLA 微调路线不同的自研基座</td>
+</tr>
+<tr>
+<td>RynnBrain</td>
+<td>阿里达摩院</td>
+<td>定位 System-2「具身大脑」，负责第一视角理解、时空定位与任务规划</td>
+<td>2026 年 2 月开源，覆盖 2B&#x2F;4B&#x2F;8B&#x2F;30B-A3B 多个规模</td>
+</tr>
+</tbody></table>
+<p>一个容易被忽略的细节是：这些模型的能力提升，很大一部分并非来自架构创新，而是来自<strong>数据配比的工程学</strong>。π0.6 的开放世界泛化之所以成立，是因为训练集里混合了多机器人数据、多模态网络数据（问答、caption、检测）、跨本体数据、多环境静态数据，以及带高层语义子任务标注的口头指令。消融实验显示，一旦抽掉跨本体数据，泛化能力会大幅退化。这说明”机器人基础模型”本质上是一个数据工程问题，而不是单纯的模型规模问题。</p>
+<hr>
+<h2 id="二、VLA-不是全部：世界模型补上”物理直觉”"><a href="#二、VLA-不是全部：世界模型补上”物理直觉”" class="headerlink" title="二、VLA 不是全部：世界模型补上”物理直觉”"></a>二、VLA 不是全部：世界模型补上”物理直觉”</h2><p>2026 年行业里最热闹的争论，是”世界模型会不会取代 VLA”。</p>
+<p>先把两个概念分开：VLA 回答的是”看到这个场景、听到这句话，我该输出什么动作”；世界模型回答的是”如果我这样推一下，接下来会发生什么”。前者是策略，后者是物理直觉与想象力。</p>
+<p>这场争论的现实背景是，纯 VLA 路线在长时序、多阶段任务上确实吃力。一次抓取失败意味着任务中断，一次路径偏差意味着碰撞风险，而 VLA 的单次推理延迟通常在 100 到 500 毫秒之间——对于需要 50Hz 以上控制频率的精细操作，这个延迟远远不够。业界的缓解手段是”动作分块”（Action Chunking），一次推理输出未来若干步的动作序列，但这是工程补丁，不是根本解法。</p>
+<p>世界模型提供的补强有三层：其一是<strong>物理预测</strong>，让模型在动作执行前预判后果，把试错成本挪到想象里；其二是<strong>合成数据</strong>，用可交互的仿真环境批量生成训练样本，绕开真机采集成千上万小时的瓶颈；其三是<strong>长程规划</strong>，用对未来的模拟来支撑多阶段任务的分解。</p>
+<p>NVIDIA 在这条线上押注最重，Cosmos、GR00T、Isaac Lab 与 Physical AI Data Factory 构成了一套从仿真到数据的完整栈。学术侧的探索也在加速：GigaBrain-0.5M 提出的 RAMP 思路，把世界模型同时当作数据引擎（约占预训练经验的 61%）和强化学习引擎，相当于让模型自己造练习题、自己判卷。</p>
+<p>但更值得记录的，是产业界对这场”路线之争”的降温。仙工智能在 2026 年的一篇公开讨论里给出了一种更务实的判断：具身智能的大脑从来不等于某一个大模型，VLA 负责感知-理解-动作的主链路，世界模型补强预测与泛化，控制系统保证实时性与安全边界，真实场景数据驱动持续校正——四者互不替代。这个看法在工程上很难反驳：把任何一个环节抽掉，系统都跑不起来。</p>
+<p><img   src="https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/blog-img/embodied-ai-06.jpg"  alt="世界模型与大规模仿真，正在成为机器人数据的&quot;发电厂&quot;"></p>
+<hr>
+<h2 id="三、真机数据：最贵的那一公里"><a href="#三、真机数据：最贵的那一公里" class="headerlink" title="三、真机数据：最贵的那一公里"></a>三、真机数据：最贵的那一公里</h2><p>如果说大语言模型的燃料是互联网文本，那么具身智能的燃料只能靠一条条真实操作攒出来。这是这个领域最核心、也最难绕开的瓶颈。</p>
+<p>一条机器人操作数据的成本，包括机械臂折旧、场地、操作员时间、失败重试，以及标注。语言模型可以在一周内读完人类几百年的文字，机器人却需要有人握着示教器，一遍遍演示”把杯子放进洗碗机”。</p>
+<p>π0.6 的实验给出了一个相对乐观的量化参照：当训练环境从 3 个扩展到约 104 个地点、累计约 400 小时后，模型在 3 个从未见过的真实住宅里，表现已经逼近直接在测试环境训练的基线。换句话说，<strong>跨环境的数据多样性，比单一环境的深度更重要</strong>。这解释了为什么 2026 年的头部团队都在疯狂扩大采集点，而不是把一个场景拍到极致。</p>
+<p>仿真补足了另一半。Isaac Lab 这类平台可以在虚拟环境里并行跑成千上万个机器人，把罕见工况、极端光照、材料形变都造出来。但 sim-to-real 的鸿沟依然存在：摩擦系数、柔性体形变、传感器噪声、光照分布，仿真都无法完美复刻。实践中的常见做法是”仿真预训练 + 少量真机微调”，用真机数据去校准那些仿真里学不到的偏差。</p>
+<p><img   src="https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/blog-img/embodied-ai-05.jpg"  alt="真实的操作数据，只能在真实的物理世界里一点点攒出来"></p>
+<p>一个正在成形的分工是：<strong>仿真负责广度，真机负责精度，世界模型负责在两者之间做插值</strong>。这条链路的成熟度，直接决定了机器人基础模型能否从”演示可用”走到”产线可用”。</p>
+<hr>
+<h2 id="四、工程化落地：延迟、可靠性与安全边界"><a href="#四、工程化落地：延迟、可靠性与安全边界" class="headerlink" title="四、工程化落地：延迟、可靠性与安全边界"></a>四、工程化落地：延迟、可靠性与安全边界</h2><p>模型在论文里强，和在产线上强，是两件不同的事。</p>
+<p>产线对机器人的要求，可以用三个词概括：<strong>节拍、稳定、可追责</strong>。</p>
+<p>节拍意味着延迟预算被写死。VLA 推理 100 到 500 毫秒的响应时间，放在需要高频闭环的力控场景里是灾难性的，因此主流方案都是分层：高层用离散 token 或语言生成子任务，底层用动作专家输出约一秒（50 步左右）的连续关节动作块，再由实时控制器做插值与安全裁剪。</p>
+<p><img   src="https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/blog-img/embodied-ai-04.jpg"  alt="工业现场：具身智能最先落地的，是结构化程度最高的工位"></p>
+<p>稳定意味着失败要被限制在局部。工业现场没有试错空间，一次抓取失败就是一次停线，一次控制抖动就意味着”只能演示、无法规模化”。这也是为什么 2026 年的落地集中在搬运、上下料、分拣、质检这类<strong>结构化程度高、容错窗口相对宽</strong>的工位——Figure 在 BMW 承担物料搬运，Agility 的 Digit 在仓库搬周转箱，都是这个逻辑。</p>
+<p>可追责则牵出了模型层面回答不了的问题。当机器人造成人身伤害或财产损失时，责任如何在模型提供方、整机厂商、集成商与使用方之间分配？目前国际上的功能安全标准（如 ISO 10218 系列、ISO&#x2F;TS 15066）主要针对传统工业机器人的人机协作，对”由基础模型驱动的行为”缺乏清晰的判定依据。这是 2026 年一个明显滞后的领域。</p>
+<p>中国的政策端则在加速铺路。2025 年”具身智能”首次写入政府工作报告，随后多地出台了具身智能与人形机器人的专项行动方案，从算力补贴、场景开放到首台套保险都有涉及。MERICS 在 2026 年的研究报告里指出，中国的路径特点是把<strong>制造业场景、供应链配套与政策资源</strong>三者绑定推进，这与美国以基础模型公司为核心的路径形成明显差异。</p>
+<hr>
+<h2 id="五、产业格局：钱在往哪里流"><a href="#五、产业格局：钱在往哪里流" class="headerlink" title="五、产业格局：钱在往哪里流"></a>五、产业格局：钱在往哪里流</h2><p>从资本侧看，2025 至 2026 年是机器人基础模型最密集的融资窗口。Figure 在 2025 年 9 月估值达到 390 亿美元，Physical Intelligence 在 2025 年 11 月估值 56 亿美元，Skild AI 在 2026 年 1 月估值超过 140 亿美元。一级市场的定价已经明显走在收入前面。</p>
+<p>市场规模的口径差异很大，但方向一致。Meticulous Research 在 2026 年 10 月发布的报告给出：全球机器人基础模型市场 2025 年约 6.2 亿美元，2026 年约 9.9 亿美元，到 2036 年可达 248.5 亿美元，2026–2036 年复合增长率 38.0%。</p>
+<p>国内的进展则更贴近场景。智元机器人在 2025 年 12 月展示了 VLA 驱动的全身协同控制——行走与操作同时完成；银河通用在 2025 年 6 月完成 11 亿元融资；美的在 2025 年 12 月发布了六臂协同的工业人形”美罗 U”；宇树、优必选、傅利叶则在硬件成本与形态上持续下探。一个普遍判断是：国内模型在特定垂直场景（如工业操作）的性能已接近国际水平，但在通用操作泛化上仍有差距。</p>
+<p><img   src="https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/blog-img/embodied-ai-03.jpg"  alt="人形机器人与人共处同一空间，带来的不只是效率问题"></p>
+<hr>
+<h2 id="六、挑战与展望：别把”验证年”当成”爆发年”"><a href="#六、挑战与展望：别把”验证年”当成”爆发年”" class="headerlink" title="六、挑战与展望：别把”验证年”当成”爆发年”"></a>六、挑战与展望：别把”验证年”当成”爆发年”</h2><p>如果把 2026 年放在更长的时间轴上看，它更像一个<strong>验证年</strong>，而不是爆发年。几条边界需要保持清醒：</p>
+<p><strong>第一，评测体系尚未统一。</strong> 大量模型的性能数字来自 LIBERO 这类仿真基准上的自评，真机、跨本体、长时序任务的公开对比依然稀缺。实验室自评与第三方复现之间的落差，是这个领域目前最大的信息噪声来源。</p>
+<p><strong>第二，成本曲线还没到位。</strong> 硬件价格在下探，但整机之外的集成、部署、维护、安全认证成本仍然高昂。一台能在产线上稳定干活的机器人，其全生命周期成本远高于标价。</p>
+<p><strong>第三，泛化的边界比演示视频窄。</strong> 视频里机器人叠衣服，往往是在有限衣物类型、固定台面高度、稳定光照下的结果。换一批衣物、换一个厨房，成功率会明显下降。</p>
+<p><strong>第四，安全与责任框架滞后于技术。</strong> 这一点在工业场景尚可用护栏与急停兜底，一旦进入家庭与公共空间，问题会立刻变得尖锐。</p>
+<p>但悲观也没有必要。回看汉斯·莫拉维克在 1980 年代提出的那个悖论——让计算机在智力测验上达到成人水平相对容易，而让它具备一岁小孩的感知与运动能力却极其困难——过去四十年里，这条悖论一直是机器人学的诅咒。2026 年第一次出现了松动的迹象：语言与视觉模型把”常识”带了进来，世界模型把”预判”带了进来，大规模真机数据把”手感”带了进来。三者叠加，让机器人在少数场景里第一次越过了”能用”的门槛。</p>
+<hr>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>这一轮具身智能的进展，最容易被误读成”又一个模型刷新了榜单”。但真正决定成败的，是那些不在榜单上的东西：一条产线的节拍、一小时真机数据的成本、一次失败的责任归属、一套控制系统的实时性。</p>
+<p>机器人不会因为某个模型变大而突然聪明，它会因为数据、控制、场景三件事同时到位，而慢慢变得可靠。2026 年值得记住的，不是哪个模型赢了路线之争，而是行业终于开始用”能不能连续干一个班次”来衡量进展——这是一个更笨、更慢，但也更接近真实世界的标准。</p>
+<hr>
+<p><strong>参考来源</strong></p>
+<ol>
+<li>Robotics Center, <em>Physical AI in 2026: Foundation Models for Robot Learning and Real-World Deployment</em></li>
+<li>Meticulous Research, <em>Robot Foundation Models Market Size &amp; Forecast 2036</em>（2026 年 10 月）</li>
+<li>MERICS, <em>Embodied AI: China’s ambitious path to transform its robotics industry</em>（2026）</li>
+<li>声网技术博客，《视觉语言动作模型（VLA）是什么？具身智能的”大脑”如何运转》</li>
+<li>具身星图，《VLA 模型发展深度调研报告》（2026）</li>
+<li>仙工智能，《世界模型对决 VLA 大模型，具身智能最终走向何方？》（2026）</li>
+<li>KPMG 中国，《跨越奇点：世界模型如何重塑具身智能产业与商业新范式》（2026 年 7 月）</li>
+<li>Sapkota et al., <em>Embodied AI with Foundation Models for Mobile Service Robots: A Systematic Review</em>, arXiv:2505.20503；<em>Robotics</em> 2026, 15(3), 55</li>
+<li>Robozaps, <em>The Future of Humanoid Robots: What 2026 Is Actually Proving</em></li>
+</ol>
+<blockquote>
+<p>说明：文中涉及的市场规模、估值与模型版本信息截至 2026 年 10 月，部分模型性能数据来自机构或实验室自评，尚未经第三方独立复现，阅读时请留意口径差异。</p>
+</blockquote>
+
+                    
+                </div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/AI/">AI</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/">大模型</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E5%85%B7%E8%BA%AB%E6%99%BA%E8%83%BD/">具身智能</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA/">机器人</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/VLA/">VLA</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E4%B8%96%E7%95%8C%E6%A8%A1%E5%9E%8B/">世界模型</a>
+                                    </li>
+                                
+                            </ul>
+                        
+                    </div>
+                    <div>
+                        
+                            <div class="post-share-container border-box">
+    <ul class="share-list-wrap border-box">
+        <li class="qq share-item border-box flex-center tooltip"
+            data-tooltip-content="分享到 QQ"
+        >
+            <i class="fa-brands fa-qq"></i>
+        </li>
+        <li class="wechat share-item border-box flex-center tooltip tooltip-img"
+            data-tooltip-content="分享到微信"
+            data-tooltip-img-tip="微信扫一扫"
+            data-tooltip-img-style="background-color: #fff; top: -10px; padding: 0.6rem 0.6rem 0.1rem 0.6rem;"
+        >
+            <i class="fa-brands fa-weixin"></i>
+        </li>
+        <li class="weibo share-item border-box flex-center tooltip"
+            data-tooltip-content="分享到微博"
+        >
+            <i class="fa-brands fa-weibo"></i>
+        </li>
+    </ul>
+</div>
+
+                        
+                    </div>
+                </div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/2026/10/21/AI%E6%9D%82%E8%B0%88-AI%E5%88%B6%E8%8D%AF%E4%BB%8E%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E5%88%B0%E6%A0%B8%E5%BF%83%E5%BC%95%E6%93%8E%E7%9A%84%E5%85%A8%E9%9D%A2%E8%BF%9B%E5%8C%96/"
+                                   title="AI杂谈 | AI制药：从辅助工具到核心引擎的全面进化"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">AI杂谈 | AI制药：从辅助工具到核心引擎的全面进化</span>
+                                        <span class="post-nav-item">下一篇</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+    <div class="comments-container border-box">
+        <div id="comments-anchor" class="comment-area-title border-box">
+            <i class="fas fa-comments"></i>&nbsp;评论
+        </div>
+        <div class="comment-plugin-fail border-box">
+    <span class="fail-tip">评论插件加载失败</span>
+    <button class="reload keep-button">点击重新加载</button>
+</div>
+<div class="comment-plugin-loading flex-center border-box">
+    <i class="loading-icon fa-solid fa-spinner fa-spin"></i>
+    <span class="load-tip">正在加载评论插件</span>
+</div>
+<script data-pjax>
+  window.KeepCommentPlugin = {}
+  window.KeepCommentPlugin.hideLoading = () => {
+    const cplDom = document.querySelector('.comments-container .comment-plugin-loading')
+    cplDom.style.display = 'none'
+  }
+  window.KeepCommentPlugin.loadFailHandle = () => {
+    window.KeepCommentPlugin.hideLoading()
+    const cpfDom = document.querySelector('.comments-container .comment-plugin-fail')
+    cpfDom.style.display = 'flex'
+    cpfDom.querySelector('.reload').addEventListener('click', () => {
+      window.location.reload()
+    })
+  }
+</script>
+
+        
+            
+
+    <div class="waline-comment-container">
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@waline/client@v2.15.8/dist/waline.css"/>
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@waline/client@v2.15.8/dist/waline-meta.css"/>
+        <div id="waline-comment"></div>
+        <script data-pjax>
+          window.KeepCommentPlugin.walineOptions = JSON.parse('{}'.replace(/&#34;/g, '"'))
+          window.KeepCommentPlugin.walineOptions.el = '#waline-comment'
+          window.KeepCommentPlugin.walineOptions.comment = '.post-comments-count'
+          window.KeepCommentPlugin.walineOptions.serverURL = 'https://comment.daitanyu.top'
+          window.KeepCommentPlugin.walineOptions.lang = 'zh-CN' || 'zh-CN'
+          window.KeepCommentPlugin.walineOptions.reaction = 'false' === 'true'
+        </script>
+
+        
+            <script 
+                    src="//cdn.jsdelivr.net/npm/@waline/client@v2.15.8/dist/waline.js"
+                    async
+                    onerror="window.KeepCommentPlugin.loadFailHandle()"
+            ></script>
+            <script 
+                    async
+            >
+              window.KeepCommentPlugin.initWaline = () => {
+                if (window?.Waline) {
+                  window.Waline.init(window.KeepCommentPlugin.walineOptions)
+                  window.KeepCommentPlugin.hideLoading()
+                } else {
+                  setTimeout(() => {
+                    window.KeepCommentPlugin.initWaline()
+                  }, 1000)
+                }
+              }
+
+              if ('false' === 'true') {
+                setTimeout(() => {
+                  window.KeepCommentPlugin.initWaline()
+                }, 1200)
+              } else {
+                window.addEventListener('DOMContentLoaded', window.KeepCommentPlugin.initWaline)
+              }
+            </script>
+        
+
+        
+    </div>
+
+
+        
+    </div>
+
+
+
+
+
+                
+            </div>
+        </div>
+
+        
+            <div class="pc-post-toc right-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E4%BB%8E%E9%A2%84%E7%BC%96%E7%A8%8B%E5%88%B0%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9E%8B%EF%BC%9A%E6%9C%BA%E5%99%A8%E4%BA%BA%E2%80%9D%E5%A4%A7%E8%84%91%E2%80%9D%E7%9A%84%E4%B8%89%E7%BA%A7%E8%B7%B3"><span class="nav-number">2.</span> <span class="nav-text">一、从预编程到基础模型：机器人”大脑”的三级跳</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81VLA-%E4%B8%8D%E6%98%AF%E5%85%A8%E9%83%A8%EF%BC%9A%E4%B8%96%E7%95%8C%E6%A8%A1%E5%9E%8B%E8%A1%A5%E4%B8%8A%E2%80%9D%E7%89%A9%E7%90%86%E7%9B%B4%E8%A7%89%E2%80%9D"><span class="nav-number">3.</span> <span class="nav-text">二、VLA 不是全部：世界模型补上”物理直觉”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E7%9C%9F%E6%9C%BA%E6%95%B0%E6%8D%AE%EF%BC%9A%E6%9C%80%E8%B4%B5%E7%9A%84%E9%82%A3%E4%B8%80%E5%85%AC%E9%87%8C"><span class="nav-number">4.</span> <span class="nav-text">三、真机数据：最贵的那一公里</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%B7%A5%E7%A8%8B%E5%8C%96%E8%90%BD%E5%9C%B0%EF%BC%9A%E5%BB%B6%E8%BF%9F%E3%80%81%E5%8F%AF%E9%9D%A0%E6%80%A7%E4%B8%8E%E5%AE%89%E5%85%A8%E8%BE%B9%E7%95%8C"><span class="nav-number">5.</span> <span class="nav-text">四、工程化落地：延迟、可靠性与安全边界</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E4%BA%A7%E4%B8%9A%E6%A0%BC%E5%B1%80%EF%BC%9A%E9%92%B1%E5%9C%A8%E5%BE%80%E5%93%AA%E9%87%8C%E6%B5%81"><span class="nav-number">6.</span> <span class="nav-text">五、产业格局：钱在往哪里流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E6%8C%91%E6%88%98%E4%B8%8E%E5%B1%95%E6%9C%9B%EF%BC%9A%E5%88%AB%E6%8A%8A%E2%80%9D%E9%AA%8C%E8%AF%81%E5%B9%B4%E2%80%9D%E5%BD%93%E6%88%90%E2%80%9D%E7%88%86%E5%8F%91%E5%B9%B4%E2%80%9D"><span class="nav-number">7.</span> <span class="nav-text">六、挑战与展望：别把”验证年”当成”爆发年”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="nav-number">8.</span> <span class="nav-text">结语</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="copyright-info info-item">
+    &copy;&nbsp;2026
+    
+            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">YZDR</a>
+        
+    </div>
+
+    <div class="theme-info info-item">
+        由&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;驱动&nbsp;&&nbsp;主题&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+    </div>
+
+    
+
+    
+        <div class="count-info info-item">
+            
+                <span class="count-item border-box word">
+                    <span class="item-type border-box">总字数</span>
+                    <span class="item-value border-box word">22.9k</span>
+                </span>
+            
+
+            
+
+            
+        </div>
+    
+
+    
+        <div class="record-info info-item">
+            
+                
+                    <div class="record-item border-box">
+                        <a class=""
+                           target="_blank"
+                           href="Https://beian.miit.gov.cn"
+                        >
+                            湘ICP备2026001287号
+                        </a>
+                    </div>
+                
+            
+        </div>
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+            <li class="tools-item flex-center go-to-comments">
+                <i class="fas fa-comment"></i>
+                <span class="post-comments-count"></span>
+            </li>
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box ">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <!-- toggle mode -->
+        
+            <li class="tools-item tool-toggle-theme-mode flex-center">
+                <i class="fas fa-moon"></i>
+            </li>
+        
+
+        <!-- rss -->
+        
+
+        <!-- to bottom -->
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        
+            <li class="tools-item go-to-comments-tablet flex-center">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E4%BB%8E%E9%A2%84%E7%BC%96%E7%A8%8B%E5%88%B0%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9E%8B%EF%BC%9A%E6%9C%BA%E5%99%A8%E4%BA%BA%E2%80%9D%E5%A4%A7%E8%84%91%E2%80%9D%E7%9A%84%E4%B8%89%E7%BA%A7%E8%B7%B3"><span class="nav-number">2.</span> <span class="nav-text">一、从预编程到基础模型：机器人”大脑”的三级跳</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81VLA-%E4%B8%8D%E6%98%AF%E5%85%A8%E9%83%A8%EF%BC%9A%E4%B8%96%E7%95%8C%E6%A8%A1%E5%9E%8B%E8%A1%A5%E4%B8%8A%E2%80%9D%E7%89%A9%E7%90%86%E7%9B%B4%E8%A7%89%E2%80%9D"><span class="nav-number">3.</span> <span class="nav-text">二、VLA 不是全部：世界模型补上”物理直觉”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E7%9C%9F%E6%9C%BA%E6%95%B0%E6%8D%AE%EF%BC%9A%E6%9C%80%E8%B4%B5%E7%9A%84%E9%82%A3%E4%B8%80%E5%85%AC%E9%87%8C"><span class="nav-number">4.</span> <span class="nav-text">三、真机数据：最贵的那一公里</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%B7%A5%E7%A8%8B%E5%8C%96%E8%90%BD%E5%9C%B0%EF%BC%9A%E5%BB%B6%E8%BF%9F%E3%80%81%E5%8F%AF%E9%9D%A0%E6%80%A7%E4%B8%8E%E5%AE%89%E5%85%A8%E8%BE%B9%E7%95%8C"><span class="nav-number">5.</span> <span class="nav-text">四、工程化落地：延迟、可靠性与安全边界</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E4%BA%A7%E4%B8%9A%E6%A0%BC%E5%B1%80%EF%BC%9A%E9%92%B1%E5%9C%A8%E5%BE%80%E5%93%AA%E9%87%8C%E6%B5%81"><span class="nav-number">6.</span> <span class="nav-text">五、产业格局：钱在往哪里流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E6%8C%91%E6%88%98%E4%B8%8E%E5%B1%95%E6%9C%9B%EF%BC%9A%E5%88%AB%E6%8A%8A%E2%80%9D%E9%AA%8C%E8%AF%81%E5%B9%B4%E2%80%9D%E5%BD%93%E6%88%90%E2%80%9D%E7%88%86%E5%8F%91%E5%B9%B4%E2%80%9D"><span class="nav-number">7.</span> <span class="nav-text">六、挑战与展望：别把”验证年”当成”爆发年”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="nav-number">8.</span> <span class="nav-text">结语</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
+</main>
+
+
+
+
+
+<!-- common js -->
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/toggle-theme.js"></script>
+
+<script src="/js/code-block.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+
+<!-- local search -->
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+<!-- lazyload -->
+
+
+<div class="">
+    <!-- home page -->
+    
+
+    <!-- post page -->
+    
+        <!-- post-helper -->
+        
+<script src="/js/post/post-helper.js"></script>
+
+
+        <!-- toc -->
+        
+            
+<script src="/js/post/toc.js"></script>
+
+        
+
+        <!-- copyright-info -->
+        
+
+        <!-- share -->
+        
+            
+<script src="/js/post/share.js"></script>
+
+        
+    
+
+    <!-- categories page -->
+    
+
+    <!-- links page -->
+    
+
+    <!-- photos page -->
+    
+
+    <!-- tools page -->
+    
+</div>
+
+<!-- mermaid -->
+
+
+<!-- pjax -->
+
+
+
+    
+        
+    
+
+</body>
+</html>
