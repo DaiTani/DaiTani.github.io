@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="baidu-site-verification" content="codeva-C8OslLkAbZ" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="生物信息学, 发酵工程, 智能体, AI, Hexo, Python, 技术笔记, 戴谭宇, YZDR">
+    <meta name="description" content="戴谭宇的技术笔记：生物信息学、发酵工程、AI 与智能体实践记录。">
+    <meta name="author" content="YZDR">
+    
+    <title>
+        
+            AI杂谈 | 智能体的记忆税：2026年，Agent开始为“记住”精打细算 |
+        
+        YZDR&#39;s Blog
+    </title>
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:site_name" content="YZDR&#39;s Blog" />
+    <meta property="og:title" content="AI杂谈 | 智能体的记忆税：2026年，Agent开始为“记住”精打细算" />
+    <meta property="og:description" content="戴谭宇的技术笔记：生物信息学、发酵工程、AI 与智能体实践记录。" />
+    <meta property="og:url" content="https://daitanyu.top" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="AI杂谈 | 智能体的记忆税：2026年，Agent开始为“记住”精打细算" />
+    <meta name="twitter:description" content="戴谭宇的技术笔记：生物信息学、发酵工程、AI 与智能体实践记录。" />
+    <link rel="alternate" type="application/atom+xml" title="YZDR&#39;s Blog" href="/atom.xml" />
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="/images/title.ico">
+    
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    
+        
+            
+                
+<link rel="stylesheet" href="/css/custom.css">
+
+            
+        
+    
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"daitanyu.top","root":"/","language":"zh-CN","path":"search.json"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#d35400","title":"YZDR's Blog","author":"YZDR","avatar":"/images/touxiang.jpg","logo":"/images/touxiang.jpg","favicon":"/images/title.ico"},"menu":{"home":"/                        || fa-solid fa-home","article":{"icon":"fa-solid fa-newspaper","children":[{"archives":"/archives          || fa-solid fa-box-archive"},{"tags":"/tags                  || fa-solid fa-tags"},{"categories":"/categories      || fa-solid fa-layer-group"}]},"me":{"icon":"fa-solid fa-user","children":[{"about":"/about || fa-solid fa-user-graduate"},{"links":"/links || fa-solid fa-link"}]},"emini":"https://gemini.google.com || fa-brands fa-google"},"first_screen":{"enable":true,"background_img":"/images/bg_light.jpg","background_img_dark":"/images/bg_dark.svg","description":"Keep writing and Keep loving.","hitokoto":true},"social_contact":{"enable":true,"links":{"github":"https://github.com/DaiTani","weixin":"img | /images/wechat.png","qq":"img | /images/qq.png","zhihu":"https://www.zhihu.com/people/wei-zhi-de-tian-cai","x":"https://x.com/T0nkJam","email":"2425476264@qq.com","bilibili":"https://space.bilibili.com/101675377"}},"scroll":{"progress_bar":true,"percent":true,"hide_header":true},"home":{"announcement":null,"category":false,"tag":true,"post_datetime":"updated   || fa-solid fa-star"},"post":{"author_badge":{"enable":true,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":true,"min2read":true},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":false,"share":true,"reward":{"enable":false,"img_link":null,"text":null,"icon":null}},"img_align":"center","code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"obsidian"},"toc":{"enable":true,"number":true,"expand_all":false,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":true,"site_uv":true,"site_pv":true,"page_pv":true}},"local_search":{"enable":true,"preload":true},"comment":{"enable":true,"use":"waline","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.39"},"waline":{"server_url":"https://comment.daitanyu.top","reaction":false,"version":"2.15.8"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":false},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":false},"footer":{"since":2026,"word_count":true,"site_deploy":{"enable":false,"provider":"aliyun","url":null},"record":{"enable":true,"list":[{"code":"湘ICP备2026001287号","link":"https://beian.miit.gov.cn/"}]}},"inject":{"enable":true,"css":["/css/custom.css"],"js":[null]},"root":"","source_data":{"links":[{"title":"朋友"},{"name":"Wang Saixin","link":"https://wsx.daitanyu.top/","description":"我の大学舍友","avatar":"https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/img/20260117220256846.jpg?imageSlim"},{"title":"友情链接"},{"name":"Qlu","link":"https://www.qlu.edu.cn","description":"齐鲁工业大学（山东省科学院）官方网页","avatar":"https://favicon.im/www.qlu.edu.cn?larger=true"},{"name":"齐鲁工业大学网络运维","link":"https://wlyw.qlu.edu.cn","description":"校园网络服务与支持","avatar":"https://favicon.im/wlyw.qlu.edu.cn?larger=true"},{"name":"澧县一中","link":"https://www.lxyz.net","description":"湖南省澧县第一中学官方网页","avatar":"https://favicon.im/www.lxyz.net?larger=true"},{"title":"生物信息学"},{"name":"Rosalind","link":"https://rosalind.info/","description":"生物信息练习网站","avatar":"https://favicon.im/rosalind.info?larger=true"},{"name":"Galaxy","link":"https://usegalaxy.org/","description":"基于 Web 的生物信息分析平台，无需编程即可运行流程","avatar":"https://favicon.im/usegalaxy.org?larger=true"},{"name":"Primer3Web","link":"https://primer3.ut.ee/","description":"最经典的 PCR 引物设计在线工具","avatar":"https://favicon.im/primer3.ut.ee?larger=true"},{"name":"Bioconductor","link":"https://www.bioconductor.org/","description":"基于 R 语言的开源生物信息软件包集合","avatar":"https://favicon.im/www.bioconductor.org?larger=true"},{"name":"BioRender","link":"https://biorender.com/","description":"专业的生物医学绘图工具，生信论文配图神器","avatar":"https://favicon.im/biorender.com?larger=true"},{"name":"Bioinformatics.org","link":"https://www.bioinformatics.org","description":"历史悠久的生物信息学开源社区","avatar":"https://favicon.im/www.bioinformatics.org?larger=true"},{"name":"OMICTOOLS","link":"https://omictools.com","description":"组学分析工具的百科全书","avatar":"https://favicon.im/omictools.com?larger=true"},{"name":"arXiv Quantitative Biology","link":"https://arxiv.org/list/q-bio/new","description":"追踪定量生物学领域最前沿的预印本论文","avatar":"https://favicon.im/arxiv.org?larger=true"},{"title":"核心生物数据库"},{"name":"NCBI","link":"https://www.ncbi.nlm.nih.gov/","description":"美国国家生物技术信息中心","avatar":"https://favicon.im/www.ncbi.nlm.nih.gov?larger=true"},{"name":"UniProt","link":"https://www.uniprot.org/","description":"权威的蛋白质序列和功能信息数据库","avatar":"https://favicon.im/www.uniprot.org?larger=true"},{"name":"PDB (RCSB)","link":"https://www.rcsb.org/","description":"蛋白质及核酸的三维结构数据库","avatar":"https://favicon.im/www.rcsb.org?larger=true"},{"name":"Ensembl","link":"https://www.ensembl.org/","description":"脊椎动物基因组浏览器，包含基因注释和比对","avatar":"https://favicon.im/www.ensembl.org?larger=true"},{"name":"KEGG","link":"https://www.genome.jp/kegg/","description":"京都基因与基因组百科全书，代谢通路图必备","avatar":"https://favicon.im/www.genome.jp?larger=true"},{"name":"TCGA (GDC)","link":"https://portal.gdc.cancer.gov/","description":"癌症基因组图谱，肿瘤生信分析核心数据源","avatar":"https://favicon.im/portal.gdc.cancer.gov?larger=true"},{"name":"EBI (EMBL-EBI)","link":"https://www.ebi.ac.uk/","description":"欧洲生物信息学研究所，欧洲版 NCBI","avatar":"https://favicon.im/www.ebi.ac.uk?larger=true"},{"title":"学术资源"},{"name":"PubMed","link":"https://pubmed.ncbi.nlm.nih.gov/","description":"生物医学领域最全的文献搜索数据库","avatar":"https://favicon.im/pubmed.ncbi.nlm.nih.gov?larger=true"},{"name":"Sci-Hub","link":"https://sci-hub.se/","description":"知识无国界，免费获取学术论文的工具","avatar":"https://favicon.im/sci-hub.se?larger=true"},{"name":"Connected Papers","link":"https://www.connectedpapers.com/","description":"论文引文网络可视化工具，快速了解领域脉络","avatar":"https://favicon.im/www.connectedpapers.com?larger=true"},{"name":"DeepL","link":"https://www.deepl.com/translator","description":"比谷歌翻译更专业的学术论文翻译工具","avatar":"https://favicon.im/www.deepl.com?larger=true"},{"title":"工具"},{"name":"Font Awesome","link":"https://fontawesome.com","description":"世界上最流行的图标库。","avatar":"https://favicon.im/fontawesome.com?larger=true"},{"name":"网站图标获取器","link":"https://favicon.im/zh","description":"即时获取和下载任何网站的图标。","avatar":"https://favicon.im/favicon.im?larger=true"},{"name":"Gemini","link":"https://gemini.google.com/app","description":"Google 旗下 AI 聊天对话工具","avatar":"https://favicon.im/gemini.google.com?larger=true"},{"name":"ChatGPT","link":"https://chat.openai.com/","description":"OpenAI 旗下 AI 聊天对话工具","avatar":"https://favicon.im/openai.com?larger=true"},{"name":"GitHub 镜像站","link":"https://kkgithub.com/","description":"国内极速访问 GitHub 的加速镜像","avatar":"https://favicon.im/github.com?larger=true"},{"name":"Carbon","link":"https://carbon.now.sh/","description":"将你的代码块转换成精美的分享图片","avatar":"https://favicon.im/carbon.now.sh?larger=true"},{"name":"TinyPNG","link":"https://tinypng.com/","description":"智能压缩图片，大幅提升网页加载速度","avatar":"https://favicon.im/tinypng.com?larger=true"},{"name":"Shields.io","link":"https://shields.io/","description":"为你的博客和项目生成精美的 SVG 徽章","avatar":"https://favicon.im/shields.io?larger=true"}],"tools":[{"category":"聊天 AI","anchorId":"JUU4JTgxJThBJUU1JUE0JUE5JTIwQUk0"},{"name":"ChatGPT","link":"https://chat.openai.com/","description":"OpenAI 旗下 AI 聊天对话工具","image":"/images/tools/chatgpt.svg"},{"name":"Gemini","link":"https://gemini.google.com/app","description":"Google 旗下 AI 聊天对话工具","image":"/images/tools/gemini.svg"}]},"version":"4.2.5"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left flex-start border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="/images/touxiang.jpg">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               YZDR&#39;s Blog
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc border-box">
+                <ul class="menu-list border-box">
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-home"></i>
+                                
+                                首页
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box has-sub-menu">
+                            <a class="menu-text-color border-box" href="javascript:void(0);">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-newspaper"></i>
+                                
+                                ARTICLE
+                                
+                                    <i class="menu-text-color collapse-icon fa-solid fa-angle-down"></i>
+                                
+                            </a>
+                            
+                                <ul class="sub-menu-list border-box">
+                                    
+                                        
+                                        <li class="sub-menu-item border-box ">
+                                            <a class="menu-text-color border-box flex-start" href="/archives">
+                                                
+                                                    <i class="menu-text-color sub-menu-icon fa-solid fa-box-archive"></i>
+                                                
+                                                归档
+                                            </a>
+                                        </li>
+                                    
+                                        
+                                        <li class="sub-menu-item border-box ">
+                                            <a class="menu-text-color border-box flex-start" href="/tags">
+                                                
+                                                    <i class="menu-text-color sub-menu-icon fa-solid fa-tags"></i>
+                                                
+                                                标签
+                                            </a>
+                                        </li>
+                                    
+                                        
+                                        <li class="sub-menu-item border-box ">
+                                            <a class="menu-text-color border-box flex-start" href="/categories">
+                                                
+                                                    <i class="menu-text-color sub-menu-icon fa-solid fa-layer-group"></i>
+                                                
+                                                分类
+                                            </a>
+                                        </li>
+                                    
+                                </ul>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box has-sub-menu">
+                            <a class="menu-text-color border-box" href="javascript:void(0);">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-user"></i>
+                                
+                                我的
+                                
+                                    <i class="menu-text-color collapse-icon fa-solid fa-angle-down"></i>
+                                
+                            </a>
+                            
+                                <ul class="sub-menu-list border-box">
+                                    
+                                        
+                                        <li class="sub-menu-item border-box ">
+                                            <a class="menu-text-color border-box flex-start" href="/about">
+                                                
+                                                    <i class="menu-text-color sub-menu-icon fa-solid fa-user-graduate"></i>
+                                                
+                                                关于
+                                            </a>
+                                        </li>
+                                    
+                                        
+                                        <li class="sub-menu-item border-box ">
+                                            <a class="menu-text-color border-box flex-start" href="/links">
+                                                
+                                                    <i class="menu-text-color sub-menu-icon fa-solid fa-link"></i>
+                                                
+                                                友链
+                                            </a>
+                                        </li>
+                                    
+                                </ul>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" target="_blank" rel="noopener" href="https://gemini.google.com">
+                                
+                                    <i class="menu-text-color menu-icon fa-brands fa-google"></i>
+                                
+                                EMINI
+                                
+                            </a>
+                            
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="menu-text-color fas search fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile border-box flex-start">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list border-box">
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-home"></i>
+                                </span>
+                            
+                            首页
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box has-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="javascript:void(0);">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-newspaper"></i>
+                                </span>
+                            
+                            ARTICLE
+                        </a>
+                        
+                            <i class="right-side collapse-icon fa-solid fa-angle-left"></i>
+                        
+                    </label>
+                    
+                        <ul class="drawer-sub-menu-list border-box">
+                            
+                                
+                                <li class="sub-menu-item border-box">
+                                    <a class="drawer-menu-text-color border-box flex-start" href="/archives">
+                                        
+                                            <span class="sub-menu-icon-wrap border-box flex-center">
+                                                <i class="drawer-menu-text-color sub-menu-icon fa-solid fa-box-archive"></i>
+                                            </span>
+                                        
+                                        归档
+                                    </a>
+                                </li>
+                            
+                                
+                                <li class="sub-menu-item border-box">
+                                    <a class="drawer-menu-text-color border-box flex-start" href="/tags">
+                                        
+                                            <span class="sub-menu-icon-wrap border-box flex-center">
+                                                <i class="drawer-menu-text-color sub-menu-icon fa-solid fa-tags"></i>
+                                            </span>
+                                        
+                                        标签
+                                    </a>
+                                </li>
+                            
+                                
+                                <li class="sub-menu-item border-box">
+                                    <a class="drawer-menu-text-color border-box flex-start" href="/categories">
+                                        
+                                            <span class="sub-menu-icon-wrap border-box flex-center">
+                                                <i class="drawer-menu-text-color sub-menu-icon fa-solid fa-layer-group"></i>
+                                            </span>
+                                        
+                                        分类
+                                    </a>
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box has-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="javascript:void(0);">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-user"></i>
+                                </span>
+                            
+                            我的
+                        </a>
+                        
+                            <i class="right-side collapse-icon fa-solid fa-angle-left"></i>
+                        
+                    </label>
+                    
+                        <ul class="drawer-sub-menu-list border-box">
+                            
+                                
+                                <li class="sub-menu-item border-box">
+                                    <a class="drawer-menu-text-color border-box flex-start" href="/about">
+                                        
+                                            <span class="sub-menu-icon-wrap border-box flex-center">
+                                                <i class="drawer-menu-text-color sub-menu-icon fa-solid fa-user-graduate"></i>
+                                            </span>
+                                        
+                                        关于
+                                    </a>
+                                </li>
+                            
+                                
+                                <li class="sub-menu-item border-box">
+                                    <a class="drawer-menu-text-color border-box flex-start" href="/links">
+                                        
+                                            <span class="sub-menu-icon-wrap border-box flex-center">
+                                                <i class="drawer-menu-text-color sub-menu-icon fa-solid fa-link"></i>
+                                            </span>
+                                        
+                                        友链
+                                    </a>
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" target="_blank" rel="noopener" href="https://gemini.google.com">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-brands fa-google"></i>
+                                </span>
+                            
+                            EMINI
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+                
+
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+
+            <div class="post-content-bottom border-box">
+                
+                    <div class="post-title">
+                        AI杂谈 | 智能体的记忆税：2026年，Agent开始为“记住”精打细算
+                    </div>
+                
+
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="/images/touxiang.jpg">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">YZDR</span>
+                                
+                                    <span class="author-badge">Lv3</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2026-10-27 10:00:00</span>
+            </span>
+
+            
+                <span class="meta-info-item post-update-date">
+                    <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                    <span class="datetime" data-updated="Tue Oct 27 2026 10:09:23 GMT+0800">2026-10-27 10:09:23</span>
+                </span>
+            
+        
+
+        
+            <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul class="post-category-ul">
+                    
+                            <li class="category-item"><a href="/categories/AI%E6%9D%82%E8%B0%88/">AI杂谈</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/AI/">AI</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E6%99%BA%E8%83%BD%E4%BD%93/">智能体</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/">大语言模型</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/RAG/">RAG</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Agent%E8%AE%B0%E5%BF%86/">Agent记忆</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+            <span class="meta-info-item post-wordcount">
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>4.3k 字</span>
+            </span>
+        
+        
+            <span class="meta-info-item post-min2read">
+                <i class="icon fas fa-clock"></i>&nbsp;<span>15 分钟</span>
+            </span>
+        
+        
+            <span class="meta-info-item post-pv">
+                <i class="icon fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+            </span>
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <blockquote>
+<p>记忆不是免费的。对智能体而言，每一比特被“记住”的历史，都要在精度、成本、延迟和安全四张账单上同时付息。</p>
+</blockquote>
+<h2 id="引言：10月22日，三份“记忆账单”同时寄到"><a href="#引言：10月22日，三份“记忆账单”同时寄到" class="headerlink" title="引言：10月22日，三份“记忆账单”同时寄到"></a>引言：10月22日，三份“记忆账单”同时寄到</h2><p>2026 年 10 月 22 日是一个值得记住的日子——讽刺的是，这一天行业讨论的核心恰恰是“该忘掉什么”。同一天里，三份重量级材料先后发布：上海交通大学研究者 Zedong Peng 在 arXiv 上贴出论文《MemoryTax: The Bitter Lesson of Agent Memory》（arXiv:2610.29823），用真金白银的 API 账单给各类智能体记忆系统算了笔账[1]；另一组研究者在论文《Is Complex Agentic Memory Always Needed? Naive RAG Is Stronger Than We Thought》中直接宣称：在 7 个基准-模型组合中的 6 个里，一个“笨拙”的朴素稠密检索基线击败了精心设计的复杂记忆系统[2]；同日，Databricks 发布了企业级 Agent Memory 服务与 AI Runtime，Google Cloud 则公开了“受治理的自进化智能体”参考架构 Project Chrysalis[3][4]。</p>
+<p>一边是学术界冷静地拆台，一边是产业界热火朝天地盖楼。这种分裂本身就是信号：<strong>智能体记忆在 2026 年已经从“锦上添花”变成了“兵家必争”，但它的真实收益与真实代价，直到最近才被认真核算</strong>。这篇文章想做的，就是把这四张账单——精度、成本、延迟、安全——一张一张摊开给你看。</p>
+<p><img   src="https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/blog-img/agentmem-01.jpg"  alt="神经网络般的抽象光纹，象征智能体的记忆痕迹"><em>图为 Unsplash 上的抽象神经网络光纹作品，恰如智能体记忆中互相缠绕的检索路径</em></p>
+<h2 id="一、记忆为什么突然成了头号工程"><a href="#一、记忆为什么突然成了头号工程" class="headerlink" title="一、记忆为什么突然成了头号工程"></a>一、记忆为什么突然成了头号工程</h2><p>答案藏在一个尴尬的数字里。麦肯锡《State of AI in 2026》报告显示：年营收超过 10 亿美元的企业中，只有约 40% 能够将智能体规模化部署；而营收低于 10 亿美元的企业，这一比例只有 22%[3]。智能体落地难，难在哪？企业客户的反馈高度一致：<strong>不是不会做事，而是记不住事</strong>。</p>
+<p>传统大模型的“记忆”就是上下文窗口——把历史对话全部塞进 prompt。这在演示环境里无懈可击，但在真实业务中立刻撞上三堵墙：</p>
+<ul>
+<li><strong>经济墙</strong>：一个跑了三周的客服智能体，历史对话可能超过百万 token。每次都全量塞进上下文，推理成本随时间线性膨胀，很快超过人力成本。</li>
+<li><strong>注意力墙</strong>：即便是 2026 年的长上下文模型，在超长上下文中也存在“中间信息迷失”（lost in the middle）问题——窗口越大，不等于用得越好。</li>
+<li><strong>工程墙</strong>：上下文窗口是无状态的，服务重启、会话切换、多设备同步，全都要企业自己想办法。</li>
+</ul>
+<p>于是 10 月下旬，大厂的动作密集得像在赶集。我们把近期的关键节点整理成一张表：</p>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>主体</th>
+<th>动作</th>
+<th>关键词</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2026-03</td>
+<td>Anthropic</td>
+<td>提出 Claude Code 的“七层记忆”分层体系</td>
+<td>记忆分层</td>
+</tr>
+<tr>
+<td>2026-10-21</td>
+<td>NVIDIA</td>
+<td>发布 Sentry 运行时安全架构（GTC Berlin）</td>
+<td>智能体安全</td>
+</tr>
+<tr>
+<td>2026-10-22</td>
+<td>Databricks</td>
+<td>发布 Agent Memory（beta）与 AI Runtime（GA）</td>
+<td>企业记忆服务</td>
+</tr>
+<tr>
+<td>2026-10-22</td>
+<td>Google Cloud</td>
+<td>公开 Project Chrysalis 参考架构</td>
+<td>自进化智能体治理</td>
+</tr>
+<tr>
+<td>2026-10-22</td>
+<td>arXiv</td>
+<td>MemoryTax 与 Raw-RAG 两篇论文同日上线</td>
+<td>记忆的净价值</td>
+</tr>
+<tr>
+<td>2026-10 下旬</td>
+<td>Letta</td>
+<td>发布 FrontierMemory 基准（测“从经验中学习”）</td>
+<td>记≠会用</td>
+</tr>
+</tbody></table>
+<p><img   src="https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/blog-img/agentmem-02.jpg"  alt="现代数据中心走廊，蓝色机柜列队延伸"><em>图&#x2F;Unsplash：每一层记忆架构背后，都是这样的基础设施在持续运转</em></p>
+<h2 id="二、三条技术路线：记忆系统的“三张面孔”"><a href="#二、三条技术路线：记忆系统的“三张面孔”" class="headerlink" title="二、三条技术路线：记忆系统的“三张面孔”"></a>二、三条技术路线：记忆系统的“三张面孔”</h2><p>过去三年，社区围绕“智能体该怎么记东西”演化出三条主流路线，各自的哲学截然不同。</p>
+<p><strong>第一张面孔：操作系统隐喻。</strong> 2023 年 UC Berkeley 的 MemGPT 论文（arXiv:2310.08560）提出把 LLM 当作操作系统：主存是上下文窗口，外存是磁盘，模型自己决定何时把什么内容换入换出[5]。这条路线的后继者 Letta 至今仍坚持“让智能体自治管理记忆”的理念，其记忆文件系统甚至用 Git 做版本管理——每次记忆修改都有 commit 记录，可回滚、可审计。优点是智能体对记忆拥有完全的“元认知”，缺点是记忆管理本身要消耗大量推理步骤。</p>
+<p><strong>第二张面孔：向量记忆层。</strong> 以 Mem0 为代表的路线把记忆做成独立服务：对话结束后由模型抽取“事实片段”，向量化入库，下次对话时按语义相似度检索。它对开发者最友好——一个 API 调用就能接入，不改变智能体主体架构，因此在消费级个性化助手场景 adoption 最快[6]。</p>
+<p><strong>第三张面孔：时序知识图谱。</strong> 以 Zep 的 Graphiti 为代表，把记忆组织成带时间戳的实体关系图：“张三 3 月是 A 公司 CTO，7 月跳槽到 B 公司”不是覆盖旧记忆，而是图上两条带有效期的边。在需要审计、合规、时序推理的企业场景（金融、医疗、法务），这是唯一能回答“当时的规定是什么”的架构[6]。</p>
+<p>Anthropic 在 2026 年 3 月提出的七层记忆体系，则可以看作对这三条路线的“垂直切片”：从会话内上下文、会话摘要、跨会话项目记忆，一直到跨项目的组织级知识库——层级越高，离模型越远，但保质期越长[7]。</p>
+<table>
+<thead>
+<tr>
+<th>路线</th>
+<th>代表系统</th>
+<th>记忆写入方式</th>
+<th>强项场景</th>
+<th>主要代价</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>OS 隐喻</td>
+<td>MemGPT &#x2F; Letta</td>
+<td>模型自主编辑记忆文件</td>
+<td>编程智能体、长程自治任务</td>
+<td>管理开销大</td>
+</tr>
+<tr>
+<td>向量记忆层</td>
+<td>Mem0</td>
+<td>事后抽取事实片段</td>
+<td>个性化助手、SaaS</td>
+<td>重建成本高</td>
+</tr>
+<tr>
+<td>时序知识图谱</td>
+<td>Zep &#x2F; Graphiti</td>
+<td>实体关系+时间戳</td>
+<td>企业审计、时序推理</td>
+<td>图谱维护复杂</td>
+</tr>
+</tbody></table>
+<h2 id="三、记忆税：两篇论文把账算明白了"><a href="#三、记忆税：两篇论文把账算明白了" class="headerlink" title="三、记忆税：两篇论文把账算明白了"></a>三、记忆税：两篇论文把账算明白了</h2><p>理论上的三足鼎立，被 10 月 22 日的两篇论文泼了一盆冷水。</p>
+<p><strong>MemoryTax 的核心发现：记忆是弱模型的拐杖，却可能是强模型的负资产。</strong> 作者用一段 419 轮、152 个问题的真实 LoCoMo 对话做实验，横跨 4 种记忆方案（全量上下文、BM25 检索、Mem0、Zep）与 3 个模型（GPT-4o-mini、GPT-6 Luna、Claude Opus 5.5），并逐格记录 API 花费[1]。结论有三层：</p>
+<ol>
+<li>Mem0 只在最弱的 GPT-4o-mini 上跑赢了全量上下文——而它仅建库一项的成本，就超过了强模型一次全量推理的总花费；</li>
+<li>记忆系统的天花板由写入模型决定：用弱模型写记忆，再用强模型读，读不回写入时就丢掉的信息——“更强的读者无法挽回更弱的作者漏写的东西”；</li>
+<li>在最强模型下，一个简单的 Pi 编程智能体以不到竞争对手的成本拿到 99% 准确率，占据成本-精度前沿的恰是“不建记忆系统”的组合。</li>
+</ol>
+<p>作者把这个现象命名为“记忆税”：<strong>为了让弱模型看起来更强，你付出了一笔经常高于直接升级模型的隐性成本。</strong></p>
+<p><strong>Raw-RAG 论文则补上了另一半证据。</strong> 郑者 Bao 等人的研究把朴素稠密检索（直接对原始对话历史建向量索引）与一众复杂记忆系统同台竞技：在 LoCoMo、LongMemEval、MEME、MemoryAgentBench 四个基准上，Raw-RAG 在 7 个基准-模型组合中 6 次排名第一，领先幅度 0.13 到 5.53 分，处理百万 token 对话的速度比最复杂的系统 EverMemOS 快 30.4 倍[2]。</p>
+<p>更有洞察力的是它的归因分析。论文把记忆系统拆成两个指标：<strong>覆盖率</strong>（需要的信息是否被检索进来）与<strong>利用率</strong>（信息在手时的答对率）。数据显示，各系统在 MemoryAgentBench 上的利用率都挤在 80%–89.7% 的窄带里，覆盖率却从 19.1% 到 45.3% 拉开了巨大差距——<strong>瓶颈根本不在“读了会不会用”，而在“有没有把证据读进来”</strong>。复杂记忆系统在压缩、摘要、整合的过程中亲手丢掉了证据，而“笨拙”的 Raw-RAG 因为什么都没丢，反而赢了。</p>
+<p>还有一个数字值得所有架构师记在笔记本上：在 LoCoMo 对话中，记忆系统做出的写操作里，UPDATE 和 DELETE 只占 1.90%（LongMemEval 上 1.34%），而且其中大多数还是重复或格式错误的操作[2]。也就是说，复杂记忆系统引以为傲的“记忆整理”能力，绝大多数时候根本没有被触发——你为屠龙术付了钱，而龙没来。</p>
+<p><img   src="https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/blog-img/agentmem-04.jpg"  alt="程序员屏幕上的代码与终端窗口"><em>图&#x2F;Unsplash：最朴素的检索管道，往往是深夜调参后依然站得住的那一个</em></p>
+<p>当然，这两篇论文都有明确的适用边界：实验集中在<strong>多轮对话记忆</strong>场景，任务类型以问答为主；MemoryTax 更是坦承每个实验格只跑了一次，统计功效有限。它们推翻的不是“记忆系统有价值”，而是“记忆系统在所有场景下都值得”——<strong>在强模型 + 工具检索的 2026 年，记忆系统的默认地位应当从“必选项”降级为“待评估项”</strong>。</p>
+<h2 id="四、第二张账单：记忆也是新的攻击面"><a href="#四、第二张账单：记忆也是新的攻击面" class="headerlink" title="四、第二张账单：记忆也是新的攻击面"></a>四、第二张账单：记忆也是新的攻击面</h2><p>如果说精度和成本是“经济账”，安全就是“生死账”。记忆让智能体拥有了跨会话的持久状态，这同时也意味着：<strong>谁污染了记忆，谁就劫持了智能体的未来</strong>。</p>
+<p>两个 2026 年的真实案例把风险具象化了。4 月，Cisco 研究团队演示了对 Claude Code 的链式攻击：从一次用户正常批准的依赖安装开始，攻击链经由记忆文件、hooks 和 shell 配置逐级放大；Anthropic 随后在 2.1.50 版本中把用户记忆移出系统提示词，显著收窄了攻击路径[8]。8 月，Varonis 的 CoSnitch 研究向 Copilot Personal 的持久记忆写入了攻击者指令，这些指令<strong>在用户改密码、吊销会话、重新注册设备、登出之后依然存活</strong>——微软于 8 月 18 日发布补丁，所幸没有野外利用的报告[8]。这类攻击最阴险的地方在于：被污染的记忆看起来就像智能体“自己的判断”，管理员重启一百次也没用，因为病灶存在数据库里。</p>
+<p>产业界的防御方案也在 10 月集中亮相。Google 的 Project Chrysalis 提出在三个时间尺度（实时、会话、长期）上为自进化智能体设置五道护栏，其核心思想之一是<strong>记忆签名</strong>：所有写入长期记忆的“经验教训”必须携带来源与签名，不可信来源的写入直接拒绝[4]。NVIDIA 同周发布的 Sentry 架构则把防线下沉到硬件：用 BlueField DPU 的隔离安全层在毫秒级尺度上管控智能体的每一次访问请求[9]。Chrysalis 的作者甚至预测：一年之内，“智能体记忆是否携带签名与溯源”会成为企业安全问卷的固定条目[4]。</p>
+<p><img   src="https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/blog-img/agentmem-05.jpg"  alt="代码特写与终端界面，象征注入攻击的隐蔽"><em>图&#x2F;Unsplash：一条写入持久记忆的恶意指令，可以在无数次重启后依然生效</em></p>
+<h2 id="五、怎么交税最划算：一张决策清单"><a href="#五、怎么交税最划算：一张决策清单" class="headerlink" title="五、怎么交税最划算：一张决策清单"></a>五、怎么交税最划算：一张决策清单</h2><p>把前面的账本合起来，我们给不同场景的团队一张务实的决策表：</p>
+<table>
+<thead>
+<tr>
+<th>你的场景</th>
+<th>建议方案</th>
+<th>理由</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>强模型 + 编程&#x2F;工具型智能体</td>
+<td>先不建记忆系统，用工具直接检索原始历史</td>
+<td>MemoryTax 显示这是成本-精度最优解[1]</td>
+</tr>
+<tr>
+<td>多轮对话问答</td>
+<td>朴素 RAG 优先，复杂记忆按需叠加</td>
+<td>Raw-RAG 在 6&#x2F;7 组合中登顶[2]</td>
+</tr>
+<tr>
+<td>个性化消费级助手</td>
+<td>向量记忆层（如 Mem0 类）</td>
+<td>接入成本低，个性化收益明确</td>
+</tr>
+<tr>
+<td>金融&#x2F;医疗&#x2F;法务等强审计场景</td>
+<td>时序知识图谱</td>
+<td>需要回答“当时的真相”，向量库做不到[6]</td>
+</tr>
+<tr>
+<td>长程自治智能体</td>
+<td>OS 隐喻 + 记忆签名&#x2F;审计</td>
+<td>长时程任务离不开记忆，安全必须前置</td>
+</tr>
+<tr>
+<td>弱模型 + 高频调用</td>
+<td>评估“直接升级模型”vs“建记忆”</td>
+<td>记忆税可能高于模型升级费[1]</td>
+</tr>
+</tbody></table>
+<p>三条通用原则值得写在架构文档第一页：</p>
+<ul>
+<li><strong>先测覆盖率，再谈利用率</strong>。你的检索管道能不能把证据捞进来，比下游怎么读重要一个量级[2]。</li>
+<li><strong>记忆要有 TTL 和签名</strong>。没有过期机制的记忆库迟早变成垃圾场；没有溯源的记忆迟早变成攻击面[4]。</li>
+<li><strong>把“不建”当作一个正经候选方案</strong>。每次立项记忆系统前，先跑一次“全量上下文”和“朴素 RAG”基线——两周的实验可能省掉一个季度的工程。</li>
+</ul>
+<p><img   src="https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/blog-img/agentmem-03.jpg"  alt="团队在会议室白板前讨论架构"><em>图&#x2F;Unsplash：记忆架构的正确立项方式，是先算账再动工</em></p>
+<h2 id="六、挑战与展望：从“记住”走向“学会”"><a href="#六、挑战与展望：从“记住”走向“学会”" class="headerlink" title="六、挑战与展望：从“记住”走向“学会”"></a>六、挑战与展望：从“记住”走向“学会”</h2><p>2026 年 10 月的这一轮讨论，本质上是在纠正 2024–2025 年的一个行业惯性：把人类记忆的隐喻直接搬进工程，默认“记得多 &#x3D; 更聪明”。接下来会发生什么？三条线索值得跟踪。</p>
+<p><strong>第一，评估基准正在从“记得住”转向“用得好”。</strong> Letta 新发布的 FrontierMemory 基准测的是完全不同的东西：给五个智能体框架同样的历史经验，看谁能把它变成下一次任务的更好表现。结果拉开巨大差距——Letta Dream 得分 73.3%，Prime Agent 60%，OpenAI Agents SDK 40%，而 Claude Managed Agents 与 Hermes Agent 分别只有 33.3% 和 26.7%[10]。它反复强调的结论是：<strong>回忆不等于学习（Recall isn’t learning）</strong>。下一个赛段的竞争焦点，是从“检索记忆”进化到“从经验中改进行为”。</p>
+<p><strong>第二，记忆将成为治理对象，而非纯技术组件。</strong> Chrysalis 的“签名记忆进安全问卷”预测，与 NVIDIA Sentry 的硬件级运行时管控，指向同一个未来：记忆系统会像今天的数据库一样进入企业的权限、审计、合规体系——谁可以写、写入要签什么名、多久过期、如何出具审计报告，都会有一套标准答案[4][9]。</p>
+<p><strong>第三，模型能力的持续跃升会不断重绘“记忆税”的税率。</strong> MemoryTax 最深的一层启示是：记忆系统的价值是模型能力的函数。模型越强、工具调用越可靠，“外挂记忆”的相对价值越低。任何记忆架构的立项书，都应该假设两年后模型又强了一个数量级——那时的账还算不算得过来？</p>
+<p><img   src="https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/blog-img/agentmem-06.jpg"  alt="深色机房中延伸的服务器走廊"><em>图&#x2F;Unsplash：无论记忆架构如何演进，最终都要回到这些机柜上的真实成本</em></p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>回到 10 月 22 日那三份账单：学术界证明了“朴素可以很强”，产业界则在为“记住一切”修更宽的路。这两件事并不矛盾——它们共同把智能体记忆从信仰问题还原成了工程问题。</p>
+<p>Rich Hickey 有句话说得好：“程序员知道做事情的好处，也知道不做的坏处，但往往忽略了做这件事本身的代价。”（Programmers know the benefits of everything and the downsides of nothing.）智能体记忆正是这句话在 2026 年的最佳注脚：<strong>记住不是目的，以可承受的代价记住对的事情才是。</strong> 下次有人向你推销“给智能体装上完整记忆”时，不妨先问一句——这笔记忆税，你打算用什么交？</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
+<li>Peng, Z. <em>MemoryTax: The Bitter Lesson of Agent Memory</em>. arXiv:2610.29823, 2026-10-22. <a class="link"   target="_blank" rel="noopener" href="https://arxiv.org/abs/2610.29823" >https://arxiv.org/abs/2610.29823<i class="fas fa-external-link-alt"></i></a></li>
+<li>Bao, Z. et al. <em>Is Complex Agentic Memory Always Needed? Naive RAG Is Stronger Than We Thought</em>. arXiv, 2026-10-22.（数据引自 Flowtivity 论文解读：<a class="link"   target="_blank" rel="noopener" href="https://flowtivity.ai/blog/naive-rag-vs-agentic-memory%EF%BC%89" >https://flowtivity.ai/blog/naive-rag-vs-agentic-memory）<i class="fas fa-external-link-alt"></i></a></li>
+<li>TechTarget. <em>Databricks’ latest improves AI memory, infrastructure for agents</em>. 2026-10-22. <a class="link"   target="_blank" rel="noopener" href="https://www.techtarget.com/data-technologies/news/366652428/" >https://www.techtarget.com/data-technologies/news/366652428/<i class="fas fa-external-link-alt"></i></a></li>
+<li>Shattered.io. <em>Google Chrysalis: 3 Timescales, 5 Guardrails</em>. 2026-10-22.（源自 Google Developers Blog《Architecting Governed, Self-Evolving AI Agents》）</li>
+<li>Packer, C. et al. <em>MemGPT: Towards LLMs as Operating Systems</em>. arXiv:2310.08560, 2023.</li>
+<li>MintMCP. <em>Best AI Agent Memory Frameworks in 2026: Mem0 vs. Zep vs. Letta</em>. <a class="link"   target="_blank" rel="noopener" href="https://www.mintmcp.com/blog/ai-agent-memory-frameworks" >https://www.mintmcp.com/blog/ai-agent-memory-frameworks<i class="fas fa-external-link-alt"></i></a></li>
+<li>NirDiamant. <em>Agent Memory Techniques</em>（含 Anthropic 七层记忆体系整理）. <a class="link"   target="_blank" rel="noopener" href="https://github.com/NirDiamant/Agent_Memory_Techniques" >https://github.com/NirDiamant/Agent_Memory_Techniques<i class="fas fa-external-link-alt"></i></a></li>
+<li>SC Media. <em>After memory poisoning, an AI agent needs more than a restart</em>. 2026-10-23. <a class="link"   target="_blank" rel="noopener" href="https://www.scworld.com/perspective/" >https://www.scworld.com/perspective/<i class="fas fa-external-link-alt"></i></a></li>
+<li>NVIDIA Technical Blog. <em>Inside NVIDIA Sentry: Secure AI Agents at Runtime</em>. 2026-10-21. <a class="link"   target="_blank" rel="noopener" href="https://developer.nvidia.com/blog/inside-nvidia-sentry-secure-ai-agents-at-runtime" >https://developer.nvidia.com/blog/inside-nvidia-sentry-secure-ai-agents-at-runtime<i class="fas fa-external-link-alt"></i></a></li>
+<li>The New Stack. <em>Five AI agent harnesses took the same memory test</em>. 2026-10. <a class="link"   target="_blank" rel="noopener" href="https://thenewstack.io/letta-frontiermemory-agent-harness-benchmark" >https://thenewstack.io/letta-frontiermemory-agent-harness-benchmark<i class="fas fa-external-link-alt"></i></a></li>
+</ol>
+<blockquote>
+<p>本文由 AI 辅助整理，引用数据以原始来源为准。配图来自 Unsplash，经腾讯云 COS 分发。</p>
+</blockquote>
+
+                    
+                </div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/AI/">AI</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E6%99%BA%E8%83%BD%E4%BD%93/">智能体</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/">大语言模型</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/RAG/">RAG</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/Agent%E8%AE%B0%E5%BF%86/">Agent记忆</a>
+                                    </li>
+                                
+                            </ul>
+                        
+                    </div>
+                    <div>
+                        
+                            <div class="post-share-container border-box">
+    <ul class="share-list-wrap border-box">
+        <li class="qq share-item border-box flex-center tooltip"
+            data-tooltip-content="分享到 QQ"
+        >
+            <i class="fa-brands fa-qq"></i>
+        </li>
+        <li class="wechat share-item border-box flex-center tooltip tooltip-img"
+            data-tooltip-content="分享到微信"
+            data-tooltip-img-tip="微信扫一扫"
+            data-tooltip-img-style="background-color: #fff; top: -10px; padding: 0.6rem 0.6rem 0.1rem 0.6rem;"
+        >
+            <i class="fa-brands fa-weixin"></i>
+        </li>
+        <li class="weibo share-item border-box flex-center tooltip"
+            data-tooltip-content="分享到微博"
+        >
+            <i class="fa-brands fa-weibo"></i>
+        </li>
+    </ul>
+</div>
+
+                        
+                    </div>
+                </div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/2026/10/26/AI%E6%9D%82%E8%B0%88-%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86%E7%9A%84%E9%9A%90%E8%97%8F%E6%88%98%E5%9C%BA2026/"
+                                   title="AI杂谈 | 大模型推理的隐藏战场：2026年，算力竞争移到幕后"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">AI杂谈 | 大模型推理的隐藏战场：2026年，算力竞争移到幕后</span>
+                                        <span class="post-nav-item">下一篇</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+    <div class="comments-container border-box">
+        <div id="comments-anchor" class="comment-area-title border-box">
+            <i class="fas fa-comments"></i>&nbsp;评论
+        </div>
+        <div class="comment-plugin-fail border-box">
+    <span class="fail-tip">评论插件加载失败</span>
+    <button class="reload keep-button">点击重新加载</button>
+</div>
+<div class="comment-plugin-loading flex-center border-box">
+    <i class="loading-icon fa-solid fa-spinner fa-spin"></i>
+    <span class="load-tip">正在加载评论插件</span>
+</div>
+<script data-pjax>
+  window.KeepCommentPlugin = {}
+  window.KeepCommentPlugin.hideLoading = () => {
+    const cplDom = document.querySelector('.comments-container .comment-plugin-loading')
+    cplDom.style.display = 'none'
+  }
+  window.KeepCommentPlugin.loadFailHandle = () => {
+    window.KeepCommentPlugin.hideLoading()
+    const cpfDom = document.querySelector('.comments-container .comment-plugin-fail')
+    cpfDom.style.display = 'flex'
+    cpfDom.querySelector('.reload').addEventListener('click', () => {
+      window.location.reload()
+    })
+  }
+</script>
+
+        
+            
+
+    <div class="waline-comment-container">
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@waline/client@v2.15.8/dist/waline.css"/>
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@waline/client@v2.15.8/dist/waline-meta.css"/>
+        <div id="waline-comment"></div>
+        <script data-pjax>
+          window.KeepCommentPlugin.walineOptions = JSON.parse('{}'.replace(/&#34;/g, '"'))
+          window.KeepCommentPlugin.walineOptions.el = '#waline-comment'
+          window.KeepCommentPlugin.walineOptions.comment = '.post-comments-count'
+          window.KeepCommentPlugin.walineOptions.serverURL = 'https://comment.daitanyu.top'
+          window.KeepCommentPlugin.walineOptions.lang = 'zh-CN' || 'zh-CN'
+          window.KeepCommentPlugin.walineOptions.reaction = 'false' === 'true'
+        </script>
+
+        
+            <script 
+                    src="//cdn.jsdelivr.net/npm/@waline/client@v2.15.8/dist/waline.js"
+                    async
+                    onerror="window.KeepCommentPlugin.loadFailHandle()"
+            ></script>
+            <script 
+                    async
+            >
+              window.KeepCommentPlugin.initWaline = () => {
+                if (window?.Waline) {
+                  window.Waline.init(window.KeepCommentPlugin.walineOptions)
+                  window.KeepCommentPlugin.hideLoading()
+                } else {
+                  setTimeout(() => {
+                    window.KeepCommentPlugin.initWaline()
+                  }, 1000)
+                }
+              }
+
+              if ('false' === 'true') {
+                setTimeout(() => {
+                  window.KeepCommentPlugin.initWaline()
+                }, 1200)
+              } else {
+                window.addEventListener('DOMContentLoaded', window.KeepCommentPlugin.initWaline)
+              }
+            </script>
+        
+
+        
+    </div>
+
+
+        
+    </div>
+
+
+
+
+
+                
+            </div>
+        </div>
+
+        
+            <div class="pc-post-toc right-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E8%A8%80%EF%BC%9A10%E6%9C%8822%E6%97%A5%EF%BC%8C%E4%B8%89%E4%BB%BD%E2%80%9C%E8%AE%B0%E5%BF%86%E8%B4%A6%E5%8D%95%E2%80%9D%E5%90%8C%E6%97%B6%E5%AF%84%E5%88%B0"><span class="nav-number">1.</span> <span class="nav-text">引言：10月22日，三份“记忆账单”同时寄到</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E8%AE%B0%E5%BF%86%E4%B8%BA%E4%BB%80%E4%B9%88%E7%AA%81%E7%84%B6%E6%88%90%E4%BA%86%E5%A4%B4%E5%8F%B7%E5%B7%A5%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">一、记忆为什么突然成了头号工程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E4%B8%89%E6%9D%A1%E6%8A%80%E6%9C%AF%E8%B7%AF%E7%BA%BF%EF%BC%9A%E8%AE%B0%E5%BF%86%E7%B3%BB%E7%BB%9F%E7%9A%84%E2%80%9C%E4%B8%89%E5%BC%A0%E9%9D%A2%E5%AD%94%E2%80%9D"><span class="nav-number">3.</span> <span class="nav-text">二、三条技术路线：记忆系统的“三张面孔”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E8%AE%B0%E5%BF%86%E7%A8%8E%EF%BC%9A%E4%B8%A4%E7%AF%87%E8%AE%BA%E6%96%87%E6%8A%8A%E8%B4%A6%E7%AE%97%E6%98%8E%E7%99%BD%E4%BA%86"><span class="nav-number">4.</span> <span class="nav-text">三、记忆税：两篇论文把账算明白了</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E7%AC%AC%E4%BA%8C%E5%BC%A0%E8%B4%A6%E5%8D%95%EF%BC%9A%E8%AE%B0%E5%BF%86%E4%B9%9F%E6%98%AF%E6%96%B0%E7%9A%84%E6%94%BB%E5%87%BB%E9%9D%A2"><span class="nav-number">5.</span> <span class="nav-text">四、第二张账单：记忆也是新的攻击面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E6%80%8E%E4%B9%88%E4%BA%A4%E7%A8%8E%E6%9C%80%E5%88%92%E7%AE%97%EF%BC%9A%E4%B8%80%E5%BC%A0%E5%86%B3%E7%AD%96%E6%B8%85%E5%8D%95"><span class="nav-number">6.</span> <span class="nav-text">五、怎么交税最划算：一张决策清单</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E6%8C%91%E6%88%98%E4%B8%8E%E5%B1%95%E6%9C%9B%EF%BC%9A%E4%BB%8E%E2%80%9C%E8%AE%B0%E4%BD%8F%E2%80%9D%E8%B5%B0%E5%90%91%E2%80%9C%E5%AD%A6%E4%BC%9A%E2%80%9D"><span class="nav-number">7.</span> <span class="nav-text">六、挑战与展望：从“记住”走向“学会”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="nav-number">8.</span> <span class="nav-text">结语</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">9.</span> <span class="nav-text">参考资料</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="copyright-info info-item">
+    &copy;&nbsp;2026
+    
+            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">YZDR</a>
+        
+    </div>
+
+    <div class="theme-info info-item">
+        由&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;驱动&nbsp;&&nbsp;主题&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+    </div>
+
+    
+
+    
+        <div class="count-info info-item">
+            
+                <span class="count-item border-box word">
+                    <span class="item-type border-box">总字数</span>
+                    <span class="item-value border-box word">41.3k</span>
+                </span>
+            
+
+            
+                <span class="count-item border-box uv">
+                    <span class="item-type border-box">访客数</span>
+                    <span class="item-value border-box uv" id="busuanzi_value_site_uv"></span>
+                </span>
+            
+
+            
+                <span class="count-item border-box pv">
+                    <span class="item-type border-box">访问量</span>
+                    <span class="item-value border-box pv" id="busuanzi_value_site_pv"></span>
+                </span>
+            
+        </div>
+    
+
+    
+        <div class="record-info info-item">
+            
+                
+                    <div class="record-item border-box">
+                        <a class=""
+                           target="_blank"
+                           href="https://beian.miit.gov.cn/"
+                        >
+                            湘ICP备2026001287号
+                        </a>
+                    </div>
+                
+            
+        </div>
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+            <li class="tools-item flex-center go-to-comments">
+                <i class="fas fa-comment"></i>
+                <span class="post-comments-count"></span>
+            </li>
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box ">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <!-- toggle mode -->
+        
+            <li class="tools-item tool-toggle-theme-mode flex-center">
+                <i class="fas fa-moon"></i>
+            </li>
+        
+
+        <!-- rss -->
+        
+
+        <!-- to bottom -->
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        
+            <li class="tools-item go-to-comments-tablet flex-center">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E8%A8%80%EF%BC%9A10%E6%9C%8822%E6%97%A5%EF%BC%8C%E4%B8%89%E4%BB%BD%E2%80%9C%E8%AE%B0%E5%BF%86%E8%B4%A6%E5%8D%95%E2%80%9D%E5%90%8C%E6%97%B6%E5%AF%84%E5%88%B0"><span class="nav-number">1.</span> <span class="nav-text">引言：10月22日，三份“记忆账单”同时寄到</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E8%AE%B0%E5%BF%86%E4%B8%BA%E4%BB%80%E4%B9%88%E7%AA%81%E7%84%B6%E6%88%90%E4%BA%86%E5%A4%B4%E5%8F%B7%E5%B7%A5%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">一、记忆为什么突然成了头号工程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E4%B8%89%E6%9D%A1%E6%8A%80%E6%9C%AF%E8%B7%AF%E7%BA%BF%EF%BC%9A%E8%AE%B0%E5%BF%86%E7%B3%BB%E7%BB%9F%E7%9A%84%E2%80%9C%E4%B8%89%E5%BC%A0%E9%9D%A2%E5%AD%94%E2%80%9D"><span class="nav-number">3.</span> <span class="nav-text">二、三条技术路线：记忆系统的“三张面孔”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E8%AE%B0%E5%BF%86%E7%A8%8E%EF%BC%9A%E4%B8%A4%E7%AF%87%E8%AE%BA%E6%96%87%E6%8A%8A%E8%B4%A6%E7%AE%97%E6%98%8E%E7%99%BD%E4%BA%86"><span class="nav-number">4.</span> <span class="nav-text">三、记忆税：两篇论文把账算明白了</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E7%AC%AC%E4%BA%8C%E5%BC%A0%E8%B4%A6%E5%8D%95%EF%BC%9A%E8%AE%B0%E5%BF%86%E4%B9%9F%E6%98%AF%E6%96%B0%E7%9A%84%E6%94%BB%E5%87%BB%E9%9D%A2"><span class="nav-number">5.</span> <span class="nav-text">四、第二张账单：记忆也是新的攻击面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E6%80%8E%E4%B9%88%E4%BA%A4%E7%A8%8E%E6%9C%80%E5%88%92%E7%AE%97%EF%BC%9A%E4%B8%80%E5%BC%A0%E5%86%B3%E7%AD%96%E6%B8%85%E5%8D%95"><span class="nav-number">6.</span> <span class="nav-text">五、怎么交税最划算：一张决策清单</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E6%8C%91%E6%88%98%E4%B8%8E%E5%B1%95%E6%9C%9B%EF%BC%9A%E4%BB%8E%E2%80%9C%E8%AE%B0%E4%BD%8F%E2%80%9D%E8%B5%B0%E5%90%91%E2%80%9C%E5%AD%A6%E4%BC%9A%E2%80%9D"><span class="nav-number">7.</span> <span class="nav-text">六、挑战与展望：从“记住”走向“学会”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="nav-number">8.</span> <span class="nav-text">结语</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">9.</span> <span class="nav-text">参考资料</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
+</main>
+
+
+
+
+
+<!-- common js -->
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/toggle-theme.js"></script>
+
+<script src="/js/code-block.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+
+<!-- local search -->
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+<!-- lazyload -->
+
+
+<div class="">
+    <!-- home page -->
+    
+
+    <!-- post page -->
+    
+        <!-- post-helper -->
+        
+<script src="/js/post/post-helper.js"></script>
+
+
+        <!-- toc -->
+        
+            
+<script src="/js/post/toc.js"></script>
+
+        
+
+        <!-- copyright-info -->
+        
+
+        <!-- share -->
+        
+            
+<script src="/js/post/share.js"></script>
+
+        
+    
+
+    <!-- categories page -->
+    
+
+    <!-- links page -->
+    
+
+    <!-- photos page -->
+    
+
+    <!-- tools page -->
+    
+</div>
+
+<!-- mermaid -->
+
+
+<!-- pjax -->
+
+
+
+    
+        
+    
+
+</body>
+</html>
