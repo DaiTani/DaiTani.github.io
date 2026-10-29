@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="baidu-site-verification" content="codeva-C8OslLkAbZ" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="生物信息学, 发酵工程, 智能体, AI, Hexo, Python, 技术笔记, 戴谭宇, YZDR">
+    <meta name="description" content="戴谭宇的技术笔记：生物信息学、发酵工程、AI 与智能体实践记录。">
+    <meta name="author" content="YZDR">
+    
+    <title>
+        
+            AI杂谈 | Gemini 4 Carbon 与 Genie 4：谷歌一周双发，把 AI 推向&#34;长程&#34;与&#34;有声世界&#34; |
+        
+        YZDR&#39;s Blog
+    </title>
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:site_name" content="YZDR&#39;s Blog" />
+    <meta property="og:title" content="AI杂谈 | Gemini 4 Carbon 与 Genie 4：谷歌一周双发，把 AI 推向&#34;长程&#34;与&#34;有声世界&#34;" />
+    <meta property="og:description" content="戴谭宇的技术笔记：生物信息学、发酵工程、AI 与智能体实践记录。" />
+    <meta property="og:url" content="https://daitanyu.top" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="AI杂谈 | Gemini 4 Carbon 与 Genie 4：谷歌一周双发，把 AI 推向&#34;长程&#34;与&#34;有声世界&#34;" />
+    <meta name="twitter:description" content="戴谭宇的技术笔记：生物信息学、发酵工程、AI 与智能体实践记录。" />
+    <link rel="alternate" type="application/atom+xml" title="YZDR&#39;s Blog" href="/atom.xml" />
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="/images/title.ico">
+    
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    
+        
+            
+                
+<link rel="stylesheet" href="/css/custom.css">
+
+            
+        
+    
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"daitanyu.top","root":"/","language":"zh-CN","path":"search.json"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#d35400","title":"YZDR's Blog","author":"YZDR","avatar":"/images/touxiang.jpg","logo":"/images/touxiang.jpg","favicon":"/images/title.ico"},"menu":{"home":"/                        || fa-solid fa-home","article":{"icon":"fa-solid fa-newspaper","children":[{"archives":"/archives          || fa-solid fa-box-archive"},{"tags":"/tags                  || fa-solid fa-tags"},{"categories":"/categories      || fa-solid fa-layer-group"}]},"me":{"icon":"fa-solid fa-user","children":[{"about":"/about || fa-solid fa-user-graduate"},{"links":"/links || fa-solid fa-link"}]},"emini":"https://gemini.google.com || fa-brands fa-google"},"first_screen":{"enable":true,"background_img":"/images/bg_light.jpg","background_img_dark":"/images/bg_dark.svg","description":"Keep writing and Keep loving.","hitokoto":true},"social_contact":{"enable":true,"links":{"github":"https://github.com/DaiTani","weixin":"img | /images/wechat.png","qq":"img | /images/qq.png","zhihu":"https://www.zhihu.com/people/wei-zhi-de-tian-cai","x":"https://x.com/T0nkJam","email":"2425476264@qq.com","bilibili":"https://space.bilibili.com/101675377"}},"scroll":{"progress_bar":true,"percent":true,"hide_header":true},"home":{"announcement":null,"category":false,"tag":true,"post_datetime":"updated   || fa-solid fa-star"},"post":{"author_badge":{"enable":true,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":true,"min2read":true},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":false,"share":true,"reward":{"enable":false,"img_link":null,"text":null,"icon":null}},"img_align":"center","code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"obsidian"},"toc":{"enable":true,"number":true,"expand_all":false,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":true,"site_uv":true,"site_pv":true,"page_pv":true}},"local_search":{"enable":true,"preload":true},"comment":{"enable":true,"use":"waline","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.39"},"waline":{"server_url":"https://comment.daitanyu.top","reaction":false,"version":"2.15.8"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":false},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":false},"footer":{"since":2026,"word_count":true,"site_deploy":{"enable":false,"provider":"aliyun","url":null},"record":{"enable":true,"list":[{"code":"湘ICP备2026001287号","link":"https://beian.miit.gov.cn/"}]}},"inject":{"enable":true,"css":["/css/custom.css"],"js":[null]},"root":"","source_data":{"links":[{"title":"朋友"},{"name":"Wang Saixin","link":"https://wsx.daitanyu.top/","description":"我の大学舍友","avatar":"https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/img/20260117220256846.jpg?imageSlim"},{"title":"友情链接"},{"name":"Qlu","link":"https://www.qlu.edu.cn","description":"齐鲁工业大学（山东省科学院）官方网页","avatar":"https://favicon.im/www.qlu.edu.cn?larger=true"},{"name":"齐鲁工业大学网络运维","link":"https://wlyw.qlu.edu.cn","description":"校园网络服务与支持","avatar":"https://favicon.im/wlyw.qlu.edu.cn?larger=true"},{"name":"澧县一中","link":"https://www.lxyz.net","description":"湖南省澧县第一中学官方网页","avatar":"https://favicon.im/www.lxyz.net?larger=true"},{"title":"生物信息学"},{"name":"Rosalind","link":"https://rosalind.info/","description":"生物信息练习网站","avatar":"https://favicon.im/rosalind.info?larger=true"},{"name":"Galaxy","link":"https://usegalaxy.org/","description":"基于 Web 的生物信息分析平台，无需编程即可运行流程","avatar":"https://favicon.im/usegalaxy.org?larger=true"},{"name":"Primer3Web","link":"https://primer3.ut.ee/","description":"最经典的 PCR 引物设计在线工具","avatar":"https://favicon.im/primer3.ut.ee?larger=true"},{"name":"Bioconductor","link":"https://www.bioconductor.org/","description":"基于 R 语言的开源生物信息软件包集合","avatar":"https://favicon.im/www.bioconductor.org?larger=true"},{"name":"BioRender","link":"https://biorender.com/","description":"专业的生物医学绘图工具，生信论文配图神器","avatar":"https://favicon.im/biorender.com?larger=true"},{"name":"Bioinformatics.org","link":"https://www.bioinformatics.org","description":"历史悠久的生物信息学开源社区","avatar":"https://favicon.im/www.bioinformatics.org?larger=true"},{"name":"OMICTOOLS","link":"https://omictools.com","description":"组学分析工具的百科全书","avatar":"https://favicon.im/omictools.com?larger=true"},{"name":"arXiv Quantitative Biology","link":"https://arxiv.org/list/q-bio/new","description":"追踪定量生物学领域最前沿的预印本论文","avatar":"https://favicon.im/arxiv.org?larger=true"},{"title":"核心生物数据库"},{"name":"NCBI","link":"https://www.ncbi.nlm.nih.gov/","description":"美国国家生物技术信息中心","avatar":"https://favicon.im/www.ncbi.nlm.nih.gov?larger=true"},{"name":"UniProt","link":"https://www.uniprot.org/","description":"权威的蛋白质序列和功能信息数据库","avatar":"https://favicon.im/www.uniprot.org?larger=true"},{"name":"PDB (RCSB)","link":"https://www.rcsb.org/","description":"蛋白质及核酸的三维结构数据库","avatar":"https://favicon.im/www.rcsb.org?larger=true"},{"name":"Ensembl","link":"https://www.ensembl.org/","description":"脊椎动物基因组浏览器，包含基因注释和比对","avatar":"https://favicon.im/www.ensembl.org?larger=true"},{"name":"KEGG","link":"https://www.genome.jp/kegg/","description":"京都基因与基因组百科全书，代谢通路图必备","avatar":"https://favicon.im/www.genome.jp?larger=true"},{"name":"TCGA (GDC)","link":"https://portal.gdc.cancer.gov/","description":"癌症基因组图谱，肿瘤生信分析核心数据源","avatar":"https://favicon.im/portal.gdc.cancer.gov?larger=true"},{"name":"EBI (EMBL-EBI)","link":"https://www.ebi.ac.uk/","description":"欧洲生物信息学研究所，欧洲版 NCBI","avatar":"https://favicon.im/www.ebi.ac.uk?larger=true"},{"title":"学术资源"},{"name":"PubMed","link":"https://pubmed.ncbi.nlm.nih.gov/","description":"生物医学领域最全的文献搜索数据库","avatar":"https://favicon.im/pubmed.ncbi.nlm.nih.gov?larger=true"},{"name":"Sci-Hub","link":"https://sci-hub.se/","description":"知识无国界，免费获取学术论文的工具","avatar":"https://favicon.im/sci-hub.se?larger=true"},{"name":"Connected Papers","link":"https://www.connectedpapers.com/","description":"论文引文网络可视化工具，快速了解领域脉络","avatar":"https://favicon.im/www.connectedpapers.com?larger=true"},{"name":"DeepL","link":"https://www.deepl.com/translator","description":"比谷歌翻译更专业的学术论文翻译工具","avatar":"https://favicon.im/www.deepl.com?larger=true"},{"title":"工具"},{"name":"Font Awesome","link":"https://fontawesome.com","description":"世界上最流行的图标库。","avatar":"https://favicon.im/fontawesome.com?larger=true"},{"name":"网站图标获取器","link":"https://favicon.im/zh","description":"即时获取和下载任何网站的图标。","avatar":"https://favicon.im/favicon.im?larger=true"},{"name":"Gemini","link":"https://gemini.google.com/app","description":"Google 旗下 AI 聊天对话工具","avatar":"https://favicon.im/gemini.google.com?larger=true"},{"name":"ChatGPT","link":"https://chat.openai.com/","description":"OpenAI 旗下 AI 聊天对话工具","avatar":"https://favicon.im/openai.com?larger=true"},{"name":"GitHub 镜像站","link":"https://kkgithub.com/","description":"国内极速访问 GitHub 的加速镜像","avatar":"https://favicon.im/github.com?larger=true"},{"name":"Carbon","link":"https://carbon.now.sh/","description":"将你的代码块转换成精美的分享图片","avatar":"https://favicon.im/carbon.now.sh?larger=true"},{"name":"TinyPNG","link":"https://tinypng.com/","description":"智能压缩图片，大幅提升网页加载速度","avatar":"https://favicon.im/tinypng.com?larger=true"},{"name":"Shields.io","link":"https://shields.io/","description":"为你的博客和项目生成精美的 SVG 徽章","avatar":"https://favicon.im/shields.io?larger=true"}],"tools":[{"category":"聊天 AI","anchorId":"JUU4JTgxJThBJUU1JUE0JUE5JTIwQUk0"},{"name":"ChatGPT","link":"https://chat.openai.com/","description":"OpenAI 旗下 AI 聊天对话工具","image":"/images/tools/chatgpt.svg"},{"name":"Gemini","link":"https://gemini.google.com/app","description":"Google 旗下 AI 聊天对话工具","image":"/images/tools/gemini.svg"}]},"version":"4.2.5"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left flex-start border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="/images/touxiang.jpg">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               YZDR&#39;s Blog
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc border-box">
+                <ul class="menu-list border-box">
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-home"></i>
+                                
+                                首页
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box has-sub-menu">
+                            <a class="menu-text-color border-box" href="javascript:void(0);">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-newspaper"></i>
+                                
+                                ARTICLE
+                                
+                                    <i class="menu-text-color collapse-icon fa-solid fa-angle-down"></i>
+                                
+                            </a>
+                            
+                                <ul class="sub-menu-list border-box">
+                                    
+                                        
+                                        <li class="sub-menu-item border-box ">
+                                            <a class="menu-text-color border-box flex-start" href="/archives">
+                                                
+                                                    <i class="menu-text-color sub-menu-icon fa-solid fa-box-archive"></i>
+                                                
+                                                归档
+                                            </a>
+                                        </li>
+                                    
+                                        
+                                        <li class="sub-menu-item border-box ">
+                                            <a class="menu-text-color border-box flex-start" href="/tags">
+                                                
+                                                    <i class="menu-text-color sub-menu-icon fa-solid fa-tags"></i>
+                                                
+                                                标签
+                                            </a>
+                                        </li>
+                                    
+                                        
+                                        <li class="sub-menu-item border-box ">
+                                            <a class="menu-text-color border-box flex-start" href="/categories">
+                                                
+                                                    <i class="menu-text-color sub-menu-icon fa-solid fa-layer-group"></i>
+                                                
+                                                分类
+                                            </a>
+                                        </li>
+                                    
+                                </ul>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box has-sub-menu">
+                            <a class="menu-text-color border-box" href="javascript:void(0);">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-user"></i>
+                                
+                                我的
+                                
+                                    <i class="menu-text-color collapse-icon fa-solid fa-angle-down"></i>
+                                
+                            </a>
+                            
+                                <ul class="sub-menu-list border-box">
+                                    
+                                        
+                                        <li class="sub-menu-item border-box ">
+                                            <a class="menu-text-color border-box flex-start" href="/about">
+                                                
+                                                    <i class="menu-text-color sub-menu-icon fa-solid fa-user-graduate"></i>
+                                                
+                                                关于
+                                            </a>
+                                        </li>
+                                    
+                                        
+                                        <li class="sub-menu-item border-box ">
+                                            <a class="menu-text-color border-box flex-start" href="/links">
+                                                
+                                                    <i class="menu-text-color sub-menu-icon fa-solid fa-link"></i>
+                                                
+                                                友链
+                                            </a>
+                                        </li>
+                                    
+                                </ul>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" target="_blank" rel="noopener" href="https://gemini.google.com">
+                                
+                                    <i class="menu-text-color menu-icon fa-brands fa-google"></i>
+                                
+                                EMINI
+                                
+                            </a>
+                            
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="menu-text-color fas search fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile border-box flex-start">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list border-box">
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-home"></i>
+                                </span>
+                            
+                            首页
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box has-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="javascript:void(0);">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-newspaper"></i>
+                                </span>
+                            
+                            ARTICLE
+                        </a>
+                        
+                            <i class="right-side collapse-icon fa-solid fa-angle-left"></i>
+                        
+                    </label>
+                    
+                        <ul class="drawer-sub-menu-list border-box">
+                            
+                                
+                                <li class="sub-menu-item border-box">
+                                    <a class="drawer-menu-text-color border-box flex-start" href="/archives">
+                                        
+                                            <span class="sub-menu-icon-wrap border-box flex-center">
+                                                <i class="drawer-menu-text-color sub-menu-icon fa-solid fa-box-archive"></i>
+                                            </span>
+                                        
+                                        归档
+                                    </a>
+                                </li>
+                            
+                                
+                                <li class="sub-menu-item border-box">
+                                    <a class="drawer-menu-text-color border-box flex-start" href="/tags">
+                                        
+                                            <span class="sub-menu-icon-wrap border-box flex-center">
+                                                <i class="drawer-menu-text-color sub-menu-icon fa-solid fa-tags"></i>
+                                            </span>
+                                        
+                                        标签
+                                    </a>
+                                </li>
+                            
+                                
+                                <li class="sub-menu-item border-box">
+                                    <a class="drawer-menu-text-color border-box flex-start" href="/categories">
+                                        
+                                            <span class="sub-menu-icon-wrap border-box flex-center">
+                                                <i class="drawer-menu-text-color sub-menu-icon fa-solid fa-layer-group"></i>
+                                            </span>
+                                        
+                                        分类
+                                    </a>
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box has-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="javascript:void(0);">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-user"></i>
+                                </span>
+                            
+                            我的
+                        </a>
+                        
+                            <i class="right-side collapse-icon fa-solid fa-angle-left"></i>
+                        
+                    </label>
+                    
+                        <ul class="drawer-sub-menu-list border-box">
+                            
+                                
+                                <li class="sub-menu-item border-box">
+                                    <a class="drawer-menu-text-color border-box flex-start" href="/about">
+                                        
+                                            <span class="sub-menu-icon-wrap border-box flex-center">
+                                                <i class="drawer-menu-text-color sub-menu-icon fa-solid fa-user-graduate"></i>
+                                            </span>
+                                        
+                                        关于
+                                    </a>
+                                </li>
+                            
+                                
+                                <li class="sub-menu-item border-box">
+                                    <a class="drawer-menu-text-color border-box flex-start" href="/links">
+                                        
+                                            <span class="sub-menu-icon-wrap border-box flex-center">
+                                                <i class="drawer-menu-text-color sub-menu-icon fa-solid fa-link"></i>
+                                            </span>
+                                        
+                                        友链
+                                    </a>
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" target="_blank" rel="noopener" href="https://gemini.google.com">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-brands fa-google"></i>
+                                </span>
+                            
+                            EMINI
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+                
+
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+
+            <div class="post-content-bottom border-box">
+                
+                    <div class="post-title">
+                        AI杂谈 | Gemini 4 Carbon 与 Genie 4：谷歌一周双发，把 AI 推向&#34;长程&#34;与&#34;有声世界&#34;
+                    </div>
+                
+
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="/images/touxiang.jpg">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">YZDR</span>
+                                
+                                    <span class="author-badge">Lv3</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2026-10-29 10:00:00</span>
+            </span>
+
+            
+                <span class="meta-info-item post-update-date">
+                    <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                    <span class="datetime" data-updated="Thu Oct 29 2026 10:13:25 GMT+0800">2026-10-29 10:13:25</span>
+                </span>
+            
+        
+
+        
+            <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul class="post-category-ul">
+                    
+                            <li class="category-item"><a href="/categories/AI%E6%9D%82%E8%B0%88/">AI杂谈</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/AI/">AI</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/AI-Agent/">AI Agent</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/">大语言模型</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Gemini/">Gemini</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Google-DeepMind/">Google DeepMind</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E4%B8%96%E7%95%8C%E6%A8%A1%E5%9E%8B/">世界模型</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+            <span class="meta-info-item post-wordcount">
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>3.4k 字</span>
+            </span>
+        
+        
+            <span class="meta-info-item post-min2read">
+                <i class="icon fas fa-clock"></i>&nbsp;<span>12 分钟</span>
+            </span>
+        
+        
+            <span class="meta-info-item post-pv">
+                <i class="icon fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+            </span>
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <h2 id="前言：两天之内，谷歌甩出两张王牌"><a href="#前言：两天之内，谷歌甩出两张王牌" class="headerlink" title="前言：两天之内，谷歌甩出两张王牌"></a>前言：两天之内，谷歌甩出两张王牌</h2><p>2026 年 10 月的最后一周，AI 圈的节奏快得有点让人喘不过气。10 月 27 日，Google DeepMind 发布新一代世界模型 <strong>Genie 4</strong>；仅仅一天之后，10 月 28 日，谷歌又宣布了旗下最强的前沿大模型 <strong>Gemini 4 Carbon</strong>。再算上同一天 NVIDIA 开源的语音模型 Nemotron 3.5 Transcribe，这一周几乎把”智能体、安全、世界模拟、语音”四条主线同时推到了台前。</p>
+<p>这两次发布值得放在一起聊，因为它们恰好代表了当前 AI 演进的两个方向：一个是让语言模型在<strong>真实的数字世界里长时间、负责任地干活</strong>；另一个是让 AI <strong>自己造出一个可以走进去、可以听见声音的虚拟世界</strong>。一个向外，接管越来越复杂的任务；一个向内，构建越来越逼真的模拟沙盘。</p>
+<p><img   src="https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/blog-img/carbon-01-nebula.jpg"  alt="深空星云，象征前沿模型探索的未知疆域"><br><em>图片来源：Unsplash</em></p>
+<h2 id="一、Carbon-与-Genie-4：先弄清它们各自是什么"><a href="#一、Carbon-与-Genie-4：先弄清它们各自是什么" class="headerlink" title="一、Carbon 与 Genie 4：先弄清它们各自是什么"></a>一、Carbon 与 Genie 4：先弄清它们各自是什么</h2><p><strong>Gemini 4 Carbon</strong> 是谷歌在 10 月 28 日公布的前沿模型，定位是”迄今最强”，主打两项能力：<strong>网络安全（cybersecurity）<strong>与</strong>长程任务（long-horizon tasks）</strong>。它的上一代 Gemini 4 Argon 两周前才刚亮相，当时以超过百万级输出 token、长程软件任务和自动化办公能力引发讨论，但最初仅向受信任的网络安全防御伙伴开放，并进入了美国政府的自愿预提交流程。Carbon 则把这扇门开得更大，介绍期定价为每百万输入 token 4 美元、每百万输出 token 20 美元。</p>
+<p><strong>Genie 4</strong> 则属于另一条技术谱系——世界模型（World Model）。如果说聊天模型的本质是”预测下一个词”，世界模型的本质则是”预测下一个画面、下一段物理反馈”。Genie 4 目前以研究预览形式开放、通过候补名单申请，它能实时生成照片级逼真的交互世界，并且第一次<strong>原生同步生成音频</strong>：风声、海浪、背景音乐，乃至世界里角色与你实时进行的对话。</p>
+<p>一个是文本与代码世界的”执行者”，一个是物理与感官世界的”模拟器”。看似无关，但把这一周的两条新闻并置，能读出比单看任何一条都更完整的行业信号。</p>
+<h2 id="二、网络安全，为什么成了前沿模型的”阅兵场”"><a href="#二、网络安全，为什么成了前沿模型的”阅兵场”" class="headerlink" title="二、网络安全，为什么成了前沿模型的”阅兵场”"></a>二、网络安全，为什么成了前沿模型的”阅兵场”</h2><p>Carbon 发布稿里最抓眼球的，不是跑分总榜，而是一整组安全基准成绩。根据 Investing.com 等媒体援引的数据，Carbon 在更新后的 Artificial Analysis Intelligence Index v5.0 上以 <strong>59 分</strong>登顶，而在安全专项上的数字尤其具体：</p>
+<table>
+<thead>
+<tr>
+<th>基准测试</th>
+<th>考察能力</th>
+<th>Gemini 4 Carbon 成绩</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SEC-bench Pro</td>
+<td>漏洞检测</td>
+<td>88.2%</td>
+</tr>
+<tr>
+<td>ExploitGym</td>
+<td>漏洞利用（agentic）</td>
+<td>54.8%</td>
+</tr>
+<tr>
+<td>CWE-bench</td>
+<td>漏洞修补</td>
+<td>71.0%</td>
+</tr>
+</tbody></table>
+<p>这些数字背后有个值得注意的变化：网络安全已经不再是大模型的”附加题”，而成了检验<strong>智能体综合能力</strong>的主战场。原因并不复杂——一个真正能自主干活的 AI，必然要读代码、进终端、调用工具、跨文件追踪逻辑，这些动作和一名安全工程师的日常高度重合。能找漏洞的模型，往往也最擅长理解大型代码库；反过来，能自主修 bug 的智能体，同样可能被滥用于攻击。</p>
+<p><img   src="https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/blog-img/carbon-02-editor.jpg"  alt="暗色环境中显示代码的笔记本屏幕"><br><em>图片来源：Unsplash</em></p>
+<p>横向看，这条赛道已经相当拥挤。第三方机构 Simbian 的 2026 年 10 月”网络防御基准”榜单覆盖 32 个模型，评测的是完全智能体化的威胁狩猎能力：Claude Opus 5 以 45.1% 覆盖率居首，Gemini 4 Argon 以 43.7% 排第三，也是谷歌首次进入前三。而行业分析机构 NeuralTrust 指出，OpenAI 的 GPT-6 Astra 已成为首个达到其”关键网络能力”阈值的模型——换句话说，<strong>前沿网络能力正在从某一家的独家卖点，变成整个第一梯队的标配</strong>。</p>
+<p>谷歌还特别提到，Carbon 在内部团队的真实编码环境中，”失配（misalignment）”与”捏造（fabrication）”比率都有所下降。这两个词选得很诚实：对一个要长时间自主执行任务的模型来说，最大的风险往往不是”不够聪明”，而是干着干着就偏离了用户意图，或者一本正经地编造不存在的事实。安全与可靠，正在和聪明同等重要。</p>
+<h2 id="三、长程任务：从”回答得好”到”坚持把事做完”"><a href="#三、长程任务：从”回答得好”到”坚持把事做完”" class="headerlink" title="三、长程任务：从”回答得好”到”坚持把事做完”"></a>三、长程任务：从”回答得好”到”坚持把事做完”</h2><p>如果说网络安全是 Carbon 的”杀手锏标签”，那么”长程任务”才是它更本质的追求，也是 2026 年整个智能体赛道的共同母题。</p>
+<p>所谓长程任务，是指那些<strong>不能一轮对话完成、需要连续几十步甚至上万步操作</strong>的目标：比如”接手一个老旧仓库，理解全部代码，修掉三个跨模块 bug，再补上测试并提交 PR”。这类任务对模型提出了三层完全不同的要求：</p>
+<ul>
+<li><strong>状态保持</strong>：几小时的执行过程中不能忘记最初的目标和已完成的步骤；</li>
+<li><strong>错误恢复</strong>：某条命令失败、某个 API 超时之后，能自己判断、重试或换路；</li>
+<li><strong>上下文经济</strong>：在有限的上下文窗口里，决定什么该记住、什么该忘掉、什么该写进外部笔记。</li>
+</ul>
+<p>这恰好呼应了我们前几天聊过的话题——智能体的”记忆税”：能力越强、跑得越久的 Agent，越要为”记住什么”付出真金白银的算力成本。从 Argon 百万级输出 token 的设计，到 Carbon 强调的长程表现与更低的捏造率，可以清晰看到厂商的思路：<strong>上下文窗口的军备竞赛正在让位于”持久执行”的工程能力</strong>。给你一亿 token 的窗口并不难，难的是让模型在第三万步还知道自己为什么走到这里。</p>
+<p><img   src="https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/blog-img/carbon-03-cpu.jpg"  alt="主板上的 CPU 特写，智能长程任务的算力底座"><br><em>图片来源：Unsplash</em></p>
+<p>谷歌同时披露，Carbon 在编码与智能体任务上整体提升，内部实测里偏离用户意图和凭空编造的比例双双下降。这比单项跑分更有现实意义——企业真正部署一个编码智能体时，决定它能不能留下的，往往是”它会不会半夜把我仓库改坏”，而不是它在标准题上多拿了几分。</p>
+<h2 id="四、Genie-4：世界模型第一次”有了声音”"><a href="#四、Genie-4：世界模型第一次”有了声音”" class="headerlink" title="四、Genie 4：世界模型第一次”有了声音”"></a>四、Genie 4：世界模型第一次”有了声音”</h2><p>把视线从代码拉回到虚拟世界。10 月 27 日 DeepMind 的发布，在技术气质上浪漫得多。</p>
+<p>Genie 4 是谷歌第一个能<strong>原生实时生成音频</strong>的世界模型。这里的”原生”很关键：不是事后给视频配一段音轨，而是世界、画面、声音在同一时刻被联合生成——每个世界都带着属于自己的环境声，树林里有风声，海滩上有浪声；音乐随场景流动；更前沿的是<strong>交互式对话</strong>：世界里的人物会根据你的输入和正在发生的事件，实时开口回应。</p>
+<p><img   src="https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/blog-img/carbon-05-mic.jpg"  alt="录音棚中的专业电容麦克风"><br><em>图片来源：Unsplash</em></p>
+<p>据 TechCrunch 的现场报道，Genie 4 还支持在模拟进行中用自然语言随时”改戏”：移动镜头、更换天气、加入新的人物或物体。它维持一个连贯场景的最长时间从上一代 Genie 3 的约 1 分钟提升到了 <strong>2 分钟</strong>，物理效果更真实，人物动作更自然。别小看这一分钟——对实时交互模拟而言，”世界不自相矛盾地多活 60 秒”，背后是模型对物体恒常性、因果连续性和长时记忆的巨大工程进步。</p>
+<p>在架构上，Genie 4 也与 Gemini 家族深度绑定：Gemini Omni 负责把模拟”锚定”在真实世界的外观与行为规律上，其他 Gemini 模型则承担复杂推理，帮助维持模拟的连贯与延续。也就是说，<strong>语言模型当”导演”，世界模型当”摄影棚”</strong>——这个分工，恰好预告了两者合流的方向。</p>
+<h2 id="五、当”大脑”遇上”沙盘”：机器人先在模拟世界里活一遍"><a href="#五、当”大脑”遇上”沙盘”：机器人先在模拟世界里活一遍" class="headerlink" title="五、当”大脑”遇上”沙盘”：机器人先在模拟世界里活一遍"></a>五、当”大脑”遇上”沙盘”：机器人先在模拟世界里活一遍</h2><p>这次发布中最让我在意的，是一个和 Gemini Robotics 相关的研究实验：研究人员让 Gemini 4 Argon 把一项任务拆解成具体步骤，再由 Genie 4 把这些步骤<strong>实时模拟出来</strong>——在真实机器人动一根手指之前，整个任务先在虚拟世界里完整推演了一遍。</p>
+<p><img   src="https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/blog-img/carbon-04-robot.jpg"  alt="白色人形服务机器人，机器人将在世界模型中先演练再上岗"><br><em>图片来源：Unsplash</em></p>
+<p>这正是世界模型对具身智能最深的价值。训练机器人最贵、最慢、最危险的环节，永远是在物理世界里试错：机械臂摔坏一台是六位数，自动驾驶路测一次是一支团队。而一个足够真实、可实时干预、还带物理与声音反馈的模拟世界，意味着：</p>
+<ol>
+<li><strong>低成本试错</strong>：同一个抓取动作可以在一天内模拟十万次，覆盖各种光照、材质和意外；</li>
+<li><strong>边缘场景生成</strong>：用一句”地面突然结冰、行人从左侧冲出”就能生成真实世界里极难采集的长尾场景；</li>
+<li><strong>闭环验证</strong>：语言模型负责规划，世界模型负责给出”这么做会发生什么”的反馈，形成低成本的规划—执行—评估闭环。</li>
+</ol>
+<p>这和我们之前聊具身智能时提到的判断一致：2026 年机器人基础模型正在”走出演示厅”，而世界模型很可能就是那条把演示变成可靠产品的高速公路。同一天 AGIBOT 在 CES 上展示的 Genie Sim 3.0 仿真平台也在讲同一件事——<strong>谁掌握了高质量的模拟数据，谁就掌握了具身智能迭代的速度</strong>。</p>
+<h2 id="六、冷思考：热闹之下的三道坎"><a href="#六、冷思考：热闹之下的三道坎" class="headerlink" title="六、冷思考：热闹之下的三道坎"></a>六、冷思考：热闹之下的三道坎</h2><p>当然，越是热闹的发布周，越值得保持一点冷静。</p>
+<p><strong>第一，安全能力是双刃剑。</strong> 会找漏洞的模型同样会找漏洞去攻击。DeepMind 在 Gemini 4 Argon 的模型卡中明确写道，无法排除其已触及网络与生物信息风险的关键能力等级（CCL），因此专门构建了安全论证。能力与风险同源，开放范围、政府预审、防御优先的交付策略，今后会和模型本身一样成为前沿发布的”标配内容”。</p>
+<p><strong>第二，2 分钟仍然只是 2 分钟。</strong> Genie 4 的世界很惊艳，但场景一致性的上限、物理规律的严谨程度、以及”看起来对”与”物理上真的对”之间的差距，决定了它短期内更适合研究、游戏与机器人预演，还不能直接当作工程级仿真器使用。世界模型的”逼真”和”可信”之间，仍隔着一条需要数据与算力去填的鸿沟。</p>
+<p><strong>第三，智能体的可靠性仍待时间检验。</strong> Carbon 自报的失配率、捏造率下降是好消息，但厂商内部测试与真实企业环境之间永远存在距离。本周安全赛道上还能看到另一种细节——有评测指出某些头部模型在威胁狩猎中会”随机拒答”、只提交一次结果。会干活，和稳定、可预期、可审计地干活，仍是两件事。</p>
+<p><img   src="https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/blog-img/carbon-06-stars.jpg"  alt="星空下仰望银河的孤独人影，长程智能仍需在不确定性中前行"><br><em>图片来源：Unsplash</em></p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>把这一周拼起来看，图景其实相当清晰：<strong>语言模型在学会”长时间、负责任地在真实世界里行动”，世界模型在学会”逼真、实时、有声地构建虚拟世界”，而两者正在机器人这个交点上握手。</strong> Carbon 代表的执行智能，与 Genie 4 代表的模拟智能，本质上是在为同一件事铺路——让 AI 先在数字与虚拟的世界里把任务想清楚、演练透，再安全地走进物理现实。</p>
+<p>1960 年代，仿真概念的先驱们说过一句话：仿真的终极目标，是”在计算机里造出一个可以犯错的世界”。半个多世纪后，这个世界不仅有了画面，开始有了风声、音乐和人声；而走进这个世界里反复练习的，正是我们自己的智能体。或许不久之后，衡量一个 AI 是否强大的标准，不再只是”它答对了多少题”，而是——<strong>它在一个有声音、有物理、有意外的世界里，能不能稳稳地把一件长事，从头做到尾。</strong></p>
+<hr>
+<p><strong>参考来源：</strong></p>
+<ol>
+<li>Google 官方博客：《Introducing Gemini 4 Carbon》，2026-10-28</li>
+<li>Google DeepMind 官方博客：《Genie 4: A new generation of world simulation》，2026-10-27</li>
+<li>TechCrunch：《Google’s Genie 4 world model adds audio, more realistic worlds, and real-time steering》，2026-10-27</li>
+<li>Investing.com：《Google unveils Gemini 4 Carbon with advanced cybersecurity features》，2026-10-28</li>
+<li>CNET：《Google Debuts New AI Models, Genie 4 and Gemini 4 Carbon》，2026-10-28</li>
+<li>Google DeepMind：Gemini 4 Argon Model Card，2026-10</li>
+<li>Simbian：Gemini 4 Argon Cybersecurity 报告（Cyber Defense Benchmark，2026 年 10 月榜单）</li>
+<li>NeuralTrust：《Google Gemini 4 Argon Release: Benchmarks, Pricing and Security》</li>
+<li>Axios：《Google unveils Gemini 4, long-awaited answer to OpenAI and Anthropic》</li>
+<li>Yahoo Finance：AGIBOT Genie Sim 3.0 CES 2026 发布报道</li>
+</ol>
+
+                    
+                </div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/AI/">AI</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/AI-Agent/">AI Agent</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/">大语言模型</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/Gemini/">Gemini</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/Google-DeepMind/">Google DeepMind</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E4%B8%96%E7%95%8C%E6%A8%A1%E5%9E%8B/">世界模型</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a>
+                                    </li>
+                                
+                            </ul>
+                        
+                    </div>
+                    <div>
+                        
+                            <div class="post-share-container border-box">
+    <ul class="share-list-wrap border-box">
+        <li class="qq share-item border-box flex-center tooltip"
+            data-tooltip-content="分享到 QQ"
+        >
+            <i class="fa-brands fa-qq"></i>
+        </li>
+        <li class="wechat share-item border-box flex-center tooltip tooltip-img"
+            data-tooltip-content="分享到微信"
+            data-tooltip-img-tip="微信扫一扫"
+            data-tooltip-img-style="background-color: #fff; top: -10px; padding: 0.6rem 0.6rem 0.1rem 0.6rem;"
+        >
+            <i class="fa-brands fa-weixin"></i>
+        </li>
+        <li class="weibo share-item border-box flex-center tooltip"
+            data-tooltip-content="分享到微博"
+        >
+            <i class="fa-brands fa-weibo"></i>
+        </li>
+    </ul>
+</div>
+
+                        
+                    </div>
+                </div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/2026/10/28/AI%E6%9D%82%E8%B0%88-%E5%BD%93AI%E6%88%90%E4%B8%BA%E7%A7%91%E7%A0%94%E5%90%88%E4%BD%9C%E8%80%852026/"
+                                   title="AI杂谈 | 当AI成为科研合作者：从AlphaFold到Co-Scientist"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">AI杂谈 | 当AI成为科研合作者：从AlphaFold到Co-Scientist</span>
+                                        <span class="post-nav-item">下一篇</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+    <div class="comments-container border-box">
+        <div id="comments-anchor" class="comment-area-title border-box">
+            <i class="fas fa-comments"></i>&nbsp;评论
+        </div>
+        <div class="comment-plugin-fail border-box">
+    <span class="fail-tip">评论插件加载失败</span>
+    <button class="reload keep-button">点击重新加载</button>
+</div>
+<div class="comment-plugin-loading flex-center border-box">
+    <i class="loading-icon fa-solid fa-spinner fa-spin"></i>
+    <span class="load-tip">正在加载评论插件</span>
+</div>
+<script data-pjax>
+  window.KeepCommentPlugin = {}
+  window.KeepCommentPlugin.hideLoading = () => {
+    const cplDom = document.querySelector('.comments-container .comment-plugin-loading')
+    cplDom.style.display = 'none'
+  }
+  window.KeepCommentPlugin.loadFailHandle = () => {
+    window.KeepCommentPlugin.hideLoading()
+    const cpfDom = document.querySelector('.comments-container .comment-plugin-fail')
+    cpfDom.style.display = 'flex'
+    cpfDom.querySelector('.reload').addEventListener('click', () => {
+      window.location.reload()
+    })
+  }
+</script>
+
+        
+            
+
+    <div class="waline-comment-container">
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@waline/client@v2.15.8/dist/waline.css"/>
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@waline/client@v2.15.8/dist/waline-meta.css"/>
+        <div id="waline-comment"></div>
+        <script data-pjax>
+          window.KeepCommentPlugin.walineOptions = JSON.parse('{}'.replace(/&#34;/g, '"'))
+          window.KeepCommentPlugin.walineOptions.el = '#waline-comment'
+          window.KeepCommentPlugin.walineOptions.comment = '.post-comments-count'
+          window.KeepCommentPlugin.walineOptions.serverURL = 'https://comment.daitanyu.top'
+          window.KeepCommentPlugin.walineOptions.lang = 'zh-CN' || 'zh-CN'
+          window.KeepCommentPlugin.walineOptions.reaction = 'false' === 'true'
+        </script>
+
+        
+            <script 
+                    src="//cdn.jsdelivr.net/npm/@waline/client@v2.15.8/dist/waline.js"
+                    async
+                    onerror="window.KeepCommentPlugin.loadFailHandle()"
+            ></script>
+            <script 
+                    async
+            >
+              window.KeepCommentPlugin.initWaline = () => {
+                if (window?.Waline) {
+                  window.Waline.init(window.KeepCommentPlugin.walineOptions)
+                  window.KeepCommentPlugin.hideLoading()
+                } else {
+                  setTimeout(() => {
+                    window.KeepCommentPlugin.initWaline()
+                  }, 1000)
+                }
+              }
+
+              if ('false' === 'true') {
+                setTimeout(() => {
+                  window.KeepCommentPlugin.initWaline()
+                }, 1200)
+              } else {
+                window.addEventListener('DOMContentLoaded', window.KeepCommentPlugin.initWaline)
+              }
+            </script>
+        
+
+        
+    </div>
+
+
+        
+    </div>
+
+
+
+
+
+                
+            </div>
+        </div>
+
+        
+            <div class="pc-post-toc right-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80%EF%BC%9A%E4%B8%A4%E5%A4%A9%E4%B9%8B%E5%86%85%EF%BC%8C%E8%B0%B7%E6%AD%8C%E7%94%A9%E5%87%BA%E4%B8%A4%E5%BC%A0%E7%8E%8B%E7%89%8C"><span class="nav-number">1.</span> <span class="nav-text">前言：两天之内，谷歌甩出两张王牌</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81Carbon-%E4%B8%8E-Genie-4%EF%BC%9A%E5%85%88%E5%BC%84%E6%B8%85%E5%AE%83%E4%BB%AC%E5%90%84%E8%87%AA%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">2.</span> <span class="nav-text">一、Carbon 与 Genie 4：先弄清它们各自是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%90%E4%BA%86%E5%89%8D%E6%B2%BF%E6%A8%A1%E5%9E%8B%E7%9A%84%E2%80%9D%E9%98%85%E5%85%B5%E5%9C%BA%E2%80%9D"><span class="nav-number">3.</span> <span class="nav-text">二、网络安全，为什么成了前沿模型的”阅兵场”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E9%95%BF%E7%A8%8B%E4%BB%BB%E5%8A%A1%EF%BC%9A%E4%BB%8E%E2%80%9D%E5%9B%9E%E7%AD%94%E5%BE%97%E5%A5%BD%E2%80%9D%E5%88%B0%E2%80%9D%E5%9D%9A%E6%8C%81%E6%8A%8A%E4%BA%8B%E5%81%9A%E5%AE%8C%E2%80%9D"><span class="nav-number">4.</span> <span class="nav-text">三、长程任务：从”回答得好”到”坚持把事做完”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81Genie-4%EF%BC%9A%E4%B8%96%E7%95%8C%E6%A8%A1%E5%9E%8B%E7%AC%AC%E4%B8%80%E6%AC%A1%E2%80%9D%E6%9C%89%E4%BA%86%E5%A3%B0%E9%9F%B3%E2%80%9D"><span class="nav-number">5.</span> <span class="nav-text">四、Genie 4：世界模型第一次”有了声音”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E5%BD%93%E2%80%9D%E5%A4%A7%E8%84%91%E2%80%9D%E9%81%87%E4%B8%8A%E2%80%9D%E6%B2%99%E7%9B%98%E2%80%9D%EF%BC%9A%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%85%88%E5%9C%A8%E6%A8%A1%E6%8B%9F%E4%B8%96%E7%95%8C%E9%87%8C%E6%B4%BB%E4%B8%80%E9%81%8D"><span class="nav-number">6.</span> <span class="nav-text">五、当”大脑”遇上”沙盘”：机器人先在模拟世界里活一遍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E5%86%B7%E6%80%9D%E8%80%83%EF%BC%9A%E7%83%AD%E9%97%B9%E4%B9%8B%E4%B8%8B%E7%9A%84%E4%B8%89%E9%81%93%E5%9D%8E"><span class="nav-number">7.</span> <span class="nav-text">六、冷思考：热闹之下的三道坎</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="nav-number">8.</span> <span class="nav-text">结语</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="copyright-info info-item">
+    &copy;&nbsp;2026
+    
+            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">YZDR</a>
+        
+    </div>
+
+    <div class="theme-info info-item">
+        由&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;驱动&nbsp;&&nbsp;主题&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+    </div>
+
+    
+
+    
+        <div class="count-info info-item">
+            
+                <span class="count-item border-box word">
+                    <span class="item-type border-box">总字数</span>
+                    <span class="item-value border-box word">47.2k</span>
+                </span>
+            
+
+            
+                <span class="count-item border-box uv">
+                    <span class="item-type border-box">访客数</span>
+                    <span class="item-value border-box uv" id="busuanzi_value_site_uv"></span>
+                </span>
+            
+
+            
+                <span class="count-item border-box pv">
+                    <span class="item-type border-box">访问量</span>
+                    <span class="item-value border-box pv" id="busuanzi_value_site_pv"></span>
+                </span>
+            
+        </div>
+    
+
+    
+        <div class="record-info info-item">
+            
+                
+                    <div class="record-item border-box">
+                        <a class=""
+                           target="_blank"
+                           href="https://beian.miit.gov.cn/"
+                        >
+                            湘ICP备2026001287号
+                        </a>
+                    </div>
+                
+            
+        </div>
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+            <li class="tools-item flex-center go-to-comments">
+                <i class="fas fa-comment"></i>
+                <span class="post-comments-count"></span>
+            </li>
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box ">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <!-- toggle mode -->
+        
+            <li class="tools-item tool-toggle-theme-mode flex-center">
+                <i class="fas fa-moon"></i>
+            </li>
+        
+
+        <!-- rss -->
+        
+
+        <!-- to bottom -->
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        
+            <li class="tools-item go-to-comments-tablet flex-center">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80%EF%BC%9A%E4%B8%A4%E5%A4%A9%E4%B9%8B%E5%86%85%EF%BC%8C%E8%B0%B7%E6%AD%8C%E7%94%A9%E5%87%BA%E4%B8%A4%E5%BC%A0%E7%8E%8B%E7%89%8C"><span class="nav-number">1.</span> <span class="nav-text">前言：两天之内，谷歌甩出两张王牌</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81Carbon-%E4%B8%8E-Genie-4%EF%BC%9A%E5%85%88%E5%BC%84%E6%B8%85%E5%AE%83%E4%BB%AC%E5%90%84%E8%87%AA%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">2.</span> <span class="nav-text">一、Carbon 与 Genie 4：先弄清它们各自是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%90%E4%BA%86%E5%89%8D%E6%B2%BF%E6%A8%A1%E5%9E%8B%E7%9A%84%E2%80%9D%E9%98%85%E5%85%B5%E5%9C%BA%E2%80%9D"><span class="nav-number">3.</span> <span class="nav-text">二、网络安全，为什么成了前沿模型的”阅兵场”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E9%95%BF%E7%A8%8B%E4%BB%BB%E5%8A%A1%EF%BC%9A%E4%BB%8E%E2%80%9D%E5%9B%9E%E7%AD%94%E5%BE%97%E5%A5%BD%E2%80%9D%E5%88%B0%E2%80%9D%E5%9D%9A%E6%8C%81%E6%8A%8A%E4%BA%8B%E5%81%9A%E5%AE%8C%E2%80%9D"><span class="nav-number">4.</span> <span class="nav-text">三、长程任务：从”回答得好”到”坚持把事做完”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81Genie-4%EF%BC%9A%E4%B8%96%E7%95%8C%E6%A8%A1%E5%9E%8B%E7%AC%AC%E4%B8%80%E6%AC%A1%E2%80%9D%E6%9C%89%E4%BA%86%E5%A3%B0%E9%9F%B3%E2%80%9D"><span class="nav-number">5.</span> <span class="nav-text">四、Genie 4：世界模型第一次”有了声音”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E5%BD%93%E2%80%9D%E5%A4%A7%E8%84%91%E2%80%9D%E9%81%87%E4%B8%8A%E2%80%9D%E6%B2%99%E7%9B%98%E2%80%9D%EF%BC%9A%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%85%88%E5%9C%A8%E6%A8%A1%E6%8B%9F%E4%B8%96%E7%95%8C%E9%87%8C%E6%B4%BB%E4%B8%80%E9%81%8D"><span class="nav-number">6.</span> <span class="nav-text">五、当”大脑”遇上”沙盘”：机器人先在模拟世界里活一遍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E5%86%B7%E6%80%9D%E8%80%83%EF%BC%9A%E7%83%AD%E9%97%B9%E4%B9%8B%E4%B8%8B%E7%9A%84%E4%B8%89%E9%81%93%E5%9D%8E"><span class="nav-number">7.</span> <span class="nav-text">六、冷思考：热闹之下的三道坎</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="nav-number">8.</span> <span class="nav-text">结语</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
+</main>
+
+
+
+
+
+<!-- common js -->
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/toggle-theme.js"></script>
+
+<script src="/js/code-block.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+
+<!-- local search -->
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+<!-- lazyload -->
+
+
+<div class="">
+    <!-- home page -->
+    
+
+    <!-- post page -->
+    
+        <!-- post-helper -->
+        
+<script src="/js/post/post-helper.js"></script>
+
+
+        <!-- toc -->
+        
+            
+<script src="/js/post/toc.js"></script>
+
+        
+
+        <!-- copyright-info -->
+        
+
+        <!-- share -->
+        
+            
+<script src="/js/post/share.js"></script>
+
+        
+    
+
+    <!-- categories page -->
+    
+
+    <!-- links page -->
+    
+
+    <!-- photos page -->
+    
+
+    <!-- tools page -->
+    
+</div>
+
+<!-- mermaid -->
+
+
+<!-- pjax -->
+
+
+
+    
+        
+    
+
+</body>
+</html>
