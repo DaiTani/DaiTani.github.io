@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="baidu-site-verification" content="codeva-C8OslLkAbZ" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="生物信息学, 发酵工程, 智能体, AI, Hexo, Python, 技术笔记, 戴谭宇, YZDR">
+    <meta name="description" content="戴谭宇的技术笔记：生物信息学、发酵工程、AI 与智能体实践记录。">
+    <meta name="author" content="YZDR">
+    
+    <title>
+        
+            AI杂谈 | 攻守易位：当 AI 站到了漏洞挖掘的那一侧 |
+        
+        YZDR&#39;s Blog
+    </title>
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:site_name" content="YZDR&#39;s Blog" />
+    <meta property="og:title" content="AI杂谈 | 攻守易位：当 AI 站到了漏洞挖掘的那一侧" />
+    <meta property="og:description" content="戴谭宇的技术笔记：生物信息学、发酵工程、AI 与智能体实践记录。" />
+    <meta property="og:url" content="https://daitanyu.top" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="AI杂谈 | 攻守易位：当 AI 站到了漏洞挖掘的那一侧" />
+    <meta name="twitter:description" content="戴谭宇的技术笔记：生物信息学、发酵工程、AI 与智能体实践记录。" />
+    <link rel="alternate" type="application/atom+xml" title="YZDR&#39;s Blog" href="/atom.xml" />
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="/images/title.ico">
+    
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    
+        
+            
+                
+<link rel="stylesheet" href="/css/custom.css">
+
+            
+        
+    
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"daitanyu.top","root":"/","language":"zh-CN","path":"search.json"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#d35400","title":"YZDR's Blog","author":"YZDR","avatar":"/images/touxiang.jpg","logo":"/images/touxiang.jpg","favicon":"/images/title.ico"},"menu":{"home":"/                        || fa-solid fa-home","article":{"icon":"fa-solid fa-newspaper","children":[{"archives":"/archives          || fa-solid fa-box-archive"},{"tags":"/tags                  || fa-solid fa-tags"},{"categories":"/categories      || fa-solid fa-layer-group"}]},"me":{"icon":"fa-solid fa-user","children":[{"about":"/about || fa-solid fa-user-graduate"},{"links":"/links || fa-solid fa-link"}]},"emini":"https://gemini.google.com || fa-brands fa-google"},"first_screen":{"enable":true,"background_img":"/images/bg_light.jpg","background_img_dark":"/images/bg_dark.svg","description":"Keep writing and Keep loving.","hitokoto":true},"social_contact":{"enable":true,"links":{"github":"https://github.com/DaiTani","weixin":"img | /images/wechat.png","qq":"img | /images/qq.png","zhihu":"https://www.zhihu.com/people/wei-zhi-de-tian-cai","x":"https://x.com/T0nkJam","email":"2425476264@qq.com","bilibili":"https://space.bilibili.com/101675377"}},"scroll":{"progress_bar":true,"percent":true,"hide_header":true},"home":{"announcement":null,"category":false,"tag":true,"post_datetime":"updated   || fa-solid fa-star"},"post":{"author_badge":{"enable":true,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":true,"min2read":true},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":false,"share":true,"reward":{"enable":false,"img_link":null,"text":null,"icon":null}},"img_align":"center","code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"obsidian"},"toc":{"enable":true,"number":true,"expand_all":false,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":true,"site_uv":true,"site_pv":true,"page_pv":true}},"local_search":{"enable":true,"preload":true},"comment":{"enable":true,"use":"waline","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.39"},"waline":{"server_url":"https://comment.daitanyu.top","reaction":false,"version":"2.15.8"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":false},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":false},"footer":{"since":2026,"word_count":true,"site_deploy":{"enable":false,"provider":"aliyun","url":null},"record":{"enable":true,"list":[{"code":"湘ICP备2026001287号","link":"https://beian.miit.gov.cn/"}]}},"inject":{"enable":true,"css":["/css/custom.css"],"js":[null]},"root":"","source_data":{"links":[{"title":"朋友"},{"name":"Wang Saixin","link":"https://wsx.daitanyu.top/","description":"我の大学舍友","avatar":"https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/img/20260117220256846.jpg?imageSlim"},{"title":"友情链接"},{"name":"Qlu","link":"https://www.qlu.edu.cn","description":"齐鲁工业大学（山东省科学院）官方网页","avatar":"https://favicon.im/www.qlu.edu.cn?larger=true"},{"name":"齐鲁工业大学网络运维","link":"https://wlyw.qlu.edu.cn","description":"校园网络服务与支持","avatar":"https://favicon.im/wlyw.qlu.edu.cn?larger=true"},{"name":"澧县一中","link":"https://www.lxyz.net","description":"湖南省澧县第一中学官方网页","avatar":"https://favicon.im/www.lxyz.net?larger=true"},{"title":"生物信息学"},{"name":"Rosalind","link":"https://rosalind.info/","description":"生物信息练习网站","avatar":"https://favicon.im/rosalind.info?larger=true"},{"name":"Galaxy","link":"https://usegalaxy.org/","description":"基于 Web 的生物信息分析平台，无需编程即可运行流程","avatar":"https://favicon.im/usegalaxy.org?larger=true"},{"name":"Primer3Web","link":"https://primer3.ut.ee/","description":"最经典的 PCR 引物设计在线工具","avatar":"https://favicon.im/primer3.ut.ee?larger=true"},{"name":"Bioconductor","link":"https://www.bioconductor.org/","description":"基于 R 语言的开源生物信息软件包集合","avatar":"https://favicon.im/www.bioconductor.org?larger=true"},{"name":"BioRender","link":"https://biorender.com/","description":"专业的生物医学绘图工具，生信论文配图神器","avatar":"https://favicon.im/biorender.com?larger=true"},{"name":"Bioinformatics.org","link":"https://www.bioinformatics.org","description":"历史悠久的生物信息学开源社区","avatar":"https://favicon.im/www.bioinformatics.org?larger=true"},{"name":"OMICTOOLS","link":"https://omictools.com","description":"组学分析工具的百科全书","avatar":"https://favicon.im/omictools.com?larger=true"},{"name":"arXiv Quantitative Biology","link":"https://arxiv.org/list/q-bio/new","description":"追踪定量生物学领域最前沿的预印本论文","avatar":"https://favicon.im/arxiv.org?larger=true"},{"title":"核心生物数据库"},{"name":"NCBI","link":"https://www.ncbi.nlm.nih.gov/","description":"美国国家生物技术信息中心","avatar":"https://favicon.im/www.ncbi.nlm.nih.gov?larger=true"},{"name":"UniProt","link":"https://www.uniprot.org/","description":"权威的蛋白质序列和功能信息数据库","avatar":"https://favicon.im/www.uniprot.org?larger=true"},{"name":"PDB (RCSB)","link":"https://www.rcsb.org/","description":"蛋白质及核酸的三维结构数据库","avatar":"https://favicon.im/www.rcsb.org?larger=true"},{"name":"Ensembl","link":"https://www.ensembl.org/","description":"脊椎动物基因组浏览器，包含基因注释和比对","avatar":"https://favicon.im/www.ensembl.org?larger=true"},{"name":"KEGG","link":"https://www.genome.jp/kegg/","description":"京都基因与基因组百科全书，代谢通路图必备","avatar":"https://favicon.im/www.genome.jp?larger=true"},{"name":"TCGA (GDC)","link":"https://portal.gdc.cancer.gov/","description":"癌症基因组图谱，肿瘤生信分析核心数据源","avatar":"https://favicon.im/portal.gdc.cancer.gov?larger=true"},{"name":"EBI (EMBL-EBI)","link":"https://www.ebi.ac.uk/","description":"欧洲生物信息学研究所，欧洲版 NCBI","avatar":"https://favicon.im/www.ebi.ac.uk?larger=true"},{"title":"学术资源"},{"name":"PubMed","link":"https://pubmed.ncbi.nlm.nih.gov/","description":"生物医学领域最全的文献搜索数据库","avatar":"https://favicon.im/pubmed.ncbi.nlm.nih.gov?larger=true"},{"name":"Sci-Hub","link":"https://sci-hub.se/","description":"知识无国界，免费获取学术论文的工具","avatar":"https://favicon.im/sci-hub.se?larger=true"},{"name":"Connected Papers","link":"https://www.connectedpapers.com/","description":"论文引文网络可视化工具，快速了解领域脉络","avatar":"https://favicon.im/www.connectedpapers.com?larger=true"},{"name":"DeepL","link":"https://www.deepl.com/translator","description":"比谷歌翻译更专业的学术论文翻译工具","avatar":"https://favicon.im/www.deepl.com?larger=true"},{"title":"工具"},{"name":"Font Awesome","link":"https://fontawesome.com","description":"世界上最流行的图标库。","avatar":"https://favicon.im/fontawesome.com?larger=true"},{"name":"网站图标获取器","link":"https://favicon.im/zh","description":"即时获取和下载任何网站的图标。","avatar":"https://favicon.im/favicon.im?larger=true"},{"name":"Gemini","link":"https://gemini.google.com/app","description":"Google 旗下 AI 聊天对话工具","avatar":"https://favicon.im/gemini.google.com?larger=true"},{"name":"ChatGPT","link":"https://chat.openai.com/","description":"OpenAI 旗下 AI 聊天对话工具","avatar":"https://favicon.im/openai.com?larger=true"},{"name":"GitHub 镜像站","link":"https://kkgithub.com/","description":"国内极速访问 GitHub 的加速镜像","avatar":"https://favicon.im/github.com?larger=true"},{"name":"Carbon","link":"https://carbon.now.sh/","description":"将你的代码块转换成精美的分享图片","avatar":"https://favicon.im/carbon.now.sh?larger=true"},{"name":"TinyPNG","link":"https://tinypng.com/","description":"智能压缩图片，大幅提升网页加载速度","avatar":"https://favicon.im/tinypng.com?larger=true"},{"name":"Shields.io","link":"https://shields.io/","description":"为你的博客和项目生成精美的 SVG 徽章","avatar":"https://favicon.im/shields.io?larger=true"}],"tools":[{"category":"聊天 AI","anchorId":"JUU4JTgxJThBJUU1JUE0JUE5JTIwQUk0"},{"name":"ChatGPT","link":"https://chat.openai.com/","description":"OpenAI 旗下 AI 聊天对话工具","image":"/images/tools/chatgpt.svg"},{"name":"Gemini","link":"https://gemini.google.com/app","description":"Google 旗下 AI 聊天对话工具","image":"/images/tools/gemini.svg"}]},"version":"4.2.5"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left flex-start border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="/images/touxiang.jpg">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               YZDR&#39;s Blog
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc border-box">
+                <ul class="menu-list border-box">
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-home"></i>
+                                
+                                首页
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box has-sub-menu">
+                            <a class="menu-text-color border-box" href="javascript:void(0);">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-newspaper"></i>
+                                
+                                ARTICLE
+                                
+                                    <i class="menu-text-color collapse-icon fa-solid fa-angle-down"></i>
+                                
+                            </a>
+                            
+                                <ul class="sub-menu-list border-box">
+                                    
+                                        
+                                        <li class="sub-menu-item border-box ">
+                                            <a class="menu-text-color border-box flex-start" href="/archives">
+                                                
+                                                    <i class="menu-text-color sub-menu-icon fa-solid fa-box-archive"></i>
+                                                
+                                                归档
+                                            </a>
+                                        </li>
+                                    
+                                        
+                                        <li class="sub-menu-item border-box ">
+                                            <a class="menu-text-color border-box flex-start" href="/tags">
+                                                
+                                                    <i class="menu-text-color sub-menu-icon fa-solid fa-tags"></i>
+                                                
+                                                标签
+                                            </a>
+                                        </li>
+                                    
+                                        
+                                        <li class="sub-menu-item border-box ">
+                                            <a class="menu-text-color border-box flex-start" href="/categories">
+                                                
+                                                    <i class="menu-text-color sub-menu-icon fa-solid fa-layer-group"></i>
+                                                
+                                                分类
+                                            </a>
+                                        </li>
+                                    
+                                </ul>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box has-sub-menu">
+                            <a class="menu-text-color border-box" href="javascript:void(0);">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-user"></i>
+                                
+                                我的
+                                
+                                    <i class="menu-text-color collapse-icon fa-solid fa-angle-down"></i>
+                                
+                            </a>
+                            
+                                <ul class="sub-menu-list border-box">
+                                    
+                                        
+                                        <li class="sub-menu-item border-box ">
+                                            <a class="menu-text-color border-box flex-start" href="/about">
+                                                
+                                                    <i class="menu-text-color sub-menu-icon fa-solid fa-user-graduate"></i>
+                                                
+                                                关于
+                                            </a>
+                                        </li>
+                                    
+                                        
+                                        <li class="sub-menu-item border-box ">
+                                            <a class="menu-text-color border-box flex-start" href="/links">
+                                                
+                                                    <i class="menu-text-color sub-menu-icon fa-solid fa-link"></i>
+                                                
+                                                友链
+                                            </a>
+                                        </li>
+                                    
+                                </ul>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" target="_blank" rel="noopener" href="https://gemini.google.com">
+                                
+                                    <i class="menu-text-color menu-icon fa-brands fa-google"></i>
+                                
+                                EMINI
+                                
+                            </a>
+                            
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="menu-text-color fas search fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile border-box flex-start">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list border-box">
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-home"></i>
+                                </span>
+                            
+                            首页
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box has-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="javascript:void(0);">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-newspaper"></i>
+                                </span>
+                            
+                            ARTICLE
+                        </a>
+                        
+                            <i class="right-side collapse-icon fa-solid fa-angle-left"></i>
+                        
+                    </label>
+                    
+                        <ul class="drawer-sub-menu-list border-box">
+                            
+                                
+                                <li class="sub-menu-item border-box">
+                                    <a class="drawer-menu-text-color border-box flex-start" href="/archives">
+                                        
+                                            <span class="sub-menu-icon-wrap border-box flex-center">
+                                                <i class="drawer-menu-text-color sub-menu-icon fa-solid fa-box-archive"></i>
+                                            </span>
+                                        
+                                        归档
+                                    </a>
+                                </li>
+                            
+                                
+                                <li class="sub-menu-item border-box">
+                                    <a class="drawer-menu-text-color border-box flex-start" href="/tags">
+                                        
+                                            <span class="sub-menu-icon-wrap border-box flex-center">
+                                                <i class="drawer-menu-text-color sub-menu-icon fa-solid fa-tags"></i>
+                                            </span>
+                                        
+                                        标签
+                                    </a>
+                                </li>
+                            
+                                
+                                <li class="sub-menu-item border-box">
+                                    <a class="drawer-menu-text-color border-box flex-start" href="/categories">
+                                        
+                                            <span class="sub-menu-icon-wrap border-box flex-center">
+                                                <i class="drawer-menu-text-color sub-menu-icon fa-solid fa-layer-group"></i>
+                                            </span>
+                                        
+                                        分类
+                                    </a>
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box has-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="javascript:void(0);">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-user"></i>
+                                </span>
+                            
+                            我的
+                        </a>
+                        
+                            <i class="right-side collapse-icon fa-solid fa-angle-left"></i>
+                        
+                    </label>
+                    
+                        <ul class="drawer-sub-menu-list border-box">
+                            
+                                
+                                <li class="sub-menu-item border-box">
+                                    <a class="drawer-menu-text-color border-box flex-start" href="/about">
+                                        
+                                            <span class="sub-menu-icon-wrap border-box flex-center">
+                                                <i class="drawer-menu-text-color sub-menu-icon fa-solid fa-user-graduate"></i>
+                                            </span>
+                                        
+                                        关于
+                                    </a>
+                                </li>
+                            
+                                
+                                <li class="sub-menu-item border-box">
+                                    <a class="drawer-menu-text-color border-box flex-start" href="/links">
+                                        
+                                            <span class="sub-menu-icon-wrap border-box flex-center">
+                                                <i class="drawer-menu-text-color sub-menu-icon fa-solid fa-link"></i>
+                                            </span>
+                                        
+                                        友链
+                                    </a>
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" target="_blank" rel="noopener" href="https://gemini.google.com">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-brands fa-google"></i>
+                                </span>
+                            
+                            EMINI
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+                
+
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+
+            <div class="post-content-bottom border-box">
+                
+                    <div class="post-title">
+                        AI杂谈 | 攻守易位：当 AI 站到了漏洞挖掘的那一侧
+                    </div>
+                
+
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="/images/touxiang.jpg">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">YZDR</span>
+                                
+                                    <span class="author-badge">Lv4</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2026-11-16 10:00:00</span>
+            </span>
+
+            
+                <span class="meta-info-item post-update-date">
+                    <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                    <span class="datetime" data-updated="Mon Nov 16 2026 10:19:04 GMT+0800">2026-11-16 10:19:04</span>
+                </span>
+            
+        
+
+        
+            <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul class="post-category-ul">
+                    
+                            <li class="category-item"><a href="/categories/AI%E6%9D%82%E8%B0%88/">AI杂谈</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/">大语言模型</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/AI-Agent/">AI Agent</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/AI%E5%AE%89%E5%85%A8/">AI安全</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E7%A7%91%E6%8A%80%E8%AF%84%E8%AE%BA/">科技评论</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+            <span class="meta-info-item post-wordcount">
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>3.5k 字</span>
+            </span>
+        
+        
+            <span class="meta-info-item post-min2read">
+                <i class="icon fas fa-clock"></i>&nbsp;<span>12 分钟</span>
+            </span>
+        
+        
+            <span class="meta-info-item post-pv">
+                <i class="icon fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+            </span>
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <p>2026 年 2 月，《International AI Safety Report 2026》发布。这份由图灵奖得主 Yoshua Bengio 领衔、100 多位 AI 专家撰写、被 30 多个国家与国际组织背书的报告里，有一句话被很多人转发：</p>
+<blockquote>
+<p>在一场顶级网络安全竞赛中，一个 AI 智能体找出了真实软件里 <strong>77% 的漏洞</strong>，在 400 多支（以人类为主的）参赛队伍中排进<strong>前 5%</strong>。</p>
+</blockquote>
+<p><img   src="https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/blog-img/sec-2026-01.jpg"  alt="多把挂锁象征软件安全的层层设防"></p>
+<p><em>图片：Burst by Shopify 免费图片库</em></p>
+<p>77% 这个数字之所以刺眼，不是因为它有多高，而是因为它把攻防的默认前提翻了过来。过去十年里，我们的默认假设是：漏洞是稀缺资源，挖掘漏洞需要稀缺的人力，而 AI 最多是帮人类写点脚本、跑个模糊测试。今天这个前提正在松动——AI 不再是防守方的助手，它同时也是攻击方手里那把更快的铲子。</p>
+<p>这篇文章想讲三件事：2026 年到底有哪些可验证的证据；产业界给出的答案是”三层智能体安全”；以及为什么”再加一道过滤”这种单点思维一定会失效。</p>
+<hr>
+<h2 id="一、2026-年的安全证据盘点"><a href="#一、2026-年的安全证据盘点" class="headerlink" title="一、2026 年的安全证据盘点"></a>一、2026 年的安全证据盘点</h2><p>先别急着下结论。把散落的证据摊开看，会发现一个清晰的分层结构：AI 在<strong>发现</strong>漏洞上已经很强，在<strong>自主完成攻击</strong>上仍然做不到，在<strong>治理</strong>上则明显滞后。</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>2026 年的证据</th>
+<th>出处</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>发现漏洞</td>
+<td>AI 智能体在一场高水平安全竞赛中识别出真实软件 77% 的漏洞，进入 400+ 队伍前 5%</td>
+<td>International AI Safety Report 2026</td>
+</tr>
+<tr>
+<td>实战成果</td>
+<td>Google 的 Big Sleep 智能体曾定位一个关键的内存破坏类漏洞</td>
+<td>同上</td>
+</tr>
+<tr>
+<td>攻击自动化</td>
+<td>AI 已自动化部分攻击流程，但目前仍无法自主完成整条攻击链；已出现至少一起涉及半自主 AI 的真实事件</td>
+<td>同上</td>
+</tr>
+<tr>
+<td>攻防对比</td>
+<td>通用 AI 最终更利好攻击方还是防守方，目前<strong>仍不确定</strong></td>
+<td>同上</td>
+</tr>
+<tr>
+<td>智能体规模</td>
+<td>DeepMind 已分析超过 <strong>100 万个编码智能体任务</strong>的任务轨迹</td>
+<td>Google DeepMind，2026-06-18</td>
+</tr>
+<tr>
+<td>攻击面扩大</td>
+<td>IBM X-Force 2026 指数：以利用公网应用为起点的攻击同比上升 <strong>44%</strong>，部分由缺失认证控制与 AI 辅助的漏洞发现推动</td>
+<td>IBM X-Force Threat Intelligence Index 2026</td>
+</tr>
+<tr>
+<td>标准制定</td>
+<td>NIST 于 2026 年 1 月发布”AI 智能体系统安全考量”信息请求（RFI），开始征集具体漏洞与缓解措施实例</td>
+<td>NIST</td>
+</tr>
+<tr>
+<td>企业侧焦虑</td>
+<td>76% 安全从业者担心智能体带来的安全风险；仅 37% 的组织有正式的智能体使用策略</td>
+<td>Darktrace《2026 State of AI Cybersecurity》</td>
+</tr>
+</tbody></table>
+<p>这份表里最值得注意的是最后一行和倒数第二行的落差：<strong>风险认知已经普及，治理机制还没跟上</strong>。</p>
+<p><img   src="https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/blog-img/sec-2026-03.jpg"  alt="开发者在电脑前审查代码"></p>
+<p><em>图片：Burst by Shopify 免费图片库</em></p>
+<p>另一组数据可以从另一个角度印证这种”认知跑在治理前面”的错位。据 LangChain 对 1300 多名从业者的调查，只有 52.4% 的团队跑离线评测，37.3% 跑在线评测；但在已经让智能体进入生产环境的组织中，94% 建了某种形式的可观测性，71.5% 做到了完整的链路追踪。也就是说：<strong>大家愿意”看”智能体在做什么，却还没有习惯”考”它。</strong></p>
+<p>而在智能体内部，提示注入（prompt injection）已经连续多年稳居 OWASP 大模型应用安全风险榜首——智能体从邮件、网页、代码仓库里读到的每一段文本，都可能是攻击者的指令入口。</p>
+<hr>
+<h2 id="二、三层智能体安全：把边界重新画一遍"><a href="#二、三层智能体安全：把边界重新画一遍" class="headerlink" title="二、三层智能体安全：把边界重新画一遍"></a>二、三层智能体安全：把边界重新画一遍</h2><p>面对智能体的安全问题，DeepMind 在 2026 年 6 月发布的《Securing the future of AI agents》给出了一个框架。它的写作动机很朴素：他们自己就在公司内部跑着大量智能体，而”越来越有能力、但对齐并不完美”的模型正拿着生产系统的钥匙。</p>
+<p>这篇文章里有两个具体动作值得记下来。</p>
+<p><strong>第一，分析方法变了。</strong> DeepMind 团队分析了超过一百万个编码智能体任务，结论是：靠关键词过滤几乎抓不住真正危险的行为。他们转而寻找<strong>高信号的行为模式</strong>——不是”这句话里有没有 delete”，而是”这个智能体在什么上下文下、连续做了什么动作”。</p>
+<p><strong>第二，监控从离线走向实时。</strong> 他们为 Gemini Spark 智能体搭建了实时监控系统，能够在发生非预期的数据删除时立刻响应，而不是等任务结束后复盘日志。</p>
+<p><strong>第三，也是最关键的，是”三层”这个框架本身。</strong></p>
+<p><img   src="https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/blog-img/sec-2026-02.jpg"  alt="多把挂锁象征软件安全的层层设防"></p>
+<p><em>图片：Burst by Shopify 免费图片库</em></p>
+<p>DeepMind 在同一篇文章里发布了面向政策制定者的技术框架 <strong>《Three Layers of Agent Security》</strong>：</p>
+<ol>
+<li><strong>个体智能体层</strong>：单个智能体自身的安全——权限边界、工具调用约束、输入输出过滤、行为模式监控、失控时的熔断。</li>
+<li><strong>多智能体系统层</strong>：智能体之间的协作安全——一个智能体被诱导后，如何通过共享上下文、任务分派、消息通道污染其他智能体。</li>
+<li><strong>生态赋能层</strong>：组织与平台层——身份与凭据管理、审计与追责、部署与监控基础设施、跨组织的责任划分。</li>
+</ol>
+<p>这个划分之所以重要，是因为它承认了一个此前被回避的事实：<strong>智能体安全不是”模型安全”的子问题</strong>。模型本身可能完全对齐，问题出在它被授予的权限、它与其他智能体的连接方式、以及组织给它的兜底机制上。你可以想象一个从不越狱的模型，被塞进一把有全部生产数据库读权限的钥匙——风险不在模型，在钥匙。</p>
+<p><img   src="https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/blog-img/sec-2026-06.jpg"  alt="主板特写，象征智能体脚下的基础设施层"></p>
+<p><em>图片：Burst by Shopify 免费图片库</em></p>
+<hr>
+<h2 id="三、为什么单点防护一定会失效"><a href="#三、为什么单点防护一定会失效" class="headerlink" title="三、为什么单点防护一定会失效"></a>三、为什么单点防护一定会失效</h2><p>DeepMind 的框架里最核心的洞察，其实是报告和框架共用的一个模型：<strong>防御纵深（defence-in-depth）与”瑞士奶酪”模型</strong>。</p>
+<p>这个模型大家都熟：每层防御像一片奶酪，漏洞像孔洞。单独任何一层都布满小孔，但当它们排成一列、孔洞互不重合时，危险要穿过所有层才能抵达目标。</p>
+<p>《International AI Safety Report 2026》把这个模型画进了正式的风险管理框架，并明确指出：<strong>当前的风险管理技术都有缺陷，但把它们叠起来，能提供强得多的保护</strong>。报告把缓释手段分为四个层次：</p>
+<ul>
+<li><strong>训练期干预（training interventions）</strong>：在模型还没成型时就把安全偏好写进权重；</li>
+<li><strong>部署期多层防御（defence-in-depth）</strong>：输入过滤 + 输出过滤 + 内容监控 + 工具沙箱；</li>
+<li><strong>部署后监控（post-deployment monitoring）</strong>：实时发现运行中的异常；</li>
+<li><strong>社会韧性（societal resilience）</strong>：组织、基础设施与制度层面的兜底能力。</li>
+</ul>
+<p>对智能体而言，这四层缺一不可。而在实际落地中，最容易被砍掉的恰恰是第一层和第四层——训练期干预成本高，产出难量化；社会韧性需要跨组织协作，短期看不到收益。</p>
+<p>更棘手的是攻防的不对称性。同一份模型能力，既能做攻击工具，也能做防守工具。报告因此把”通用 AI 最终更利好谁”明确列为<strong>未决问题</strong>，而不是给出乐观结论。</p>
+<p><img   src="https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/blog-img/sec-2026-05.jpg"  alt="红色背光的键盘，象征攻防的另一面"></p>
+<p><em>图片：Burst by Shopify 免费图片库</em></p>
+<p>对于使用智能体的组织来说，这意味着一个不太舒服的推论：<strong>你无法靠”我的模型是安全的”来免责。</strong> 你真正需要回答的问题是——这个智能体拿到了什么权限？它的凭据由谁管？它的行为轨迹有没有被记录？它出错时，谁能按下停止键？</p>
+<hr>
+<h2 id="四、企业侧的现实：焦虑、缺口与治理债"><a href="#四、企业侧的现实：焦虑、缺口与治理债" class="headerlink" title="四、企业侧的现实：焦虑、缺口与治理债"></a>四、企业侧的现实：焦虑、缺口与治理债</h2><p>Darktrace 的 2026 年调研把企业侧的心态描画得相当具体：</p>
+<ul>
+<li><strong>76%</strong> 的安全从业者担心在组织中引入智能体的安全影响；</li>
+<li><strong>73%</strong> 认为 AI 驱动的威胁已经对所在组织产生显著影响；</li>
+<li><strong>87%</strong> 认为 AI 显著增加了攻击量，<strong>89%</strong> 认为攻击变得更复杂；</li>
+<li>但只有 <strong>37%</strong> 的组织制定了正式的智能体策略。</li>
+</ul>
+<p>风险排序上，<strong>数据泄露是首要风险（61%）</strong>，其次是违反数据安全与隐私法规（56%），再次是 AI 工具的误用或滥用（51%）。安全专家把原因归结为三点：智能体能够接触到敏感数据、能够直接与关键系统交互、以及围绕其使用的治理机制尚不成熟。</p>
+<p><img   src="https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/blog-img/sec-2026-04.jpg"  alt="网线连接，象征多智能体之间的通信链路"></p>
+<p><em>图片：Burst by Shopify 免费图片库</em></p>
+<p>“87% 攻击量增加”和”37% 有正式策略”这两个数字放在一起，构成了当下最真实的写照：<strong>威胁侧的 AI 化已经完成了规模化部署，防守侧的组织化还停留在试点。</strong></p>
+<p>这里需要补充一个常被忽略的维度：智能体带来的不只是”更强的攻击者”，还有”更宽的自身攻击面”。一个能读邮件、能调 API、能写文件的智能体，本身就是一条可被利用的供应链节点。当它被提示注入攻陷时，攻击者获得的往往不是这个智能体，而是它背后那个”能读生产库、能改代码、能发邮件”的身份。</p>
+<blockquote>
+<p>需要特别说明的是，AI 用于安全测试与漏洞研究存在明确的合法边界：在自有系统或获得书面授权的范围内进行防御性测试是安全实践，而利用同类能力入侵他人系统则是违法。这一节讨论的技术趋势不构成任何超出授权范围的操作指引。</p>
+</blockquote>
+<hr>
+<h2 id="五、挑战与展望"><a href="#五、挑战与展望" class="headerlink" title="五、挑战与展望"></a>五、挑战与展望</h2><p>把上面这些拼在一起，可以看到未来一到两年会浮现的几个真问题。</p>
+<p><strong>其一，评测科学的滞后。</strong> 普林斯顿大学一份关于 AI 智能体评测趋势的综述列出了 33 个待解方向，其中包括：如何度量重复交互中累积的伤害、如何在生态效度与参与者安全之间平衡、如何在不牺牲评测真实性的前提下防止”评测本身被攻击”。智能体评测正在从”跑分”转向”科学”，但科学方法还没建好。</p>
+<p><strong>其二，可追溯性的缺失。</strong> 一个智能体在几百次工具调用后做出错误决策时，责任应该落在哪里？模型开发者？提示词作者？工具提供方？还是批准它上线的那个”按下回车的人”？没有清晰的追责链条，分层防御的每一层都会退化成形式主义。</p>
+<p><strong>其三，速度不匹配。</strong> 智能体版本迭代以周计，而安全策略的制定、评审与部署通常以月计，中间还夹着采购流程。DeepMind 团队的做法——用一百万个任务的轨迹去挖掘行为模式，再把监控做成实时——本质上是把”策略制定”的部分工作交给了自动化。这个方向大概率会成为标准配置。</p>
+<p><strong>其四，也是最乐观的一条：能力红利是共享的。</strong> 同一个模型，既帮攻击者也帮防守者。Big Sleep 找到的内存破坏漏洞，理论上是在攻击者之前被发现的。如果防守者能比攻击者更早用上同一批工具，那么”77% 找漏洞能力”这件事对防守方的价值，取决于<strong>部署速度差</strong>——谁先把 AI 安全智能体接进自己的 CI&#x2F;CD 和资产清单，谁就先受益。</p>
+<hr>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>2026 年的安全格局有一个不太舒服但必须承认的结论：<strong>攻防的天平并没有倒向某一方，而是被抽走了”人力稀缺”这个平衡砝码。</strong></p>
+<p>发现漏洞的成本正在塌陷，这个趋势不可逆。我们能做的不是阻止它，而是让自己的防御体系跑得比攻击链更快、层级比攻击面更深、把风险控制从”模型安全”扩展到”权限与生态安全”。</p>
+<p>DeepMind 那三个层次——个体智能体、多智能体系统、赋能生态——听上去朴素，但这正是它可落地的原因：每一层都对应着组织里真实存在的角色和责任边界。而《International AI Safety Report 2026》的瑞士奶酪模型提醒我们另一件事：不要指望任何一块奶酪是无孔的。</p>
+<blockquote>
+<p>安全从来不是一道被攻破的墙，而是一段永远在修补的持续过程。</p>
+<p>——本文作者</p>
+</blockquote>
+<hr>
+<h3 id="参考来源"><a href="#参考来源" class="headerlink" title="参考来源"></a>参考来源</h3><ol>
+<li>International AI Safety Report 2026，internationalaisafetyreport.org（含 Extended Summary for Policymakers，2026 年 2 月）</li>
+<li>Google DeepMind，<em>Securing the future of AI agents</em>，Rohin Shah &amp; Four Flynn，2026 年 6 月 18 日（含《Three Layers of Agent Security》技术框架）</li>
+<li>IBM X-Force Threat Intelligence Index 2026</li>
+<li>NIST，<em>Security Considerations for AI Agent Systems</em>（RFI，2026 年 1 月）</li>
+<li>Darktrace，《2026 State of AI Cybersecurity Report》</li>
+<li>LangChain，《State of AI Agents &#x2F; State of Agent Engineering》（1300+ 从业者调研）</li>
+<li>Princeton University，《Emerging Trends in AI Agent Evaluation》</li>
+<li>OWASP Top 10 for LLM Applications（提示注入风险条目）</li>
+</ol>
+<p><em>本文配图来自 Burst by Shopify 免费图片库（Burst License，可免费用于商业用途）；技术事实与数据均标注来源，欢迎按图索骥核对。</em></p>
+
+                    
+                </div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/">大语言模型</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/AI-Agent/">AI Agent</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/AI%E5%AE%89%E5%85%A8/">AI安全</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E7%A7%91%E6%8A%80%E8%AF%84%E8%AE%BA/">科技评论</a>
+                                    </li>
+                                
+                            </ul>
+                        
+                    </div>
+                    <div>
+                        
+                            <div class="post-share-container border-box">
+    <ul class="share-list-wrap border-box">
+        <li class="qq share-item border-box flex-center tooltip"
+            data-tooltip-content="分享到 QQ"
+        >
+            <i class="fa-brands fa-qq"></i>
+        </li>
+        <li class="wechat share-item border-box flex-center tooltip tooltip-img"
+            data-tooltip-content="分享到微信"
+            data-tooltip-img-tip="微信扫一扫"
+            data-tooltip-img-style="background-color: #fff; top: -10px; padding: 0.6rem 0.6rem 0.1rem 0.6rem;"
+        >
+            <i class="fa-brands fa-weixin"></i>
+        </li>
+        <li class="weibo share-item border-box flex-center tooltip"
+            data-tooltip-content="分享到微博"
+        >
+            <i class="fa-brands fa-weibo"></i>
+        </li>
+    </ul>
+</div>
+
+                        
+                    </div>
+                </div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/2026/11/15/AI%E6%9D%82%E8%B0%88-%E6%89%A9%E6%95%A3%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B2026/"
+                                   title="AI杂谈 | 扩散语言模型：当 AI 不再一个词一个词地说出来"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">AI杂谈 | 扩散语言模型：当 AI 不再一个词一个词地说出来</span>
+                                        <span class="post-nav-item">下一篇</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+    <div class="comments-container border-box">
+        <div id="comments-anchor" class="comment-area-title border-box">
+            <i class="fas fa-comments"></i>&nbsp;评论
+        </div>
+        <div class="comment-plugin-fail border-box">
+    <span class="fail-tip">评论插件加载失败</span>
+    <button class="reload keep-button">点击重新加载</button>
+</div>
+<div class="comment-plugin-loading flex-center border-box">
+    <i class="loading-icon fa-solid fa-spinner fa-spin"></i>
+    <span class="load-tip">正在加载评论插件</span>
+</div>
+<script data-pjax>
+  window.KeepCommentPlugin = {}
+  window.KeepCommentPlugin.hideLoading = () => {
+    const cplDom = document.querySelector('.comments-container .comment-plugin-loading')
+    cplDom.style.display = 'none'
+  }
+  window.KeepCommentPlugin.loadFailHandle = () => {
+    window.KeepCommentPlugin.hideLoading()
+    const cpfDom = document.querySelector('.comments-container .comment-plugin-fail')
+    cpfDom.style.display = 'flex'
+    cpfDom.querySelector('.reload').addEventListener('click', () => {
+      window.location.reload()
+    })
+  }
+</script>
+
+        
+            
+
+    <div class="waline-comment-container">
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@waline/client@v2.15.8/dist/waline.css"/>
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@waline/client@v2.15.8/dist/waline-meta.css"/>
+        <div id="waline-comment"></div>
+        <script data-pjax>
+          window.KeepCommentPlugin.walineOptions = JSON.parse('{}'.replace(/&#34;/g, '"'))
+          window.KeepCommentPlugin.walineOptions.el = '#waline-comment'
+          window.KeepCommentPlugin.walineOptions.comment = '.post-comments-count'
+          window.KeepCommentPlugin.walineOptions.serverURL = 'https://comment.daitanyu.top'
+          window.KeepCommentPlugin.walineOptions.lang = 'zh-CN' || 'zh-CN'
+          window.KeepCommentPlugin.walineOptions.reaction = 'false' === 'true'
+        </script>
+
+        
+            <script 
+                    src="//cdn.jsdelivr.net/npm/@waline/client@v2.15.8/dist/waline.js"
+                    async
+                    onerror="window.KeepCommentPlugin.loadFailHandle()"
+            ></script>
+            <script 
+                    async
+            >
+              window.KeepCommentPlugin.initWaline = () => {
+                if (window?.Waline) {
+                  window.Waline.init(window.KeepCommentPlugin.walineOptions)
+                  window.KeepCommentPlugin.hideLoading()
+                } else {
+                  setTimeout(() => {
+                    window.KeepCommentPlugin.initWaline()
+                  }, 1000)
+                }
+              }
+
+              if ('false' === 'true') {
+                setTimeout(() => {
+                  window.KeepCommentPlugin.initWaline()
+                }, 1200)
+              } else {
+                window.addEventListener('DOMContentLoaded', window.KeepCommentPlugin.initWaline)
+              }
+            </script>
+        
+
+        
+    </div>
+
+
+        
+    </div>
+
+
+
+
+
+                
+            </div>
+        </div>
+
+        
+            <div class="pc-post-toc right-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%812026-%E5%B9%B4%E7%9A%84%E5%AE%89%E5%85%A8%E8%AF%81%E6%8D%AE%E7%9B%98%E7%82%B9"><span class="nav-number">1.</span> <span class="nav-text">一、2026 年的安全证据盘点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E4%B8%89%E5%B1%82%E6%99%BA%E8%83%BD%E4%BD%93%E5%AE%89%E5%85%A8%EF%BC%9A%E6%8A%8A%E8%BE%B9%E7%95%8C%E9%87%8D%E6%96%B0%E7%94%BB%E4%B8%80%E9%81%8D"><span class="nav-number">2.</span> <span class="nav-text">二、三层智能体安全：把边界重新画一遍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88%E5%8D%95%E7%82%B9%E9%98%B2%E6%8A%A4%E4%B8%80%E5%AE%9A%E4%BC%9A%E5%A4%B1%E6%95%88"><span class="nav-number">3.</span> <span class="nav-text">三、为什么单点防护一定会失效</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E4%BC%81%E4%B8%9A%E4%BE%A7%E7%9A%84%E7%8E%B0%E5%AE%9E%EF%BC%9A%E7%84%A6%E8%99%91%E3%80%81%E7%BC%BA%E5%8F%A3%E4%B8%8E%E6%B2%BB%E7%90%86%E5%80%BA"><span class="nav-number">4.</span> <span class="nav-text">四、企业侧的现实：焦虑、缺口与治理债</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E6%8C%91%E6%88%98%E4%B8%8E%E5%B1%95%E6%9C%9B"><span class="nav-number">5.</span> <span class="nav-text">五、挑战与展望</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="nav-number">6.</span> <span class="nav-text">结语</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%9D%A5%E6%BA%90"><span class="nav-number">6.1.</span> <span class="nav-text">参考来源</span></a></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="copyright-info info-item">
+    &copy;&nbsp;2026
+    
+            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">YZDR</a>
+        
+    </div>
+
+    <div class="theme-info info-item">
+        由&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;驱动&nbsp;&&nbsp;主题&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+    </div>
+
+    
+
+    
+        <div class="count-info info-item">
+            
+                <span class="count-item border-box word">
+                    <span class="item-type border-box">总字数</span>
+                    <span class="item-value border-box word">90.7k</span>
+                </span>
+            
+
+            
+                <span class="count-item border-box uv">
+                    <span class="item-type border-box">访客数</span>
+                    <span class="item-value border-box uv" id="busuanzi_value_site_uv"></span>
+                </span>
+            
+
+            
+                <span class="count-item border-box pv">
+                    <span class="item-type border-box">访问量</span>
+                    <span class="item-value border-box pv" id="busuanzi_value_site_pv"></span>
+                </span>
+            
+        </div>
+    
+
+    
+        <div class="record-info info-item">
+            
+                
+                    <div class="record-item border-box">
+                        <a class=""
+                           target="_blank"
+                           href="https://beian.miit.gov.cn/"
+                        >
+                            湘ICP备2026001287号
+                        </a>
+                    </div>
+                
+            
+        </div>
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+            <li class="tools-item flex-center go-to-comments">
+                <i class="fas fa-comment"></i>
+                <span class="post-comments-count"></span>
+            </li>
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box ">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <!-- toggle mode -->
+        
+            <li class="tools-item tool-toggle-theme-mode flex-center">
+                <i class="fas fa-moon"></i>
+            </li>
+        
+
+        <!-- rss -->
+        
+
+        <!-- to bottom -->
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        
+            <li class="tools-item go-to-comments-tablet flex-center">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%812026-%E5%B9%B4%E7%9A%84%E5%AE%89%E5%85%A8%E8%AF%81%E6%8D%AE%E7%9B%98%E7%82%B9"><span class="nav-number">1.</span> <span class="nav-text">一、2026 年的安全证据盘点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E4%B8%89%E5%B1%82%E6%99%BA%E8%83%BD%E4%BD%93%E5%AE%89%E5%85%A8%EF%BC%9A%E6%8A%8A%E8%BE%B9%E7%95%8C%E9%87%8D%E6%96%B0%E7%94%BB%E4%B8%80%E9%81%8D"><span class="nav-number">2.</span> <span class="nav-text">二、三层智能体安全：把边界重新画一遍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88%E5%8D%95%E7%82%B9%E9%98%B2%E6%8A%A4%E4%B8%80%E5%AE%9A%E4%BC%9A%E5%A4%B1%E6%95%88"><span class="nav-number">3.</span> <span class="nav-text">三、为什么单点防护一定会失效</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E4%BC%81%E4%B8%9A%E4%BE%A7%E7%9A%84%E7%8E%B0%E5%AE%9E%EF%BC%9A%E7%84%A6%E8%99%91%E3%80%81%E7%BC%BA%E5%8F%A3%E4%B8%8E%E6%B2%BB%E7%90%86%E5%80%BA"><span class="nav-number">4.</span> <span class="nav-text">四、企业侧的现实：焦虑、缺口与治理债</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E6%8C%91%E6%88%98%E4%B8%8E%E5%B1%95%E6%9C%9B"><span class="nav-number">5.</span> <span class="nav-text">五、挑战与展望</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="nav-number">6.</span> <span class="nav-text">结语</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%9D%A5%E6%BA%90"><span class="nav-number">6.1.</span> <span class="nav-text">参考来源</span></a></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
+</main>
+
+
+
+
+
+<!-- common js -->
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/toggle-theme.js"></script>
+
+<script src="/js/code-block.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+
+<!-- local search -->
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+<!-- lazyload -->
+
+
+<div class="">
+    <!-- home page -->
+    
+
+    <!-- post page -->
+    
+        <!-- post-helper -->
+        
+<script src="/js/post/post-helper.js"></script>
+
+
+        <!-- toc -->
+        
+            
+<script src="/js/post/toc.js"></script>
+
+        
+
+        <!-- copyright-info -->
+        
+
+        <!-- share -->
+        
+            
+<script src="/js/post/share.js"></script>
+
+        
+    
+
+    <!-- categories page -->
+    
+
+    <!-- links page -->
+    
+
+    <!-- photos page -->
+    
+
+    <!-- tools page -->
+    
+</div>
+
+<!-- mermaid -->
+
+
+<!-- pjax -->
+
+
+
+    
+        
+    
+
+</body>
+</html>
