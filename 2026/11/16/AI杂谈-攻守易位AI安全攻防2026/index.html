@@ -424,7 +424,7 @@
             
                 <span class="meta-info-item post-update-date">
                     <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                    <span class="datetime" data-updated="Mon Nov 16 2026 10:19:04 GMT+0800">2026-11-16 10:19:04</span>
+                    <span class="datetime" data-updated="Mon Nov 16 2026 10:24:13 GMT+0800">2026-11-16 10:24:13</span>
                 </span>
             
         
@@ -466,7 +466,7 @@
         
         
             <span class="meta-info-item post-wordcount">
-                <i class="icon fas fa-file-word"></i>&nbsp;<span>3.5k 字</span>
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>3.4k 字</span>
             </span>
         
         
@@ -498,7 +498,7 @@
 <p>在一场顶级网络安全竞赛中，一个 AI 智能体找出了真实软件里 <strong>77% 的漏洞</strong>，在 400 多支（以人类为主的）参赛队伍中排进<strong>前 5%</strong>。</p>
 </blockquote>
 <p><img   src="https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/blog-img/sec-2026-01.jpg"  alt="多把挂锁象征软件安全的层层设防"></p>
-<p><em>图片：Burst by Shopify 免费图片库</em></p>
+<p><em>图片：Unsplash 免费图片库</em></p>
 <p>77% 这个数字之所以刺眼，不是因为它有多高，而是因为它把攻防的默认前提翻了过来。过去十年里，我们的默认假设是：漏洞是稀缺资源，挖掘漏洞需要稀缺的人力，而 AI 最多是帮人类写点脚本、跑个模糊测试。今天这个前提正在松动——AI 不再是防守方的助手，它同时也是攻击方手里那把更快的铲子。</p>
 <p>这篇文章想讲三件事：2026 年到底有哪些可验证的证据；产业界给出的答案是”三层智能体安全”；以及为什么”再加一道过滤”这种单点思维一定会失效。</p>
 <hr>
@@ -554,7 +554,7 @@
 </tbody></table>
 <p>这份表里最值得注意的是最后一行和倒数第二行的落差：<strong>风险认知已经普及，治理机制还没跟上</strong>。</p>
 <p><img   src="https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/blog-img/sec-2026-03.jpg"  alt="开发者在电脑前审查代码"></p>
-<p><em>图片：Burst by Shopify 免费图片库</em></p>
+<p><em>图片：Unsplash 免费图片库</em></p>
 <p>另一组数据可以从另一个角度印证这种”认知跑在治理前面”的错位。据 LangChain 对 1300 多名从业者的调查，只有 52.4% 的团队跑离线评测，37.3% 跑在线评测；但在已经让智能体进入生产环境的组织中，94% 建了某种形式的可观测性，71.5% 做到了完整的链路追踪。也就是说：<strong>大家愿意”看”智能体在做什么，却还没有习惯”考”它。</strong></p>
 <p>而在智能体内部，提示注入（prompt injection）已经连续多年稳居 OWASP 大模型应用安全风险榜首——智能体从邮件、网页、代码仓库里读到的每一段文本，都可能是攻击者的指令入口。</p>
 <hr>
@@ -563,8 +563,8 @@
 <p><strong>第一，分析方法变了。</strong> DeepMind 团队分析了超过一百万个编码智能体任务，结论是：靠关键词过滤几乎抓不住真正危险的行为。他们转而寻找<strong>高信号的行为模式</strong>——不是”这句话里有没有 delete”，而是”这个智能体在什么上下文下、连续做了什么动作”。</p>
 <p><strong>第二，监控从离线走向实时。</strong> 他们为 Gemini Spark 智能体搭建了实时监控系统，能够在发生非预期的数据删除时立刻响应，而不是等任务结束后复盘日志。</p>
 <p><strong>第三，也是最关键的，是”三层”这个框架本身。</strong></p>
-<p><img   src="https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/blog-img/sec-2026-02.jpg"  alt="多把挂锁象征软件安全的层层设防"></p>
-<p><em>图片：Burst by Shopify 免费图片库</em></p>
+<p><img   src="https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/blog-img/sec-2026-02.jpg"  alt="笔记本电脑上的挂锁，象征智能体运行时的访问控制"></p>
+<p><em>图片：Unsplash 免费图片库</em></p>
 <p>DeepMind 在同一篇文章里发布了面向政策制定者的技术框架 <strong>《Three Layers of Agent Security》</strong>：</p>
 <ol>
 <li><strong>个体智能体层</strong>：单个智能体自身的安全——权限边界、工具调用约束、输入输出过滤、行为模式监控、失控时的熔断。</li>
@@ -573,7 +573,7 @@
 </ol>
 <p>这个划分之所以重要，是因为它承认了一个此前被回避的事实：<strong>智能体安全不是”模型安全”的子问题</strong>。模型本身可能完全对齐，问题出在它被授予的权限、它与其他智能体的连接方式、以及组织给它的兜底机制上。你可以想象一个从不越狱的模型，被塞进一把有全部生产数据库读权限的钥匙——风险不在模型，在钥匙。</p>
 <p><img   src="https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/blog-img/sec-2026-06.jpg"  alt="主板特写，象征智能体脚下的基础设施层"></p>
-<p><em>图片：Burst by Shopify 免费图片库</em></p>
+<p><em>图片：Unsplash 免费图片库</em></p>
 <hr>
 <h2 id="三、为什么单点防护一定会失效"><a href="#三、为什么单点防护一定会失效" class="headerlink" title="三、为什么单点防护一定会失效"></a>三、为什么单点防护一定会失效</h2><p>DeepMind 的框架里最核心的洞察，其实是报告和框架共用的一个模型：<strong>防御纵深（defence-in-depth）与”瑞士奶酪”模型</strong>。</p>
 <p>这个模型大家都熟：每层防御像一片奶酪，漏洞像孔洞。单独任何一层都布满小孔，但当它们排成一列、孔洞互不重合时，危险要穿过所有层才能抵达目标。</p>
@@ -587,7 +587,7 @@
 <p>对智能体而言，这四层缺一不可。而在实际落地中，最容易被砍掉的恰恰是第一层和第四层——训练期干预成本高，产出难量化；社会韧性需要跨组织协作，短期看不到收益。</p>
 <p>更棘手的是攻防的不对称性。同一份模型能力，既能做攻击工具，也能做防守工具。报告因此把”通用 AI 最终更利好谁”明确列为<strong>未决问题</strong>，而不是给出乐观结论。</p>
 <p><img   src="https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/blog-img/sec-2026-05.jpg"  alt="红色背光的键盘，象征攻防的另一面"></p>
-<p><em>图片：Burst by Shopify 免费图片库</em></p>
+<p><em>图片：Unsplash 免费图片库</em></p>
 <p>对于使用智能体的组织来说，这意味着一个不太舒服的推论：<strong>你无法靠”我的模型是安全的”来免责。</strong> 你真正需要回答的问题是——这个智能体拿到了什么权限？它的凭据由谁管？它的行为轨迹有没有被记录？它出错时，谁能按下停止键？</p>
 <hr>
 <h2 id="四、企业侧的现实：焦虑、缺口与治理债"><a href="#四、企业侧的现实：焦虑、缺口与治理债" class="headerlink" title="四、企业侧的现实：焦虑、缺口与治理债"></a>四、企业侧的现实：焦虑、缺口与治理债</h2><p>Darktrace 的 2026 年调研把企业侧的心态描画得相当具体：</p>
@@ -599,7 +599,7 @@
 </ul>
 <p>风险排序上，<strong>数据泄露是首要风险（61%）</strong>，其次是违反数据安全与隐私法规（56%），再次是 AI 工具的误用或滥用（51%）。安全专家把原因归结为三点：智能体能够接触到敏感数据、能够直接与关键系统交互、以及围绕其使用的治理机制尚不成熟。</p>
 <p><img   src="https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/blog-img/sec-2026-04.jpg"  alt="网线连接，象征多智能体之间的通信链路"></p>
-<p><em>图片：Burst by Shopify 免费图片库</em></p>
+<p><em>图片：Unsplash 免费图片库</em></p>
 <p>“87% 攻击量增加”和”37% 有正式策略”这两个数字放在一起，构成了当下最真实的写照：<strong>威胁侧的 AI 化已经完成了规模化部署，防守侧的组织化还停留在试点。</strong></p>
 <p>这里需要补充一个常被忽略的维度：智能体带来的不只是”更强的攻击者”，还有”更宽的自身攻击面”。一个能读邮件、能调 API、能写文件的智能体，本身就是一条可被利用的供应链节点。当它被提示注入攻陷时，攻击者获得的往往不是这个智能体，而是它背后那个”能读生产库、能改代码、能发邮件”的身份。</p>
 <blockquote>
@@ -630,7 +630,7 @@
 <li>Princeton University，《Emerging Trends in AI Agent Evaluation》</li>
 <li>OWASP Top 10 for LLM Applications（提示注入风险条目）</li>
 </ol>
-<p><em>本文配图来自 Burst by Shopify 免费图片库（Burst License，可免费用于商业用途）；技术事实与数据均标注来源，欢迎按图索骥核对。</em></p>
+<p><em>本文配图来自 Unsplash 免费图片库（Unsplash License，可免费用于商业用途）；技术事实与数据均标注来源，欢迎按图索骥核对。</em></p>
 
                     
                 </div>
