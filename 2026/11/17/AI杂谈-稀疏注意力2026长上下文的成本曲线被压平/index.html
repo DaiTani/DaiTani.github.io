@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="baidu-site-verification" content="codeva-C8OslLkAbZ" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="生物信息学, 发酵工程, 智能体, AI, Hexo, Python, 技术笔记, 戴谭宇, YZDR">
+    <meta name="description" content="戴谭宇的技术笔记：生物信息学、发酵工程、AI 与智能体实践记录。">
+    <meta name="author" content="YZDR">
+    
+    <title>
+        
+            AI杂谈 | 稀疏注意力：2026 年，长上下文的成本曲线被谁压平了 |
+        
+        YZDR&#39;s Blog
+    </title>
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:site_name" content="YZDR&#39;s Blog" />
+    <meta property="og:title" content="AI杂谈 | 稀疏注意力：2026 年，长上下文的成本曲线被谁压平了" />
+    <meta property="og:description" content="戴谭宇的技术笔记：生物信息学、发酵工程、AI 与智能体实践记录。" />
+    <meta property="og:url" content="https://daitanyu.top" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="AI杂谈 | 稀疏注意力：2026 年，长上下文的成本曲线被谁压平了" />
+    <meta name="twitter:description" content="戴谭宇的技术笔记：生物信息学、发酵工程、AI 与智能体实践记录。" />
+    <link rel="alternate" type="application/atom+xml" title="YZDR&#39;s Blog" href="/atom.xml" />
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="/images/title.ico">
+    
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    
+        
+            
+                
+<link rel="stylesheet" href="/css/custom.css">
+
+            
+        
+    
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"daitanyu.top","root":"/","language":"zh-CN","path":"search.json"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#d35400","title":"YZDR's Blog","author":"YZDR","avatar":"/images/touxiang.jpg","logo":"/images/touxiang.jpg","favicon":"/images/title.ico"},"menu":{"home":"/                        || fa-solid fa-home","article":{"icon":"fa-solid fa-newspaper","children":[{"archives":"/archives          || fa-solid fa-box-archive"},{"tags":"/tags                  || fa-solid fa-tags"},{"categories":"/categories      || fa-solid fa-layer-group"}]},"me":{"icon":"fa-solid fa-user","children":[{"about":"/about || fa-solid fa-user-graduate"},{"links":"/links || fa-solid fa-link"}]},"emini":"https://gemini.google.com || fa-brands fa-google"},"first_screen":{"enable":true,"background_img":"/images/bg_light.jpg","background_img_dark":"/images/bg_dark.svg","description":"Keep writing and Keep loving.","hitokoto":true},"social_contact":{"enable":true,"links":{"github":"https://github.com/DaiTani","weixin":"img | /images/wechat.png","qq":"img | /images/qq.png","zhihu":"https://www.zhihu.com/people/wei-zhi-de-tian-cai","x":"https://x.com/T0nkJam","email":"2425476264@qq.com","bilibili":"https://space.bilibili.com/101675377"}},"scroll":{"progress_bar":true,"percent":true,"hide_header":true},"home":{"announcement":null,"category":false,"tag":true,"post_datetime":"updated   || fa-solid fa-star"},"post":{"author_badge":{"enable":true,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":true,"min2read":true},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":false,"share":true,"reward":{"enable":false,"img_link":null,"text":null,"icon":null}},"img_align":"center","code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"obsidian"},"toc":{"enable":true,"number":true,"expand_all":false,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":true,"site_uv":true,"site_pv":true,"page_pv":true}},"local_search":{"enable":true,"preload":true},"comment":{"enable":true,"use":"waline","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.39"},"waline":{"server_url":"https://comment.daitanyu.top","reaction":false,"version":"2.15.8"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":false},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":false},"footer":{"since":2026,"word_count":true,"site_deploy":{"enable":false,"provider":"aliyun","url":null},"record":{"enable":true,"list":[{"code":"湘ICP备2026001287号","link":"https://beian.miit.gov.cn/"}]}},"inject":{"enable":true,"css":["/css/custom.css"],"js":[null]},"root":"","source_data":{"links":[{"title":"朋友"},{"name":"Wang Saixin","link":"https://wsx.daitanyu.top/","description":"我の大学舍友","avatar":"https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/img/20260117220256846.jpg?imageSlim"},{"title":"友情链接"},{"name":"Qlu","link":"https://www.qlu.edu.cn","description":"齐鲁工业大学（山东省科学院）官方网页","avatar":"https://favicon.im/www.qlu.edu.cn?larger=true"},{"name":"齐鲁工业大学网络运维","link":"https://wlyw.qlu.edu.cn","description":"校园网络服务与支持","avatar":"https://favicon.im/wlyw.qlu.edu.cn?larger=true"},{"name":"澧县一中","link":"https://www.lxyz.net","description":"湖南省澧县第一中学官方网页","avatar":"https://favicon.im/www.lxyz.net?larger=true"},{"title":"生物信息学"},{"name":"Rosalind","link":"https://rosalind.info/","description":"生物信息练习网站","avatar":"https://favicon.im/rosalind.info?larger=true"},{"name":"Galaxy","link":"https://usegalaxy.org/","description":"基于 Web 的生物信息分析平台，无需编程即可运行流程","avatar":"https://favicon.im/usegalaxy.org?larger=true"},{"name":"Primer3Web","link":"https://primer3.ut.ee/","description":"最经典的 PCR 引物设计在线工具","avatar":"https://favicon.im/primer3.ut.ee?larger=true"},{"name":"Bioconductor","link":"https://www.bioconductor.org/","description":"基于 R 语言的开源生物信息软件包集合","avatar":"https://favicon.im/www.bioconductor.org?larger=true"},{"name":"BioRender","link":"https://biorender.com/","description":"专业的生物医学绘图工具，生信论文配图神器","avatar":"https://favicon.im/biorender.com?larger=true"},{"name":"Bioinformatics.org","link":"https://www.bioinformatics.org","description":"历史悠久的生物信息学开源社区","avatar":"https://favicon.im/www.bioinformatics.org?larger=true"},{"name":"OMICTOOLS","link":"https://omictools.com","description":"组学分析工具的百科全书","avatar":"https://favicon.im/omictools.com?larger=true"},{"name":"arXiv Quantitative Biology","link":"https://arxiv.org/list/q-bio/new","description":"追踪定量生物学领域最前沿的预印本论文","avatar":"https://favicon.im/arxiv.org?larger=true"},{"title":"核心生物数据库"},{"name":"NCBI","link":"https://www.ncbi.nlm.nih.gov/","description":"美国国家生物技术信息中心","avatar":"https://favicon.im/www.ncbi.nlm.nih.gov?larger=true"},{"name":"UniProt","link":"https://www.uniprot.org/","description":"权威的蛋白质序列和功能信息数据库","avatar":"https://favicon.im/www.uniprot.org?larger=true"},{"name":"PDB (RCSB)","link":"https://www.rcsb.org/","description":"蛋白质及核酸的三维结构数据库","avatar":"https://favicon.im/www.rcsb.org?larger=true"},{"name":"Ensembl","link":"https://www.ensembl.org/","description":"脊椎动物基因组浏览器，包含基因注释和比对","avatar":"https://favicon.im/www.ensembl.org?larger=true"},{"name":"KEGG","link":"https://www.genome.jp/kegg/","description":"京都基因与基因组百科全书，代谢通路图必备","avatar":"https://favicon.im/www.genome.jp?larger=true"},{"name":"TCGA (GDC)","link":"https://portal.gdc.cancer.gov/","description":"癌症基因组图谱，肿瘤生信分析核心数据源","avatar":"https://favicon.im/portal.gdc.cancer.gov?larger=true"},{"name":"EBI (EMBL-EBI)","link":"https://www.ebi.ac.uk/","description":"欧洲生物信息学研究所，欧洲版 NCBI","avatar":"https://favicon.im/www.ebi.ac.uk?larger=true"},{"title":"学术资源"},{"name":"PubMed","link":"https://pubmed.ncbi.nlm.nih.gov/","description":"生物医学领域最全的文献搜索数据库","avatar":"https://favicon.im/pubmed.ncbi.nlm.nih.gov?larger=true"},{"name":"Sci-Hub","link":"https://sci-hub.se/","description":"知识无国界，免费获取学术论文的工具","avatar":"https://favicon.im/sci-hub.se?larger=true"},{"name":"Connected Papers","link":"https://www.connectedpapers.com/","description":"论文引文网络可视化工具，快速了解领域脉络","avatar":"https://favicon.im/www.connectedpapers.com?larger=true"},{"name":"DeepL","link":"https://www.deepl.com/translator","description":"比谷歌翻译更专业的学术论文翻译工具","avatar":"https://favicon.im/www.deepl.com?larger=true"},{"title":"工具"},{"name":"Font Awesome","link":"https://fontawesome.com","description":"世界上最流行的图标库。","avatar":"https://favicon.im/fontawesome.com?larger=true"},{"name":"网站图标获取器","link":"https://favicon.im/zh","description":"即时获取和下载任何网站的图标。","avatar":"https://favicon.im/favicon.im?larger=true"},{"name":"Gemini","link":"https://gemini.google.com/app","description":"Google 旗下 AI 聊天对话工具","avatar":"https://favicon.im/gemini.google.com?larger=true"},{"name":"ChatGPT","link":"https://chat.openai.com/","description":"OpenAI 旗下 AI 聊天对话工具","avatar":"https://favicon.im/openai.com?larger=true"},{"name":"GitHub 镜像站","link":"https://kkgithub.com/","description":"国内极速访问 GitHub 的加速镜像","avatar":"https://favicon.im/github.com?larger=true"},{"name":"Carbon","link":"https://carbon.now.sh/","description":"将你的代码块转换成精美的分享图片","avatar":"https://favicon.im/carbon.now.sh?larger=true"},{"name":"TinyPNG","link":"https://tinypng.com/","description":"智能压缩图片，大幅提升网页加载速度","avatar":"https://favicon.im/tinypng.com?larger=true"},{"name":"Shields.io","link":"https://shields.io/","description":"为你的博客和项目生成精美的 SVG 徽章","avatar":"https://favicon.im/shields.io?larger=true"}],"tools":[{"category":"聊天 AI","anchorId":"JUU4JTgxJThBJUU1JUE0JUE5JTIwQUk0"},{"name":"ChatGPT","link":"https://chat.openai.com/","description":"OpenAI 旗下 AI 聊天对话工具","image":"/images/tools/chatgpt.svg"},{"name":"Gemini","link":"https://gemini.google.com/app","description":"Google 旗下 AI 聊天对话工具","image":"/images/tools/gemini.svg"}]},"version":"4.2.5"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left flex-start border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="/images/touxiang.jpg">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               YZDR&#39;s Blog
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc border-box">
+                <ul class="menu-list border-box">
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-home"></i>
+                                
+                                首页
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box has-sub-menu">
+                            <a class="menu-text-color border-box" href="javascript:void(0);">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-newspaper"></i>
+                                
+                                ARTICLE
+                                
+                                    <i class="menu-text-color collapse-icon fa-solid fa-angle-down"></i>
+                                
+                            </a>
+                            
+                                <ul class="sub-menu-list border-box">
+                                    
+                                        
+                                        <li class="sub-menu-item border-box ">
+                                            <a class="menu-text-color border-box flex-start" href="/archives">
+                                                
+                                                    <i class="menu-text-color sub-menu-icon fa-solid fa-box-archive"></i>
+                                                
+                                                归档
+                                            </a>
+                                        </li>
+                                    
+                                        
+                                        <li class="sub-menu-item border-box ">
+                                            <a class="menu-text-color border-box flex-start" href="/tags">
+                                                
+                                                    <i class="menu-text-color sub-menu-icon fa-solid fa-tags"></i>
+                                                
+                                                标签
+                                            </a>
+                                        </li>
+                                    
+                                        
+                                        <li class="sub-menu-item border-box ">
+                                            <a class="menu-text-color border-box flex-start" href="/categories">
+                                                
+                                                    <i class="menu-text-color sub-menu-icon fa-solid fa-layer-group"></i>
+                                                
+                                                分类
+                                            </a>
+                                        </li>
+                                    
+                                </ul>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box has-sub-menu">
+                            <a class="menu-text-color border-box" href="javascript:void(0);">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-user"></i>
+                                
+                                我的
+                                
+                                    <i class="menu-text-color collapse-icon fa-solid fa-angle-down"></i>
+                                
+                            </a>
+                            
+                                <ul class="sub-menu-list border-box">
+                                    
+                                        
+                                        <li class="sub-menu-item border-box ">
+                                            <a class="menu-text-color border-box flex-start" href="/about">
+                                                
+                                                    <i class="menu-text-color sub-menu-icon fa-solid fa-user-graduate"></i>
+                                                
+                                                关于
+                                            </a>
+                                        </li>
+                                    
+                                        
+                                        <li class="sub-menu-item border-box ">
+                                            <a class="menu-text-color border-box flex-start" href="/links">
+                                                
+                                                    <i class="menu-text-color sub-menu-icon fa-solid fa-link"></i>
+                                                
+                                                友链
+                                            </a>
+                                        </li>
+                                    
+                                </ul>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" target="_blank" rel="noopener" href="https://gemini.google.com">
+                                
+                                    <i class="menu-text-color menu-icon fa-brands fa-google"></i>
+                                
+                                EMINI
+                                
+                            </a>
+                            
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="menu-text-color fas search fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile border-box flex-start">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list border-box">
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-home"></i>
+                                </span>
+                            
+                            首页
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box has-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="javascript:void(0);">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-newspaper"></i>
+                                </span>
+                            
+                            ARTICLE
+                        </a>
+                        
+                            <i class="right-side collapse-icon fa-solid fa-angle-left"></i>
+                        
+                    </label>
+                    
+                        <ul class="drawer-sub-menu-list border-box">
+                            
+                                
+                                <li class="sub-menu-item border-box">
+                                    <a class="drawer-menu-text-color border-box flex-start" href="/archives">
+                                        
+                                            <span class="sub-menu-icon-wrap border-box flex-center">
+                                                <i class="drawer-menu-text-color sub-menu-icon fa-solid fa-box-archive"></i>
+                                            </span>
+                                        
+                                        归档
+                                    </a>
+                                </li>
+                            
+                                
+                                <li class="sub-menu-item border-box">
+                                    <a class="drawer-menu-text-color border-box flex-start" href="/tags">
+                                        
+                                            <span class="sub-menu-icon-wrap border-box flex-center">
+                                                <i class="drawer-menu-text-color sub-menu-icon fa-solid fa-tags"></i>
+                                            </span>
+                                        
+                                        标签
+                                    </a>
+                                </li>
+                            
+                                
+                                <li class="sub-menu-item border-box">
+                                    <a class="drawer-menu-text-color border-box flex-start" href="/categories">
+                                        
+                                            <span class="sub-menu-icon-wrap border-box flex-center">
+                                                <i class="drawer-menu-text-color sub-menu-icon fa-solid fa-layer-group"></i>
+                                            </span>
+                                        
+                                        分类
+                                    </a>
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box has-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="javascript:void(0);">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-user"></i>
+                                </span>
+                            
+                            我的
+                        </a>
+                        
+                            <i class="right-side collapse-icon fa-solid fa-angle-left"></i>
+                        
+                    </label>
+                    
+                        <ul class="drawer-sub-menu-list border-box">
+                            
+                                
+                                <li class="sub-menu-item border-box">
+                                    <a class="drawer-menu-text-color border-box flex-start" href="/about">
+                                        
+                                            <span class="sub-menu-icon-wrap border-box flex-center">
+                                                <i class="drawer-menu-text-color sub-menu-icon fa-solid fa-user-graduate"></i>
+                                            </span>
+                                        
+                                        关于
+                                    </a>
+                                </li>
+                            
+                                
+                                <li class="sub-menu-item border-box">
+                                    <a class="drawer-menu-text-color border-box flex-start" href="/links">
+                                        
+                                            <span class="sub-menu-icon-wrap border-box flex-center">
+                                                <i class="drawer-menu-text-color sub-menu-icon fa-solid fa-link"></i>
+                                            </span>
+                                        
+                                        友链
+                                    </a>
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" target="_blank" rel="noopener" href="https://gemini.google.com">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-brands fa-google"></i>
+                                </span>
+                            
+                            EMINI
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+                
+
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+
+            <div class="post-content-bottom border-box">
+                
+                    <div class="post-title">
+                        AI杂谈 | 稀疏注意力：2026 年，长上下文的成本曲线被谁压平了
+                    </div>
+                
+
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="/images/touxiang.jpg">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">YZDR</span>
+                                
+                                    <span class="author-badge">Lv4</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2026-11-17 10:00:00</span>
+            </span>
+
+            
+                <span class="meta-info-item post-update-date">
+                    <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                    <span class="datetime" data-updated="Tue Nov 17 2026 10:07:31 GMT+0800">2026-11-17 10:07:31</span>
+                </span>
+            
+        
+
+        
+            <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul class="post-category-ul">
+                    
+                            <li class="category-item"><a href="/categories/AI%E6%9D%82%E8%B0%88/">AI杂谈</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/">大语言模型</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E7%AE%97%E6%B3%95%E4%BC%98%E5%8C%96/">算法优化</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E6%8E%A8%E7%90%86%E5%8A%A0%E9%80%9F/">推理加速</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/">注意力机制</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+            <span class="meta-info-item post-wordcount">
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>3.6k 字</span>
+            </span>
+        
+        
+            <span class="meta-info-item post-min2read">
+                <i class="icon fas fa-clock"></i>&nbsp;<span>12 分钟</span>
+            </span>
+        
+        
+            <span class="meta-info-item post-pv">
+                <i class="icon fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+            </span>
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <p>过去两年，大模型的上下文窗口从 8K 一路卷到 1M，数字写得越来越漂亮，账单也随之变得越来越难看。问题的根源不是”模型读不完”，而是”模型算不完”。</p>
+<p>自注意力对序列长度的开销是 (O(N^2)) 的。上下文翻一倍，注意力部分的浮点运算量要翻四倍。这条曲线决定了：当一个模型对外宣称”支持 100 万 token”时，它真正卖的其实是”谁付得起这 100 万 token 的电费和显存”。</p>
+<p>2026 年真正被压平的不是窗口大小，而是这条成本曲线。答案藏在一条听起来朴素的路线里：<strong>稀疏注意力</strong>——不再让每个 token 去 attend 全部 token，而是只让它 attend 少数几个”值得看”的 token。</p>
+<p><img   src="https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/blog-img/sparse2611-01-gpu.jpg"  alt="蓝色电路板上密布的处理器与散热结构，象征算力供给侧的物理约束"></p>
+<p><em>图：Unsplash 摄影作品，象征算力供给侧的物理约束</em></p>
+<h2 id="一、平方级的账单：为什么”长上下文”过去是个赔本买卖"><a href="#一、平方级的账单：为什么”长上下文”过去是个赔本买卖" class="headerlink" title="一、平方级的账单：为什么”长上下文”过去是个赔本买卖"></a>一、平方级的账单：为什么”长上下文”过去是个赔本买卖</h2><p>先把账算清楚。注意力矩阵的规模随序列长度平方增长，对一个 70B 级别的稠密模型，在 1M 上下文下，单次前向传播中仅注意力部分的计算量大约在 18 万 TFLOPs 量级。而上下文翻倍，这部分开销直接乘以四。</p>
+<p>于是过去几年行业形成了两个不太舒服的惯例：</p>
+<ul>
+<li>要么把窗口做小，长文本靠”切片 + 检索”拼凑，语义连贯性靠提示词工程兜底；</li>
+<li>要么把窗口做大，但只在少数场景用，并把价格标成”溢价档”。</li>
+</ul>
+<p>DeepSeek 的 V3.2-Exp 是一个转折点。2025 年 9 月发布的这个实验模型，第一次把两阶段稀疏注意力（DeepSeek Sparse Attention, DSA）摆到了台面上：<strong>先用”闪电索引器”（lightning indexer）在整段上下文里快速定位可能相关的片段，再用细粒度 token 选择把这些片段里真正关键的 token 挑出来</strong>，最后只在这一个很小的窗口上做昂贵的 softmax 与矩阵乘。</p>
+<p>结果是长上下文推理成本最多下降 50% 左右，模型权重以 MIT 协议开放在 Hugging Face 上，配套论文也公开在 GitHub，第三方可以直接复核。Hugging Face 的社区负责人 Adina Yakefu 在 CNBC 的报道里把话说明白了：V3.2 的重点是效率、成本和开源共享，而 DSA 正是让长文档、长对话处理成本”砍掉一半”的关键。</p>
+<p>NSA（Native Sparse Attention）是同一时期出现的另一条路线：动态层次化稀疏，先做粗粒度的 token 压缩，再做细粒度 token 选择，把压缩和选择这两件事拆成可训练的两个阶段。DeepSeek 当时公开表示会把相关算法开源，随后 NSA 以论文形式公开，主张在长上下文效率上追平甚至超过全注意力。</p>
+<h2 id="二、成本账本：从-V3-2-Exp-到-V4-的默认档位"><a href="#二、成本账本：从-V3-2-Exp-到-V4-的默认档位" class="headerlink" title="二、成本账本：从 V3.2-Exp 到 V4 的默认档位"></a>二、成本账本：从 V3.2-Exp 到 V4 的默认档位</h2><p>真正把稀疏注意力从”实验特性”变成”产品默认”的，是 DeepSeek V4。据公开分析文章梳理，V4 在 2026 年 4 月 24 日发布时做了三件关键的事：</p>
+<ol>
+<li>把 DSA 直接作为<strong>生产默认</strong>开启，而不是一个需要额外打开的实验开关；</li>
+<li>把 MoE 规模推到 1.6T 总参数 &#x2F; 约 49B 激活参数；</li>
+<li>把 <strong>1M 上下文变成默认档位</strong>，在网页端、App 和 API 上按基准价提供，而不是溢价加购。</li>
+</ol>
+<p>第三方在 GPU 云上的实测数据给出了更直观的对照（Spheron 2026 年 6 月的部署指南，H200 现货价基准）：</p>
+<table>
+<thead>
+<tr>
+<th>指标（128K 上下文 &#x2F; 8×H200）</th>
+<th>稠密注意力</th>
+<th>稀疏注意力（DSA）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>每个 query 实际关注的 token 数</td>
+<td>全量</td>
+<td>top-2048（固定）</td>
+</tr>
+<tr>
+<td>注意力计算量（相对稠密）</td>
+<td>100%</td>
+<td>约 2%（降幅约 98%）</td>
+</tr>
+<tr>
+<td>吞吐（tokens&#x2F;s，GLM-5.1 FP8）</td>
+<td>约 420</td>
+<td>约 860</td>
+</tr>
+<tr>
+<td>每百万输出 token 成本</td>
+<td>约 $17.51</td>
+<td>约 $8.56</td>
+</tr>
+</tbody></table>
+<p>需要说明的是：这张表来自第三方托管平台在特定机型、精度与现货价格下的基准测试，不是厂商公布的官方指标，不同硬件、不同模型上数字会浮动。但它至少说明了一件事——<strong>在长上下文场景里，稀疏化的收益不是”省一点”，而是改变吞吐与单价的量级</strong>。</p>
+<p>更极端的数字来自成本主导项。在 1M 上下文下，由于昂贵的 softmax 与矩阵乘只作用在固定的 (k) 上，DSA 的主导注意力开销随长度近似线性增长，与稠密注意力主导项的差距被估算在 500 倍左右（同一份 V4 长文分析，图中纵轴为对数刻度，实际比值比视觉差距更大）。</p>
+<p><img   src="https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/blog-img/sparse2611-02-dc.jpg"  alt="服务器机房内成排的机柜与指示灯，象征长上下文推理的实际承载能力"></p>
+<p><em>图：Unsplash 摄影作品，象征长上下文推理的实际承载能力</em></p>
+<h2 id="三、2026-年的三条并进路线"><a href="#三、2026-年的三条并进路线" class="headerlink" title="三、2026 年的三条并进路线"></a>三、2026 年的三条并进路线</h2><p>稀疏注意力不是一个单点技巧，而是一整条技术栈在同时推进。</p>
+<h3 id="3-1-路线一：让稀疏自己调参"><a href="#3-1-路线一：让稀疏自己调参" class="headerlink" title="3.1 路线一：让稀疏自己调参"></a>3.1 路线一：让稀疏自己调参</h3><p>稀疏注意力最大的工程痛点是超参——每层、每个头的筛选阈值、块大小、top-k 各不相同，手工调参的组合空间大到不可搜索。</p>
+<p>AFBS-BO（Self-Tuning Sparse Attention，arXiv:2603.18417）给出了一个”多保真贝叶斯优化 + 二分搜索局部精修”的混合框架，目标是<strong>为每一层、每一个头自动搜出最优的 ((\tau, \theta, \lambda))</strong>，无需人工干预。其核心洞察是稀疏注意力的超参优化有独特结构：短序列（4K token，单次评估约 5ms）与长序列（32K token，约 21ms）上的误差谱秩相关 (\rho \ge 0.8)，意味着可以用便宜的短序列评估去代理昂贵的长序列评估。</p>
+<p>这类工作的意义在于：稀疏注意力的门槛从”需要一支懂内核的团队调三个月”降到了”一个脚本能自动跑完”。</p>
+<h3 id="3-2-路线二：算法与硬件协同设计"><a href="#3-2-路线二：算法与硬件协同设计" class="headerlink" title="3.2 路线二：算法与硬件协同设计"></a>3.2 路线二：算法与硬件协同设计</h3><p>纯算法层面的稀疏化有一个尴尬的现实——稀疏会打乱访存模式，GPU 的 DRAM 带宽利用率反而下降，甚至可能比稠密注意力更慢。</p>
+<p>ASP-DAC 2026 收录的 BitStopper 就是冲着这一点去的：它做的是细粒度的<strong>算法-架构协同设计</strong>，用 bit-serial 启用机制压缩选择指令的通信开销，并引入近数据处理（NDP）架构来承接动态稀疏激活。同时它明确列出三个待解难题：NDP 访存时 DRAM 带宽利用不足、计算通道之间负载不均、以及 GPU 与 NDP 之间解析稀疏模式本身耗时过长。</p>
+<p>这条路线给出的启示很朴素：<strong>稀疏不是一个纯数学问题，它最终要落到内存搬运和指令发射上</strong>。能同时改算法和硬件抽象层的研究工作，天然比只改公式的更有工程生命力。</p>
+<h3 id="3-3-路线三：让稀疏可以被训练"><a href="#3-3-路线三：让稀疏可以被训练" class="headerlink" title="3.3 路线三：让稀疏可以被训练"></a>3.3 路线三：让稀疏可以被训练</h3><p>Sparse Forcing（NeurIPS 2026 收录）提出”首个面向自回归扩散视频生成的可训练原生稀疏注意力”，目标是让长时视频生成既保留持久的视觉记忆，又不必承担稠密注意力的代价。相关的 HISA（2026 年 4 月版本）则把细粒度稀疏注意力的重点放在高效层次化索引上。</p>
+<p>而 Subquadratic 在 2026 年 5 月推出的架构把上下文窗口推到了 1200 万 token，并在检索基准上超过 GPT-5.5。检索型基准恰好是稀疏注意力最容易被检验的场景：模型能不能从超长上下文里精确捞出那一条关键信息。</p>
+<p><img   src="https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/blog-img/sparse2611-03-cables.jpg"  alt="机柜之间密集交叉的红色网线，象征稀疏架构下的数据搬运与互联压力"></p>
+<p><em>图：Unsplash 摄影作品，象征稀疏架构下的数据搬运与互联压力</em></p>
+<h2 id="四、范式转移：从”加权混合”到”先保留再选择”"><a href="#四、范式转移：从”加权混合”到”先保留再选择”" class="headerlink" title="四、范式转移：从”加权混合”到”先保留再选择”"></a>四、范式转移：从”加权混合”到”先保留再选择”</h2><p>如果要给 2026 年的注意力研究找一个更准确的注脚，《The State of Attention Research in 2026》里的一个提法值得记住：<strong>从 Weighted Mixing（加权混合）转向 Preserve-then-Select（先保留、再选择）</strong>。</p>
+<p>这个提法把注意力研究分成了两个阶段：</p>
+<ul>
+<li>早期注意力研究关心的是”怎么把信息混合好”，即加权求和的过程本身；</li>
+<li>稀疏与路由注意力把重点转移到”看哪里、算多少”，也就是在注意力矩阵上设计感受野与稀疏模式；</li>
+<li>而 2025 年之后的原生稀疏注意力，把”候选的语义选择”本身变成了核心问题——先做粗粒度的 token 压缩与保留，再做细粒度的选择。</li>
+</ul>
+<p>这不是一句修辞。回到 DSA 的两阶段设计：索引器做的其实是”保留”，选择器做的才是”选择”。当上下文长到百万量级时，”保留哪些片段”本身就需要一个被训练过的判断力，而不再是均匀的滑窗或固定的 strided pattern。</p>
+<h2 id="五、代价：被丢掉的那些信息"><a href="#五、代价：被丢掉的那些信息" class="headerlink" title="五、代价：被丢掉的那些信息"></a>五、代价：被丢掉的那些信息</h2><p>所有效率改进都要算另一边的账。CNBC 在报道 DSA 时引述 BlankPage Capital 合伙人 Ekaterina Almasque 的担忧：稀疏化可能削弱模型对信息的”监督”——因为模型不再平等地看到所有输入，被过滤掉的内容失去了被检查的机会，因此可靠性可能下降。</p>
+<p>这个担忧是具体的，可以拆成三层：</p>
+<ol>
+<li><strong>召回层面</strong>：如果索引器漏掉了真正相关的那一段，后面的选择器再强也救不回来。误差会沿流水线向下游放大，而不是像稠密注意力那样”至少都算过一遍”。</li>
+<li><strong>校准层面</strong>：模型对自己”看过什么”和”没看过什么”的判断变得更模糊。在长文档问答里，模型可能对一段被裁掉的证据给出同样自信的语气——这比直接说”我不知道”更危险。</li>
+<li><strong>对抗层面</strong>：稀疏选择本身可以被针对。如果攻击者能影响上下文里哪些片段更容易被索引器选中，就存在一条绕过注意力的路径。</li>
+</ol>
+<p>与之相对应的，是工程上的加固：Red Hat 开发者社区在 DeepSeek-V3.2-Exp 上基于 vLLM 的实践里，强调了 prefill&#x2F;decode 分离（通过 NIXL）、跨数据并行副本的请求路由，以及以 Kubernetes 原生的 llm-d 作为集群级部署路径。这些机制不解决”选错”的问题，但让”选中之后”的部分跑得又快又稳。</p>
+<p><img   src="https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/blog-img/sparse2611-04-math.jpg"  alt="写满公式的黑色板面，象征稀疏选择背后严密的数学推导"></p>
+<p><em>图：Unsplash 摄影作品，象征稀疏选择背后严密的数学推导</em></p>
+<h2 id="六、挑战与展望"><a href="#六、挑战与展望" class="headerlink" title="六、挑战与展望"></a>六、挑战与展望</h2><p><strong>挑战一：选择器的可解释性。</strong> 目前大多数稀疏方案仍然是黑箱的——你很难说清模型为什么丢弃了某一段。在医疗、法律、金融这类需要给出依据的场景里，”模型说它只看了一部分”本身就是需要被审计的事实，而不是实现细节。</p>
+<p><strong>挑战二：训练与推理的不一致。</strong> 推理时用 top-k 硬筛选，训练时却可能用软性的注意力权重，这种不匹配会让长上下文能力出现”训练时好用、线上掉点”的典型症状。</p>
+<p><strong>挑战三：硬件红利的不确定性。</strong> 稀疏带来的访存不规则性可能吃掉理论收益。BitStopper 这类协同设计工作存在，恰恰说明这个问题目前还没有被干净地解决。</p>
+<p><strong>展望：</strong> 如果 2025 年是”稀疏注意力进入模型架构”的年份，那么 2026 年更像是”稀疏注意力进入成本表”的年份。当 1M 上下文从溢价档变成默认档、当每百万输出 token 的成本从 $17.51 降到 $8.56，中间被压掉的那一半，正是长上下文从”技术演示”变成”日常工具”的那一半。</p>
+<p>下一步值得关注的三个信号：一是稀疏索引器是否会出现可解释、可审计的版本；二是自动调参框架（AFBS-BO 一类）能否进入主流推理引擎（vLLM、SGLang 等）的默认路径；三是超长上下文检索基准（Subquadratic 那一档）是否能从”检索题”扩展到”需要跨文档推理的题”。</p>
+<p><img   src="https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/blog-img/sparse2611-05-streaks.jpg"  alt="蓝色光轨在深色背景上快速掠过，象征注意力在海量上下文中快速完成选择"></p>
+<p><em>图：Unsplash 摄影作品，象征注意力在海量上下文中快速完成选择</em></p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>从注意力机制被发明出来的那天起，它就带着一个”要么全看、要么不看”的二元结构。稀疏注意力用两年时间把这个二元结构拆成了三段：<strong>先保留、再选择、后混合</strong>。</p>
+<p>这段拆解让 1M 上下文第一次在成本上说得通，也让”长上下文”从营销词变成了可以按 token 计价的产品能力。但它同时带来一个新的责任：模型必须对自己的”没看见”负责。</p>
+<p>下一次当模型在百万字的上下文里精确引用了某一段，你会想起它背后还有一整套在替它做取舍的索引器与选择器——那套看不见的算力，才是最新的瓶颈所在。</p>
+<p><img   src="https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/blog-img/sparse2611-06-orb.jpg"  alt="深蓝背景中悬浮的抽象光球，象征模型在海量信息中维持对焦的能力"></p>
+<p><em>图：Unsplash 摄影作品，象征模型在海量信息中维持对焦的能力</em></p>
+<hr>
+<p><strong>主要参考来源</strong></p>
+<ul>
+<li>DeepLearning.AI 社区：《DeepSeek unveils sparse attention model for cheaper long-context inference》（DSA 两阶段机制、开源许可）</li>
+<li>CNBC（2025-09-30）：《What’s new in DeepSeek’s latest model: DeepSeek-V3.2-Exp》（成本与可靠性评论）</li>
+<li>Red Hat Developer（2025-10-03）：《DeepSeek-V3.2-Exp on vLLM, Day 0》（vLLM &#x2F; NIXL &#x2F; llm-d 部署路径）</li>
+<li>Kaoutar El Maghraoui：《DeepSeek’s Long March: V4, Sparse Attention, and What Open-Weight AI Just Taught Us》（V4 发布信息、DSA 默认化、成本曲线分析）</li>
+<li>Spheron（2026）：《DeepSeek Sparse Attention on GPU Cloud: Deploy Long-Context LLMs at 80% Less Compute》（吞吐与单价基准）</li>
+<li>arXiv:2603.18417：《Self-Tuning Sparse Attention: Multi-Fidelity Hyperparameter Optimization for Transformer Acceleration》（AFBS-BO）</li>
+<li>ASP-DAC 2026 会议日程：《BitStopper》（算法-架构协同设计）</li>
+<li>Boxun Xu 公开论文列表：《Sparse Forcing》（NeurIPS 2026）</li>
+<li>AI Assurance, Inc.：《The State of Attention Research in 2026》（Preserve-then-Select 范式）</li>
+<li>Cloudflare &#x2F; MLQ.ai 相关报道（用于理解同期开源生态的开放节奏）</li>
+</ul>
+
+                    
+                </div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/">大语言模型</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E7%AE%97%E6%B3%95%E4%BC%98%E5%8C%96/">算法优化</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E6%8E%A8%E7%90%86%E5%8A%A0%E9%80%9F/">推理加速</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/">注意力机制</a>
+                                    </li>
+                                
+                            </ul>
+                        
+                    </div>
+                    <div>
+                        
+                            <div class="post-share-container border-box">
+    <ul class="share-list-wrap border-box">
+        <li class="qq share-item border-box flex-center tooltip"
+            data-tooltip-content="分享到 QQ"
+        >
+            <i class="fa-brands fa-qq"></i>
+        </li>
+        <li class="wechat share-item border-box flex-center tooltip tooltip-img"
+            data-tooltip-content="分享到微信"
+            data-tooltip-img-tip="微信扫一扫"
+            data-tooltip-img-style="background-color: #fff; top: -10px; padding: 0.6rem 0.6rem 0.1rem 0.6rem;"
+        >
+            <i class="fa-brands fa-weixin"></i>
+        </li>
+        <li class="weibo share-item border-box flex-center tooltip"
+            data-tooltip-content="分享到微博"
+        >
+            <i class="fa-brands fa-weibo"></i>
+        </li>
+    </ul>
+</div>
+
+                        
+                    </div>
+                </div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/2026/11/16/AI%E6%9D%82%E8%B0%88-%E6%94%BB%E5%AE%88%E6%98%93%E4%BD%8DAI%E5%AE%89%E5%85%A8%E6%94%BB%E9%98%B22026/"
+                                   title="AI杂谈 | 攻守易位：当 AI 站到了漏洞挖掘的那一侧"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">AI杂谈 | 攻守易位：当 AI 站到了漏洞挖掘的那一侧</span>
+                                        <span class="post-nav-item">下一篇</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+    <div class="comments-container border-box">
+        <div id="comments-anchor" class="comment-area-title border-box">
+            <i class="fas fa-comments"></i>&nbsp;评论
+        </div>
+        <div class="comment-plugin-fail border-box">
+    <span class="fail-tip">评论插件加载失败</span>
+    <button class="reload keep-button">点击重新加载</button>
+</div>
+<div class="comment-plugin-loading flex-center border-box">
+    <i class="loading-icon fa-solid fa-spinner fa-spin"></i>
+    <span class="load-tip">正在加载评论插件</span>
+</div>
+<script data-pjax>
+  window.KeepCommentPlugin = {}
+  window.KeepCommentPlugin.hideLoading = () => {
+    const cplDom = document.querySelector('.comments-container .comment-plugin-loading')
+    cplDom.style.display = 'none'
+  }
+  window.KeepCommentPlugin.loadFailHandle = () => {
+    window.KeepCommentPlugin.hideLoading()
+    const cpfDom = document.querySelector('.comments-container .comment-plugin-fail')
+    cpfDom.style.display = 'flex'
+    cpfDom.querySelector('.reload').addEventListener('click', () => {
+      window.location.reload()
+    })
+  }
+</script>
+
+        
+            
+
+    <div class="waline-comment-container">
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@waline/client@v2.15.8/dist/waline.css"/>
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@waline/client@v2.15.8/dist/waline-meta.css"/>
+        <div id="waline-comment"></div>
+        <script data-pjax>
+          window.KeepCommentPlugin.walineOptions = JSON.parse('{}'.replace(/&#34;/g, '"'))
+          window.KeepCommentPlugin.walineOptions.el = '#waline-comment'
+          window.KeepCommentPlugin.walineOptions.comment = '.post-comments-count'
+          window.KeepCommentPlugin.walineOptions.serverURL = 'https://comment.daitanyu.top'
+          window.KeepCommentPlugin.walineOptions.lang = 'zh-CN' || 'zh-CN'
+          window.KeepCommentPlugin.walineOptions.reaction = 'false' === 'true'
+        </script>
+
+        
+            <script 
+                    src="//cdn.jsdelivr.net/npm/@waline/client@v2.15.8/dist/waline.js"
+                    async
+                    onerror="window.KeepCommentPlugin.loadFailHandle()"
+            ></script>
+            <script 
+                    async
+            >
+              window.KeepCommentPlugin.initWaline = () => {
+                if (window?.Waline) {
+                  window.Waline.init(window.KeepCommentPlugin.walineOptions)
+                  window.KeepCommentPlugin.hideLoading()
+                } else {
+                  setTimeout(() => {
+                    window.KeepCommentPlugin.initWaline()
+                  }, 1000)
+                }
+              }
+
+              if ('false' === 'true') {
+                setTimeout(() => {
+                  window.KeepCommentPlugin.initWaline()
+                }, 1200)
+              } else {
+                window.addEventListener('DOMContentLoaded', window.KeepCommentPlugin.initWaline)
+              }
+            </script>
+        
+
+        
+    </div>
+
+
+        
+    </div>
+
+
+
+
+
+                
+            </div>
+        </div>
+
+        
+            <div class="pc-post-toc right-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%B9%B3%E6%96%B9%E7%BA%A7%E7%9A%84%E8%B4%A6%E5%8D%95%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88%E2%80%9D%E9%95%BF%E4%B8%8A%E4%B8%8B%E6%96%87%E2%80%9D%E8%BF%87%E5%8E%BB%E6%98%AF%E4%B8%AA%E8%B5%94%E6%9C%AC%E4%B9%B0%E5%8D%96"><span class="nav-number">1.</span> <span class="nav-text">一、平方级的账单：为什么”长上下文”过去是个赔本买卖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%88%90%E6%9C%AC%E8%B4%A6%E6%9C%AC%EF%BC%9A%E4%BB%8E-V3-2-Exp-%E5%88%B0-V4-%E7%9A%84%E9%BB%98%E8%AE%A4%E6%A1%A3%E4%BD%8D"><span class="nav-number">2.</span> <span class="nav-text">二、成本账本：从 V3.2-Exp 到 V4 的默认档位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%812026-%E5%B9%B4%E7%9A%84%E4%B8%89%E6%9D%A1%E5%B9%B6%E8%BF%9B%E8%B7%AF%E7%BA%BF"><span class="nav-number">3.</span> <span class="nav-text">三、2026 年的三条并进路线</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%E8%B7%AF%E7%BA%BF%E4%B8%80%EF%BC%9A%E8%AE%A9%E7%A8%80%E7%96%8F%E8%87%AA%E5%B7%B1%E8%B0%83%E5%8F%82"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 路线一：让稀疏自己调参</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-%E8%B7%AF%E7%BA%BF%E4%BA%8C%EF%BC%9A%E7%AE%97%E6%B3%95%E4%B8%8E%E7%A1%AC%E4%BB%B6%E5%8D%8F%E5%90%8C%E8%AE%BE%E8%AE%A1"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 路线二：算法与硬件协同设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-%E8%B7%AF%E7%BA%BF%E4%B8%89%EF%BC%9A%E8%AE%A9%E7%A8%80%E7%96%8F%E5%8F%AF%E4%BB%A5%E8%A2%AB%E8%AE%AD%E7%BB%83"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 路线三：让稀疏可以被训练</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E8%8C%83%E5%BC%8F%E8%BD%AC%E7%A7%BB%EF%BC%9A%E4%BB%8E%E2%80%9D%E5%8A%A0%E6%9D%83%E6%B7%B7%E5%90%88%E2%80%9D%E5%88%B0%E2%80%9D%E5%85%88%E4%BF%9D%E7%95%99%E5%86%8D%E9%80%89%E6%8B%A9%E2%80%9D"><span class="nav-number">4.</span> <span class="nav-text">四、范式转移：从”加权混合”到”先保留再选择”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E4%BB%A3%E4%BB%B7%EF%BC%9A%E8%A2%AB%E4%B8%A2%E6%8E%89%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BF%A1%E6%81%AF"><span class="nav-number">5.</span> <span class="nav-text">五、代价：被丢掉的那些信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E6%8C%91%E6%88%98%E4%B8%8E%E5%B1%95%E6%9C%9B"><span class="nav-number">6.</span> <span class="nav-text">六、挑战与展望</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="nav-number">7.</span> <span class="nav-text">结语</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="copyright-info info-item">
+    &copy;&nbsp;2026
+    
+            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">YZDR</a>
+        
+    </div>
+
+    <div class="theme-info info-item">
+        由&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;驱动&nbsp;&&nbsp;主题&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+    </div>
+
+    
+
+    
+        <div class="count-info info-item">
+            
+                <span class="count-item border-box word">
+                    <span class="item-type border-box">总字数</span>
+                    <span class="item-value border-box word">94.3k</span>
+                </span>
+            
+
+            
+                <span class="count-item border-box uv">
+                    <span class="item-type border-box">访客数</span>
+                    <span class="item-value border-box uv" id="busuanzi_value_site_uv"></span>
+                </span>
+            
+
+            
+                <span class="count-item border-box pv">
+                    <span class="item-type border-box">访问量</span>
+                    <span class="item-value border-box pv" id="busuanzi_value_site_pv"></span>
+                </span>
+            
+        </div>
+    
+
+    
+        <div class="record-info info-item">
+            
+                
+                    <div class="record-item border-box">
+                        <a class=""
+                           target="_blank"
+                           href="https://beian.miit.gov.cn/"
+                        >
+                            湘ICP备2026001287号
+                        </a>
+                    </div>
+                
+            
+        </div>
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+            <li class="tools-item flex-center go-to-comments">
+                <i class="fas fa-comment"></i>
+                <span class="post-comments-count"></span>
+            </li>
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box ">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <!-- toggle mode -->
+        
+            <li class="tools-item tool-toggle-theme-mode flex-center">
+                <i class="fas fa-moon"></i>
+            </li>
+        
+
+        <!-- rss -->
+        
+
+        <!-- to bottom -->
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        
+            <li class="tools-item go-to-comments-tablet flex-center">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%B9%B3%E6%96%B9%E7%BA%A7%E7%9A%84%E8%B4%A6%E5%8D%95%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88%E2%80%9D%E9%95%BF%E4%B8%8A%E4%B8%8B%E6%96%87%E2%80%9D%E8%BF%87%E5%8E%BB%E6%98%AF%E4%B8%AA%E8%B5%94%E6%9C%AC%E4%B9%B0%E5%8D%96"><span class="nav-number">1.</span> <span class="nav-text">一、平方级的账单：为什么”长上下文”过去是个赔本买卖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%88%90%E6%9C%AC%E8%B4%A6%E6%9C%AC%EF%BC%9A%E4%BB%8E-V3-2-Exp-%E5%88%B0-V4-%E7%9A%84%E9%BB%98%E8%AE%A4%E6%A1%A3%E4%BD%8D"><span class="nav-number">2.</span> <span class="nav-text">二、成本账本：从 V3.2-Exp 到 V4 的默认档位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%812026-%E5%B9%B4%E7%9A%84%E4%B8%89%E6%9D%A1%E5%B9%B6%E8%BF%9B%E8%B7%AF%E7%BA%BF"><span class="nav-number">3.</span> <span class="nav-text">三、2026 年的三条并进路线</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%E8%B7%AF%E7%BA%BF%E4%B8%80%EF%BC%9A%E8%AE%A9%E7%A8%80%E7%96%8F%E8%87%AA%E5%B7%B1%E8%B0%83%E5%8F%82"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 路线一：让稀疏自己调参</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-%E8%B7%AF%E7%BA%BF%E4%BA%8C%EF%BC%9A%E7%AE%97%E6%B3%95%E4%B8%8E%E7%A1%AC%E4%BB%B6%E5%8D%8F%E5%90%8C%E8%AE%BE%E8%AE%A1"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 路线二：算法与硬件协同设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-%E8%B7%AF%E7%BA%BF%E4%B8%89%EF%BC%9A%E8%AE%A9%E7%A8%80%E7%96%8F%E5%8F%AF%E4%BB%A5%E8%A2%AB%E8%AE%AD%E7%BB%83"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 路线三：让稀疏可以被训练</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E8%8C%83%E5%BC%8F%E8%BD%AC%E7%A7%BB%EF%BC%9A%E4%BB%8E%E2%80%9D%E5%8A%A0%E6%9D%83%E6%B7%B7%E5%90%88%E2%80%9D%E5%88%B0%E2%80%9D%E5%85%88%E4%BF%9D%E7%95%99%E5%86%8D%E9%80%89%E6%8B%A9%E2%80%9D"><span class="nav-number">4.</span> <span class="nav-text">四、范式转移：从”加权混合”到”先保留再选择”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E4%BB%A3%E4%BB%B7%EF%BC%9A%E8%A2%AB%E4%B8%A2%E6%8E%89%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BF%A1%E6%81%AF"><span class="nav-number">5.</span> <span class="nav-text">五、代价：被丢掉的那些信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E6%8C%91%E6%88%98%E4%B8%8E%E5%B1%95%E6%9C%9B"><span class="nav-number">6.</span> <span class="nav-text">六、挑战与展望</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="nav-number">7.</span> <span class="nav-text">结语</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
+</main>
+
+
+
+
+
+<!-- common js -->
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/toggle-theme.js"></script>
+
+<script src="/js/code-block.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+
+<!-- local search -->
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+<!-- lazyload -->
+
+
+<div class="">
+    <!-- home page -->
+    
+
+    <!-- post page -->
+    
+        <!-- post-helper -->
+        
+<script src="/js/post/post-helper.js"></script>
+
+
+        <!-- toc -->
+        
+            
+<script src="/js/post/toc.js"></script>
+
+        
+
+        <!-- copyright-info -->
+        
+
+        <!-- share -->
+        
+            
+<script src="/js/post/share.js"></script>
+
+        
+    
+
+    <!-- categories page -->
+    
+
+    <!-- links page -->
+    
+
+    <!-- photos page -->
+    
+
+    <!-- tools page -->
+    
+</div>
+
+<!-- mermaid -->
+
+
+<!-- pjax -->
+
+
+
+    
+        
+    
+
+</body>
+</html>
