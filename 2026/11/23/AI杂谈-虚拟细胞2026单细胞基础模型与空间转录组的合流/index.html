@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="baidu-site-verification" content="codeva-C8OslLkAbZ" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="生物信息学, 发酵工程, 智能体, AI, Hexo, Python, 技术笔记, 戴谭宇, YZDR">
+    <meta name="description" content="从 Geneformer、scGPT 到 UCE、Nicheformer、HEIST，细胞基础模型在 2026 年迎来合流：一边补上&#34;空间&#34;这一课，一边把目标对准扰动预测。本文拆解四条技术路线、一次评测争议与虚拟细胞挑战赛背后的数据竞赛。">
+    <meta name="author" content="YZDR">
+    
+    <title>
+        
+            AI杂谈 | 虚拟细胞 2026：单细胞基础模型与空间转录组的合流 |
+        
+        YZDR&#39;s Blog
+    </title>
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:site_name" content="YZDR&#39;s Blog" />
+    <meta property="og:title" content="AI杂谈 | 虚拟细胞 2026：单细胞基础模型与空间转录组的合流" />
+    <meta property="og:description" content="从 Geneformer、scGPT 到 UCE、Nicheformer、HEIST，细胞基础模型在 2026 年迎来合流：一边补上&#34;空间&#34;这一课，一边把目标对准扰动预测。本文拆解四条技术路线、一次评测争议与虚拟细胞挑战赛背后的数据竞赛。" />
+    <meta property="og:url" content="https://daitanyu.top" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="AI杂谈 | 虚拟细胞 2026：单细胞基础模型与空间转录组的合流" />
+    <meta name="twitter:description" content="从 Geneformer、scGPT 到 UCE、Nicheformer、HEIST，细胞基础模型在 2026 年迎来合流：一边补上&#34;空间&#34;这一课，一边把目标对准扰动预测。本文拆解四条技术路线、一次评测争议与虚拟细胞挑战赛背后的数据竞赛。" />
+    <link rel="alternate" type="application/atom+xml" title="YZDR&#39;s Blog" href="/atom.xml" />
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="/images/title.ico">
+    
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    
+        
+            
+                
+<link rel="stylesheet" href="/css/custom.css">
+
+            
+        
+    
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"daitanyu.top","root":"/","language":"zh-CN","path":"search.json"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#d35400","title":"YZDR's Blog","author":"YZDR","avatar":"/images/touxiang.jpg","logo":"/images/touxiang.jpg","favicon":"/images/title.ico"},"menu":{"home":"/                        || fa-solid fa-home","article":{"icon":"fa-solid fa-newspaper","children":[{"archives":"/archives          || fa-solid fa-box-archive"},{"tags":"/tags                  || fa-solid fa-tags"},{"categories":"/categories      || fa-solid fa-layer-group"}]},"me":{"icon":"fa-solid fa-user","children":[{"about":"/about || fa-solid fa-user-graduate"},{"links":"/links || fa-solid fa-link"}]},"emini":"https://gemini.google.com || fa-brands fa-google"},"first_screen":{"enable":true,"background_img":"/images/bg_light.jpg","background_img_dark":"/images/bg_dark.svg","description":"Keep writing and Keep loving.","hitokoto":true},"social_contact":{"enable":true,"links":{"github":"https://github.com/DaiTani","weixin":"img | /images/wechat.png","qq":"img | /images/qq.png","zhihu":"https://www.zhihu.com/people/wei-zhi-de-tian-cai","x":"https://x.com/T0nkJam","email":"2425476264@qq.com","bilibili":"https://space.bilibili.com/101675377"}},"scroll":{"progress_bar":true,"percent":true,"hide_header":true},"home":{"announcement":null,"category":false,"tag":true,"post_datetime":"updated   || fa-solid fa-star"},"post":{"author_badge":{"enable":true,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":true,"min2read":true},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":false,"share":true,"reward":{"enable":false,"img_link":null,"text":null,"icon":null}},"img_align":"center","code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"obsidian"},"toc":{"enable":true,"number":true,"expand_all":false,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":true,"site_uv":true,"site_pv":true,"page_pv":true}},"local_search":{"enable":true,"preload":true},"comment":{"enable":true,"use":"waline","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.39"},"waline":{"server_url":"https://comment.daitanyu.top","reaction":false,"version":"2.15.8"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":false},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":false},"footer":{"since":2026,"word_count":true,"site_deploy":{"enable":false,"provider":"aliyun","url":null},"record":{"enable":true,"list":[{"code":"湘ICP备2026001287号","link":"https://beian.miit.gov.cn/"},{"code":"湘公网安备43072302000296号","link":"https://beian.mps.gov.cn/#/query/webSearch?code=43072302000296"}]}},"inject":{"enable":true,"css":["/css/custom.css"],"js":[null]},"root":"","source_data":{"links":[{"title":"朋友"},{"name":"Wang Saixin","link":"https://wsx.daitanyu.top/","description":"我の大学舍友","avatar":"https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/img/20260117220256846.jpg?imageSlim"},{"title":"友情链接"},{"name":"Qlu","link":"https://www.qlu.edu.cn","description":"齐鲁工业大学（山东省科学院）官方网页","avatar":"https://favicon.im/www.qlu.edu.cn?larger=true"},{"name":"齐鲁工业大学网络运维","link":"https://wlyw.qlu.edu.cn","description":"校园网络服务与支持","avatar":"https://favicon.im/wlyw.qlu.edu.cn?larger=true"},{"name":"澧县一中","link":"https://www.lxyz.net","description":"湖南省澧县第一中学官方网页","avatar":"https://favicon.im/www.lxyz.net?larger=true"},{"title":"生物信息学"},{"name":"Rosalind","link":"https://rosalind.info/","description":"生物信息练习网站","avatar":"https://favicon.im/rosalind.info?larger=true"},{"name":"Galaxy","link":"https://usegalaxy.org/","description":"基于 Web 的生物信息分析平台，无需编程即可运行流程","avatar":"https://favicon.im/usegalaxy.org?larger=true"},{"name":"Primer3Web","link":"https://primer3.ut.ee/","description":"最经典的 PCR 引物设计在线工具","avatar":"https://favicon.im/primer3.ut.ee?larger=true"},{"name":"Bioconductor","link":"https://www.bioconductor.org/","description":"基于 R 语言的开源生物信息软件包集合","avatar":"https://favicon.im/www.bioconductor.org?larger=true"},{"name":"BioRender","link":"https://biorender.com/","description":"专业的生物医学绘图工具，生信论文配图神器","avatar":"https://favicon.im/biorender.com?larger=true"},{"name":"Bioinformatics.org","link":"https://www.bioinformatics.org","description":"历史悠久的生物信息学开源社区","avatar":"https://favicon.im/www.bioinformatics.org?larger=true"},{"name":"OMICTOOLS","link":"https://omictools.com","description":"组学分析工具的百科全书","avatar":"https://favicon.im/omictools.com?larger=true"},{"name":"arXiv Quantitative Biology","link":"https://arxiv.org/list/q-bio/new","description":"追踪定量生物学领域最前沿的预印本论文","avatar":"https://favicon.im/arxiv.org?larger=true"},{"title":"核心生物数据库"},{"name":"NCBI","link":"https://www.ncbi.nlm.nih.gov/","description":"美国国家生物技术信息中心","avatar":"https://favicon.im/www.ncbi.nlm.nih.gov?larger=true"},{"name":"UniProt","link":"https://www.uniprot.org/","description":"权威的蛋白质序列和功能信息数据库","avatar":"https://favicon.im/www.uniprot.org?larger=true"},{"name":"PDB (RCSB)","link":"https://www.rcsb.org/","description":"蛋白质及核酸的三维结构数据库","avatar":"https://favicon.im/www.rcsb.org?larger=true"},{"name":"Ensembl","link":"https://www.ensembl.org/","description":"脊椎动物基因组浏览器，包含基因注释和比对","avatar":"https://favicon.im/www.ensembl.org?larger=true"},{"name":"KEGG","link":"https://www.genome.jp/kegg/","description":"京都基因与基因组百科全书，代谢通路图必备","avatar":"https://favicon.im/www.genome.jp?larger=true"},{"name":"TCGA (GDC)","link":"https://portal.gdc.cancer.gov/","description":"癌症基因组图谱，肿瘤生信分析核心数据源","avatar":"https://favicon.im/portal.gdc.cancer.gov?larger=true"},{"name":"EBI (EMBL-EBI)","link":"https://www.ebi.ac.uk/","description":"欧洲生物信息学研究所，欧洲版 NCBI","avatar":"https://favicon.im/www.ebi.ac.uk?larger=true"},{"title":"学术资源"},{"name":"PubMed","link":"https://pubmed.ncbi.nlm.nih.gov/","description":"生物医学领域最全的文献搜索数据库","avatar":"https://favicon.im/pubmed.ncbi.nlm.nih.gov?larger=true"},{"name":"Sci-Hub","link":"https://sci-hub.se/","description":"知识无国界，免费获取学术论文的工具","avatar":"https://favicon.im/sci-hub.se?larger=true"},{"name":"Connected Papers","link":"https://www.connectedpapers.com/","description":"论文引文网络可视化工具，快速了解领域脉络","avatar":"https://favicon.im/www.connectedpapers.com?larger=true"},{"name":"DeepL","link":"https://www.deepl.com/translator","description":"比谷歌翻译更专业的学术论文翻译工具","avatar":"https://favicon.im/www.deepl.com?larger=true"},{"title":"工具"},{"name":"Font Awesome","link":"https://fontawesome.com","description":"世界上最流行的图标库。","avatar":"https://favicon.im/fontawesome.com?larger=true"},{"name":"网站图标获取器","link":"https://favicon.im/zh","description":"即时获取和下载任何网站的图标。","avatar":"https://favicon.im/favicon.im?larger=true"},{"name":"Gemini","link":"https://gemini.google.com/app","description":"Google 旗下 AI 聊天对话工具","avatar":"https://favicon.im/gemini.google.com?larger=true"},{"name":"ChatGPT","link":"https://chat.openai.com/","description":"OpenAI 旗下 AI 聊天对话工具","avatar":"https://favicon.im/openai.com?larger=true"},{"name":"GitHub 镜像站","link":"https://kkgithub.com/","description":"国内极速访问 GitHub 的加速镜像","avatar":"https://favicon.im/github.com?larger=true"},{"name":"Carbon","link":"https://carbon.now.sh/","description":"将你的代码块转换成精美的分享图片","avatar":"https://favicon.im/carbon.now.sh?larger=true"},{"name":"TinyPNG","link":"https://tinypng.com/","description":"智能压缩图片，大幅提升网页加载速度","avatar":"https://favicon.im/tinypng.com?larger=true"},{"name":"Shields.io","link":"https://shields.io/","description":"为你的博客和项目生成精美的 SVG 徽章","avatar":"https://favicon.im/shields.io?larger=true"}],"tools":[{"category":"聊天 AI","anchorId":"JUU4JTgxJThBJUU1JUE0JUE5JTIwQUk0"},{"name":"ChatGPT","link":"https://chat.openai.com/","description":"OpenAI 旗下 AI 聊天对话工具","image":"/images/tools/chatgpt.svg"},{"name":"Gemini","link":"https://gemini.google.com/app","description":"Google 旗下 AI 聊天对话工具","image":"/images/tools/gemini.svg"}]},"version":"4.2.5"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left flex-start border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="/images/touxiang.jpg">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               YZDR&#39;s Blog
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc border-box">
+                <ul class="menu-list border-box">
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-home"></i>
+                                
+                                首页
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box has-sub-menu">
+                            <a class="menu-text-color border-box" href="javascript:void(0);">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-newspaper"></i>
+                                
+                                ARTICLE
+                                
+                                    <i class="menu-text-color collapse-icon fa-solid fa-angle-down"></i>
+                                
+                            </a>
+                            
+                                <ul class="sub-menu-list border-box">
+                                    
+                                        
+                                        <li class="sub-menu-item border-box ">
+                                            <a class="menu-text-color border-box flex-start" href="/archives">
+                                                
+                                                    <i class="menu-text-color sub-menu-icon fa-solid fa-box-archive"></i>
+                                                
+                                                归档
+                                            </a>
+                                        </li>
+                                    
+                                        
+                                        <li class="sub-menu-item border-box ">
+                                            <a class="menu-text-color border-box flex-start" href="/tags">
+                                                
+                                                    <i class="menu-text-color sub-menu-icon fa-solid fa-tags"></i>
+                                                
+                                                标签
+                                            </a>
+                                        </li>
+                                    
+                                        
+                                        <li class="sub-menu-item border-box ">
+                                            <a class="menu-text-color border-box flex-start" href="/categories">
+                                                
+                                                    <i class="menu-text-color sub-menu-icon fa-solid fa-layer-group"></i>
+                                                
+                                                分类
+                                            </a>
+                                        </li>
+                                    
+                                </ul>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box has-sub-menu">
+                            <a class="menu-text-color border-box" href="javascript:void(0);">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-user"></i>
+                                
+                                我的
+                                
+                                    <i class="menu-text-color collapse-icon fa-solid fa-angle-down"></i>
+                                
+                            </a>
+                            
+                                <ul class="sub-menu-list border-box">
+                                    
+                                        
+                                        <li class="sub-menu-item border-box ">
+                                            <a class="menu-text-color border-box flex-start" href="/about">
+                                                
+                                                    <i class="menu-text-color sub-menu-icon fa-solid fa-user-graduate"></i>
+                                                
+                                                关于
+                                            </a>
+                                        </li>
+                                    
+                                        
+                                        <li class="sub-menu-item border-box ">
+                                            <a class="menu-text-color border-box flex-start" href="/links">
+                                                
+                                                    <i class="menu-text-color sub-menu-icon fa-solid fa-link"></i>
+                                                
+                                                友链
+                                            </a>
+                                        </li>
+                                    
+                                </ul>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" target="_blank" rel="noopener" href="https://gemini.google.com">
+                                
+                                    <i class="menu-text-color menu-icon fa-brands fa-google"></i>
+                                
+                                EMINI
+                                
+                            </a>
+                            
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="menu-text-color fas search fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile border-box flex-start">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list border-box">
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-home"></i>
+                                </span>
+                            
+                            首页
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box has-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="javascript:void(0);">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-newspaper"></i>
+                                </span>
+                            
+                            ARTICLE
+                        </a>
+                        
+                            <i class="right-side collapse-icon fa-solid fa-angle-left"></i>
+                        
+                    </label>
+                    
+                        <ul class="drawer-sub-menu-list border-box">
+                            
+                                
+                                <li class="sub-menu-item border-box">
+                                    <a class="drawer-menu-text-color border-box flex-start" href="/archives">
+                                        
+                                            <span class="sub-menu-icon-wrap border-box flex-center">
+                                                <i class="drawer-menu-text-color sub-menu-icon fa-solid fa-box-archive"></i>
+                                            </span>
+                                        
+                                        归档
+                                    </a>
+                                </li>
+                            
+                                
+                                <li class="sub-menu-item border-box">
+                                    <a class="drawer-menu-text-color border-box flex-start" href="/tags">
+                                        
+                                            <span class="sub-menu-icon-wrap border-box flex-center">
+                                                <i class="drawer-menu-text-color sub-menu-icon fa-solid fa-tags"></i>
+                                            </span>
+                                        
+                                        标签
+                                    </a>
+                                </li>
+                            
+                                
+                                <li class="sub-menu-item border-box">
+                                    <a class="drawer-menu-text-color border-box flex-start" href="/categories">
+                                        
+                                            <span class="sub-menu-icon-wrap border-box flex-center">
+                                                <i class="drawer-menu-text-color sub-menu-icon fa-solid fa-layer-group"></i>
+                                            </span>
+                                        
+                                        分类
+                                    </a>
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box has-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="javascript:void(0);">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-user"></i>
+                                </span>
+                            
+                            我的
+                        </a>
+                        
+                            <i class="right-side collapse-icon fa-solid fa-angle-left"></i>
+                        
+                    </label>
+                    
+                        <ul class="drawer-sub-menu-list border-box">
+                            
+                                
+                                <li class="sub-menu-item border-box">
+                                    <a class="drawer-menu-text-color border-box flex-start" href="/about">
+                                        
+                                            <span class="sub-menu-icon-wrap border-box flex-center">
+                                                <i class="drawer-menu-text-color sub-menu-icon fa-solid fa-user-graduate"></i>
+                                            </span>
+                                        
+                                        关于
+                                    </a>
+                                </li>
+                            
+                                
+                                <li class="sub-menu-item border-box">
+                                    <a class="drawer-menu-text-color border-box flex-start" href="/links">
+                                        
+                                            <span class="sub-menu-icon-wrap border-box flex-center">
+                                                <i class="drawer-menu-text-color sub-menu-icon fa-solid fa-link"></i>
+                                            </span>
+                                        
+                                        友链
+                                    </a>
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" target="_blank" rel="noopener" href="https://gemini.google.com">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-brands fa-google"></i>
+                                </span>
+                            
+                            EMINI
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+                
+
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+
+            <div class="post-content-bottom border-box">
+                
+                    <div class="post-title">
+                        AI杂谈 | 虚拟细胞 2026：单细胞基础模型与空间转录组的合流
+                    </div>
+                
+
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="/images/touxiang.jpg">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">YZDR</span>
+                                
+                                    <span class="author-badge">Lv4</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2026-11-23 00:00:00</span>
+            </span>
+
+            
+                <span class="meta-info-item post-update-date">
+                    <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                    <span class="datetime" data-updated="Mon Nov 23 2026 10:07:55 GMT+0800">2026-11-23 10:07:55</span>
+                </span>
+            
+        
+
+        
+            <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul class="post-category-ul">
+                    
+                            <li class="category-item"><a href="/categories/AI%E6%9D%82%E8%B0%88/">AI杂谈</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/AI/">AI</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/">大语言模型</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E5%8D%95%E7%BB%86%E8%83%9E/">单细胞</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E7%A9%BA%E9%97%B4%E8%BD%AC%E5%BD%95%E7%BB%84/">空间转录组</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9E%8B/">基础模型</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+            <span class="meta-info-item post-wordcount">
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>3.2k 字</span>
+            </span>
+        
+        
+            <span class="meta-info-item post-min2read">
+                <i class="icon fas fa-clock"></i>&nbsp;<span>12 分钟</span>
+            </span>
+        
+        
+            <span class="meta-info-item post-pv">
+                <i class="icon fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+            </span>
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <p>如果说 AlphaFold 解决了”蛋白长什么样”，那么 2026 年生物 AI 领域真正在求解的问题，是另一个更贴近生物学直觉的问题：<strong>细胞在做什么、和谁在一起、被扰动之后会怎样。</strong> 这三件事对应着单细胞基础模型、空间转录组基础模型，以及被称为”虚拟细胞”的扰动预测模型。</p>
+<p>过去一年，这三条线正在迅速合流。而合流的起点，是一个看似技术、实则哲学的分歧：<strong>一个细胞到底应该被表示成什么？</strong></p>
+<p><img   src="https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/blog-img/vcell2611-01-tissue-fluorescence.jpg"  alt="荧光显微镜下组织中的细胞分布（Photo by Unsplash）"></p>
+<p><em>细胞从来不是孤立的。一个”看起来”的细胞类型，其实是它所处的位置、邻居和微环境共同写下的结果。</em></p>
+<h2 id="一、第一课：把细胞变成”句子”，还是变成”集合”？"><a href="#一、第一课：把细胞变成”句子”，还是变成”集合”？" class="headerlink" title="一、第一课：把细胞变成”句子”，还是变成”集合”？"></a>一、第一课：把细胞变成”句子”，还是变成”集合”？</h2><p>单细胞 RNA 测序把一个组织拆成了几百万个细胞，每个细胞带着两万个基因的表达量。研究者面对的第一道难题是：<strong>怎么把一个稀疏的高维向量喂给 Transformer？</strong></p>
+<p>三条路线就此分岔：</p>
+<ul>
+<li><strong>Geneformer 路线：按表达量排序</strong>。把每个细胞表达最高的基因按表达量降序排列，取前若干个当作”词表”，用位置编码表示。直觉上这像语言模型里的”关键词序列”。</li>
+<li><strong>scGPT 路线：分箱计数</strong>。把表达量按固定阈值分箱成 0&#x2F;1&#x2F;2&#x2F;3……的等级值，再做特殊 token 化。细胞变成了一串带”强弱”的 token。</li>
+<li><strong>UCE 路线：把元数据一起写进句子</strong>。不只写基因，还把物种、组织、测序协议等元数据拼进同一个序列，让模型自己在”句子”里读出上下文。</li>
+</ul>
+<p>三种表示方式并不等价，而它们之间长达数年的比较，直到 2026 年才有了相对权威的裁决。</p>
+<h2 id="二、UCE-的启示：细胞嵌入要能”跨物种搬运”"><a href="#二、UCE-的启示：细胞嵌入要能”跨物种搬运”" class="headerlink" title="二、UCE 的启示：细胞嵌入要能”跨物种搬运”"></a>二、UCE 的启示：细胞嵌入要能”跨物种搬运”</h2><p>2026 年，Rosen 等人把 Universal Cell Embeddings（UCE）的工作正式发表在《自然》上，标题很直白：<strong>Universal cell embedding provides a foundation model for cell biology</strong>。核心结论有两条，都很硬：</p>
+<ol>
+<li>在综合评分上，UCE 超过次优的 Geneformer <strong>13.9%</strong>，其中生物学保守性维度 <strong>16.2%</strong>、批次校正维度 <strong>10.1%</strong>；</li>
+<li>在 Tabula Sapiens v.2 上，B 细胞的轮廓系数（silhouette width）比 scGPT 高 <strong>93%</strong>、比 Geneformer 高 <strong>25%</strong>——B 细胞在 UCE 的嵌入空间里被干净地聚成一团，而 Geneformer 和 scGPT 在这里都”失手”了。</li>
+</ol>
+<p>更关键的是零样本（zero-shot）能力。UCE 不需要针对新物种再微调，就能把新数据映射到已有参考空间，在人类脑图谱这类含 382 个细胞类型簇的复杂数据上同样优于 Geneformer 与 scGPT，性能可以媲美需要微调的 scVI。</p>
+<p>这背后是一条重要的方法论提醒：<strong>当模型被当作”通用细胞嵌入器”使用时，零样本能力才是它的真正卖点；把它当作某个数据集上的分类器来用，则永远测不出它的长处。</strong></p>
+<p><img   src="https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/blog-img/vcell2611-02-single-cell-render.jpg"  alt="三维渲染的单细胞与细胞核（Photo by Unsplash）"></p>
+<p><em>细胞嵌入不是终点，而是一次”细胞身份证”的发放；难的是让这张身份证在没有标注的新样本上也认得出来。</em></p>
+<h2 id="三、空间这一课：Nicheformer-与-HEIST-的两条解法"><a href="#三、空间这一课：Nicheformer-与-HEIST-的两条解法" class="headerlink" title="三、空间这一课：Nicheformer 与 HEIST 的两条解法"></a>三、空间这一课：Nicheformer 与 HEIST 的两条解法</h2><p>单细胞测序的最大代价，是<strong>它把空间丢掉了</strong>。酶切、离心、解离之后，”这个细胞原本左边站着谁”这类信息被彻底洗掉。而细胞通讯、形态发生、免疫迁移，几乎全部发生在空间里。</p>
+<p>2026 年的两个代表性工作，给出了两条互补的解法。</p>
+<p><strong>第一条：把空间写进预训练语料。</strong> Helmholtz Munich 与慕尼黑工业大学团队的 Nicheformer 在 <em>Nature Methods</em> 上发表，预训练语料是 SpatialCorpus-110M——超过 1.1 亿个同时包含解离单细胞与空间分辨细胞的人、鼠转录组。它的价值可以被一个很具体的实验量化：在 MERFISH 小鼠脑数据集上做线性探针（linear probing）时，无论预测邻域组成、区域标签还是细胞密度，Nicheformer 的嵌入都稳定优于 UCE 与 CellPLM，差异具有统计显著性。更耐人寻味的是它的可解释性分析显示，<strong>空间模式即使在细胞被解离之后，仍然在基因表达里留下了可测量的痕迹</strong>。</p>
+<p><strong>第二条：把组织本身建模成图。</strong> ICLR 2026 的 HEIST 是层次图 Transformer：上层是空间细胞图，每个细胞本身又由下层的基因共表达网络图表示。它不使用固定的基因词表，而是从共表达网络与细胞上下文中现算基因嵌入，因此在不做重训练的情况下就能泛化到空间蛋白组这类全新模态。HEIST 用 15 个器官、124 个组织、2230 万个细胞做了预训练，目标是空间感知的对比学习与掩码自编码；其无监督分析揭示了此前模型遗漏的、带有空间信息的细胞亚群。</p>
+<p>同一时间线上还有一批各怀绝技的选手：Vizgen 的 scGPT-spatial 在 SpatialHuman30M（3000 万个空间转录组画像）上继续预训练 scGPT，用 MoE 解码器做”协议感知”的表达解码，并以邻域式训练目标捕捉共定位模式；CELLama（<em>Advanced Science</em>, 2026）把细胞数据改写成自然语言”句子”，从而让 scRNA-seq 与空间数据进入同一个嵌入空间；Novae 用自监督图注意力处理空间转录组；OmiCLIP &#x2F; Loki 则从病理切片这一侧切入，用超过 200 万对”图像—转录组”训练的 ST-bank，把 H&amp;E 病理与空间转录组桥接起来。</p>
+<p><img   src="https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/blog-img/vcell2611-03-dna-language.jpg"  alt="DNA 双螺旋如同一条可被&quot;阅读&quot;的基因语言（Photo by Unsplash）"></p>
+<p><em>基因是细胞的”语言”，但细胞上下文才是语法；只有语法的模型，学到的只是词汇。</em></p>
+<h2 id="四、另一半战场：扰动预测与虚拟细胞挑战赛"><a href="#四、另一半战场：扰动预测与虚拟细胞挑战赛" class="headerlink" title="四、另一半战场：扰动预测与虚拟细胞挑战赛"></a>四、另一半战场：扰动预测与虚拟细胞挑战赛</h2><p>如果说前面三条线都在做”表示”，那么 2026 年真正引爆话题的，是<strong>预测</strong>。</p>
+<p>Arc Institute 的虚拟细胞挑战赛（Virtual Cell Challenge）在 2025 年首办，2026 年的题目被明确为：<strong>在模型从未见过的细胞情境中，预测扰动响应</strong>（predicting perturbation responses in cell contexts a model has never seen），配套论文于 2026 年 8 月发表于《细胞》。它的野心直白到近乎宣言——如果”基因扰动 + 表达谱分析”这一套经典实验流程能可靠地在计算上跑通，”生物学的 AlphaFold 时刻”就不远了。</p>
+<p>而支撑这个野心的，是一场同样激烈的<strong>数据竞赛</strong>：</p>
+<ul>
+<li>2026 年 1 月 12 日，<strong>Tahoe Therapeutics、Arc Institute 与 Biohub</strong> 联合宣布生成迄今”扰动最丰富”的单细胞数据集，规模是 Tahoe-100M 的 <strong>4 倍以上</strong>，三方均以数百万美元级别投入；</li>
+<li>Biohub 牵头的 <strong>Virtual Biology Initiative</strong> 投入 <strong>5 亿美元</strong>，联合 Allen Institute、Arc、Broad、Wellcome Sanger 以及人类细胞图谱（HCA）、人类蛋白质图谱（HPA）等机构协同推进；</li>
+<li><strong>CZI 与 NVIDIA</strong> 的合作把生物数据的生成与标准化推到”数十亿数据点”量级，其开放的 virtual cells platform（VCP）托管了包括 NVIDIA CodonFM（RNA 基础模型）在内的一批模型与工具。</li>
+</ul>
+<p>换句话说，2026 年这一波进展的瓶颈，已经从”模型结构”转移到了<strong>数据生成能力与实验吞吐量的竞赛</strong>。</p>
+<p><img   src="https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/blog-img/vcell2611-05-lab-perturbation.jpg"  alt="实验室中从事扰动实验的研究者（Photo by Unsplash）"></p>
+<p><em>扰动数据不是买来的，是一瓶一瓶做出来的——这决定了这场竞赛的上限。</em></p>
+<h2 id="五、冷静剂：评测、偏差与三条不能回避的红线"><a href="#五、冷静剂：评测、偏差与三条不能回避的红线" class="headerlink" title="五、冷静剂：评测、偏差与三条不能回避的红线"></a>五、冷静剂：评测、偏差与三条不能回避的红线</h2><p>热闹之外，有几盆冷水必须泼下来。</p>
+<p><strong>其一，”零样本”是任务裁剪出来的结论。</strong> 2026 年 8 月发表于 bioRxiv 的一份零样本基准测试显示：scGPT 能实现中等程度的跨物种混合但细胞类型紧致性偏弱；UCE 在跨物种对齐上提升有限，仍保留明显的物种分离；<strong>Transcriptformer 几乎没能保留生物结构，其细胞类型轮廓系数接近零</strong>。同一份报告也提醒，跨物种共享程序的迁移与物种特异性变异的保留之间存在本质取舍。</p>
+<p><strong>其二，稀有细胞类型会塌方。</strong> 一项针对 scGPT、scBERT、Geneformer 的不平衡学习基准研究发现：当数据集中罕见细胞类型被严重压低时，三者的细胞类型注释性能都会下降，Geneformer 由于用序数位置而非真实表达值表示细胞，受损尤其明显；随机过采样（而非下采样）能普遍改善结果。</p>
+<p><strong>其三，数据的伦理与合规是硬约束，不是软约束。</strong> 人类单细胞与空间数据涉及遗传资源与个人信息，在我国开展相关研究与数据利用，需遵守《人类遗传资源管理条例》及其实施细则中关于采集、保藏、利用、对外提供与跨境流动的审批要求，并依《科技伦理审查办法（试行）》开展伦理审查；涉及患者数据的模型训练与产品化，知情同意与数据最小化原则同样是前置条件。基础模型可以共享权重，但<strong>数据的来源合法性无法通过模型架构来弥补</strong>。</p>
+<p><img   src="https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/blog-img/vcell2611-04-cell-network-graph.jpg"  alt="细胞通讯网络：图结构是空间模型最自然的表达方式（Photo by Unsplash）"></p>
+<p><em>把组织当作图来建模，不只是工程上的方便，它更接近细胞生物学本来的思维方式：细胞通过邻居被定义。</em></p>
+<h2 id="六、结语"><a href="#六、结语" class="headerlink" title="六、结语"></a>六、结语</h2><p>把 2026 年这半年串起来看，趋势相当清楚：<strong>细胞基础模型正在从”细胞嵌入器”变成”细胞模拟器”，而空间信息与扰动数据，是让这个转变成立的两块地基。</strong></p>
+<p>三年前的争论是”细胞该被表示成句子还是集合”；今天的问题变成了”模型能不能回答一个具体的、在实验台前尚未被回答的问题”。UCE 让零样本跨物种嵌入成为可能，Nicheformer 与 HEIST 把空间从丢失的上下文变成一等公民，而虚拟细胞挑战赛则把整个赛道推到了”能否可靠预测扰动响应”这一硬指标面前。</p>
+<p>对研究者而言，实用建议可能比结论更重要：选模型时先问”你的下游任务是零样本吗”，问”你的稀有细胞类型有多少”，问”你的结论是否经得起跨数据集检验”；对数据团队而言，真正的护城河或许不在架构，而在<strong>能否持续产出高质量的、带上下文标注的扰动数据</strong>。</p>
+<p><img   src="https://blog-1394183442.cos.ap-guangzhou.myqcloud.com/blog-img/vcell2611-06-compute-analysis.jpg"  alt="深夜中对着屏幕分析数据的生物信息研究者（Photo by Unsplash）"></p>
+<p><em>真正的瓶颈不再是模型，而是数据、实验与那些必须由人亲自完成的质量判断。</em></p>
+<blockquote>
+<p>细胞从来不是孤立的算子，它是空间中的一个位置、是扰动链条上的一环、是数据链条上的一环。2026 年的基础模型正在学习这些关系——而学会之后，最难的部分仍然是：知道它什么时候在编。</p>
+</blockquote>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
+<li>Rosen Y. et al., <em>Universal cell embedding provides a foundation model for cell biology</em>, <strong>Nature</strong> (2026). <a class="link"   target="_blank" rel="noopener" href="https://www.nature.com/articles/s41586-026-10689-z" >https://www.nature.com/articles/s41586-026-10689-z<i class="fas fa-external-link-alt"></i></a></li>
+<li>Tejada-Lapuerta A., Schaar A. C., Theis F. J. et al., <em>Nicheformer: a foundation model for single-cell and spatial omics</em>, <strong>Nature Methods</strong> (2025). <a class="link"   target="_blank" rel="noopener" href="https://www.nature.com/articles/s41592-025-02814-z" >https://www.nature.com/articles/s41592-025-02814-z<i class="fas fa-external-link-alt"></i></a></li>
+<li><em>HEIST: A Graph Foundation Model for Spatial Transcriptomics and Proteomics Data</em>, <strong>ICLR 2026</strong> (Poster). <a class="link"   target="_blank" rel="noopener" href="https://iclr.cc/virtual/2026/poster/10007693" >https://iclr.cc/virtual/2026/poster/10007693<i class="fas fa-external-link-alt"></i></a></li>
+<li>Vizgen, <em>scGPT-spatial: Continual Pretraining of Single-Cell Foundation Model for Spatial Transcriptomics</em>. <a class="link"   target="_blank" rel="noopener" href="https://vizgen.com/resources/scgpt-spatial-continual-pretraining-of-single-cell-foundation-model-for-spatial-transcriptomics" >https://vizgen.com/resources/scgpt-spatial-continual-pretraining-of-single-cell-foundation-model-for-spatial-transcriptomics<i class="fas fa-external-link-alt"></i></a></li>
+<li>Park J. et al., <em>CELLama: Foundation Model for Single Cell and Spatial Transcriptomics by Cell Embedding Leveraging Language Model Abilities</em>, <strong>Advanced Science</strong> 13(7): e13210 (2026). <a class="link"   target="_blank" rel="noopener" href="https://snu.elsevierpure.com/en/publications/cellama-foundation-model-for-single-cell-and-spatial-transcriptom" >https://snu.elsevierpure.com/en/publications/cellama-foundation-model-for-single-cell-and-spatial-transcriptom<i class="fas fa-external-link-alt"></i></a></li>
+<li><em>A visual–omics foundation model to bridge histopathology with spatial transcriptomics</em>, <strong>Nature Methods</strong> (2025). <a class="link"   target="_blank" rel="noopener" href="https://www.nature.com/articles/s41592-025-02707-1" >https://www.nature.com/articles/s41592-025-02707-1<i class="fas fa-external-link-alt"></i></a></li>
+<li>Arc Institute, <em>The 2026 Virtual Cell Challenge: predicting perturbation responses in cell contexts a model has never seen</em> (2026). <a class="link"   target="_blank" rel="noopener" href="https://arcinstitute.org/news/virtual-cell-challenge-2026" >https://arcinstitute.org/news/virtual-cell-challenge-2026<i class="fas fa-external-link-alt"></i></a></li>
+<li>Arc Institute, <em>Virtual Cell Initiative</em>（挑战赛与 State 模型主页）. <a class="link"   target="_blank" rel="noopener" href="https://arcinstitute.org/virtual-cell-initiative" >https://arcinstitute.org/virtual-cell-initiative<i class="fas fa-external-link-alt"></i></a></li>
+<li>Tahoe Therapeutics &#x2F; Arc Institute &#x2F; Biohub, <em>Largest Perturbation Dataset for Virtual Cell Models</em>（2026-01-12）. <a class="link"   target="_blank" rel="noopener" href="https://finance.yahoo.com/news/tahoe-therapeutics-arc-institute-biohub-180000724.html" >https://finance.yahoo.com/news/tahoe-therapeutics-arc-institute-biohub-180000724.html<i class="fas fa-external-link-alt"></i></a></li>
+<li>Biohub, <em>Virtual Biology Initiative — $500M for AI-powered biology</em>. <a class="link"   target="_blank" rel="noopener" href="https://biohub.org/news/virtual-biology-initiative" >https://biohub.org/news/virtual-biology-initiative<i class="fas fa-external-link-alt"></i></a></li>
+<li>CZI &#x2F; NVIDIA, <em>Accelerate Virtual Cell Model Development for Scientific Discovery</em>. <a class="link"   target="_blank" rel="noopener" href="https://finance.yahoo.com/news/czi-nvidia-accelerate-virtual-cell-183000311.html" >https://finance.yahoo.com/news/czi-nvidia-accelerate-virtual-cell-183000311.html<i class="fas fa-external-link-alt"></i></a></li>
+<li><em>Benchmarking single-cell foundation models in a zero-shot setting</em>, <strong>bioRxiv</strong> (2026). <a class="link"   target="_blank" rel="noopener" href="https://www.biorxiv.org/content/10.64898/2026.08.03.739553v1.full-text" >https://www.biorxiv.org/content/10.64898/2026.08.03.739553v1.full-text<i class="fas fa-external-link-alt"></i></a></li>
+<li>OmicsML, <em>awesome-foundation-model-single-cell-papers</em>（2026 年论文清单）. <a class="link"   target="_blank" rel="noopener" href="https://github.com/OmicsML/awesome-foundation-model-single-cell-papers/blob/main/README.md" >https://github.com/OmicsML/awesome-foundation-model-single-cell-papers/blob/main/README.md<i class="fas fa-external-link-alt"></i></a></li>
+</ol>
+<p><em>本文图片均来自 Unsplash，已上传至腾讯云 COS。</em></p>
+
+                    
+                </div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/AI/">AI</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/">大语言模型</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E5%8D%95%E7%BB%86%E8%83%9E/">单细胞</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E7%A9%BA%E9%97%B4%E8%BD%AC%E5%BD%95%E7%BB%84/">空间转录组</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9E%8B/">基础模型</a>
+                                    </li>
+                                
+                            </ul>
+                        
+                    </div>
+                    <div>
+                        
+                            <div class="post-share-container border-box">
+    <ul class="share-list-wrap border-box">
+        <li class="qq share-item border-box flex-center tooltip"
+            data-tooltip-content="分享到 QQ"
+        >
+            <i class="fa-brands fa-qq"></i>
+        </li>
+        <li class="wechat share-item border-box flex-center tooltip tooltip-img"
+            data-tooltip-content="分享到微信"
+            data-tooltip-img-tip="微信扫一扫"
+            data-tooltip-img-style="background-color: #fff; top: -10px; padding: 0.6rem 0.6rem 0.1rem 0.6rem;"
+        >
+            <i class="fa-brands fa-weixin"></i>
+        </li>
+        <li class="weibo share-item border-box flex-center tooltip"
+            data-tooltip-content="分享到微博"
+        >
+            <i class="fa-brands fa-weibo"></i>
+        </li>
+    </ul>
+</div>
+
+                        
+                    </div>
+                </div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/2026/11/22/AI%E6%9D%82%E8%B0%88-BioEmu2026%E5%BD%93%E8%9B%8B%E7%99%BD%E4%BB%8E%E4%B8%80%E5%BC%A0%E5%9B%BE%E5%8F%98%E6%88%90%E4%B8%80%E4%B8%AA%E9%9B%86%E5%90%88/"
+                                   title="AI杂谈 | BioEmu 2026：当蛋白从一张静态图变成一个构象集合"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">AI杂谈 | BioEmu 2026：当蛋白从一张静态图变成一个构象集合</span>
+                                        <span class="post-nav-item">下一篇</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+    <div class="comments-container border-box">
+        <div id="comments-anchor" class="comment-area-title border-box">
+            <i class="fas fa-comments"></i>&nbsp;评论
+        </div>
+        <div class="comment-plugin-fail border-box">
+    <span class="fail-tip">评论插件加载失败</span>
+    <button class="reload keep-button">点击重新加载</button>
+</div>
+<div class="comment-plugin-loading flex-center border-box">
+    <i class="loading-icon fa-solid fa-spinner fa-spin"></i>
+    <span class="load-tip">正在加载评论插件</span>
+</div>
+<script data-pjax>
+  window.KeepCommentPlugin = {}
+  window.KeepCommentPlugin.hideLoading = () => {
+    const cplDom = document.querySelector('.comments-container .comment-plugin-loading')
+    cplDom.style.display = 'none'
+  }
+  window.KeepCommentPlugin.loadFailHandle = () => {
+    window.KeepCommentPlugin.hideLoading()
+    const cpfDom = document.querySelector('.comments-container .comment-plugin-fail')
+    cpfDom.style.display = 'flex'
+    cpfDom.querySelector('.reload').addEventListener('click', () => {
+      window.location.reload()
+    })
+  }
+</script>
+
+        
+            
+
+    <div class="waline-comment-container">
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@waline/client@v2.15.8/dist/waline.css"/>
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@waline/client@v2.15.8/dist/waline-meta.css"/>
+        <div id="waline-comment"></div>
+        <script data-pjax>
+          window.KeepCommentPlugin.walineOptions = JSON.parse('{}'.replace(/&#34;/g, '"'))
+          window.KeepCommentPlugin.walineOptions.el = '#waline-comment'
+          window.KeepCommentPlugin.walineOptions.comment = '.post-comments-count'
+          window.KeepCommentPlugin.walineOptions.serverURL = 'https://comment.daitanyu.top'
+          window.KeepCommentPlugin.walineOptions.lang = 'zh-CN' || 'zh-CN'
+          window.KeepCommentPlugin.walineOptions.reaction = 'false' === 'true'
+        </script>
+
+        
+            <script 
+                    src="//cdn.jsdelivr.net/npm/@waline/client@v2.15.8/dist/waline.js"
+                    async
+                    onerror="window.KeepCommentPlugin.loadFailHandle()"
+            ></script>
+            <script 
+                    async
+            >
+              window.KeepCommentPlugin.initWaline = () => {
+                if (window?.Waline) {
+                  window.Waline.init(window.KeepCommentPlugin.walineOptions)
+                  window.KeepCommentPlugin.hideLoading()
+                } else {
+                  setTimeout(() => {
+                    window.KeepCommentPlugin.initWaline()
+                  }, 1000)
+                }
+              }
+
+              if ('false' === 'true') {
+                setTimeout(() => {
+                  window.KeepCommentPlugin.initWaline()
+                }, 1200)
+              } else {
+                window.addEventListener('DOMContentLoaded', window.KeepCommentPlugin.initWaline)
+              }
+            </script>
+        
+
+        
+    </div>
+
+
+        
+    </div>
+
+
+
+
+
+                
+            </div>
+        </div>
+
+        
+            <div class="pc-post-toc right-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E7%AC%AC%E4%B8%80%E8%AF%BE%EF%BC%9A%E6%8A%8A%E7%BB%86%E8%83%9E%E5%8F%98%E6%88%90%E2%80%9D%E5%8F%A5%E5%AD%90%E2%80%9D%EF%BC%8C%E8%BF%98%E6%98%AF%E5%8F%98%E6%88%90%E2%80%9D%E9%9B%86%E5%90%88%E2%80%9D%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">一、第一课：把细胞变成”句子”，还是变成”集合”？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81UCE-%E7%9A%84%E5%90%AF%E7%A4%BA%EF%BC%9A%E7%BB%86%E8%83%9E%E5%B5%8C%E5%85%A5%E8%A6%81%E8%83%BD%E2%80%9D%E8%B7%A8%E7%89%A9%E7%A7%8D%E6%90%AC%E8%BF%90%E2%80%9D"><span class="nav-number">2.</span> <span class="nav-text">二、UCE 的启示：细胞嵌入要能”跨物种搬运”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E7%A9%BA%E9%97%B4%E8%BF%99%E4%B8%80%E8%AF%BE%EF%BC%9ANicheformer-%E4%B8%8E-HEIST-%E7%9A%84%E4%B8%A4%E6%9D%A1%E8%A7%A3%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">三、空间这一课：Nicheformer 与 HEIST 的两条解法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%8F%A6%E4%B8%80%E5%8D%8A%E6%88%98%E5%9C%BA%EF%BC%9A%E6%89%B0%E5%8A%A8%E9%A2%84%E6%B5%8B%E4%B8%8E%E8%99%9A%E6%8B%9F%E7%BB%86%E8%83%9E%E6%8C%91%E6%88%98%E8%B5%9B"><span class="nav-number">4.</span> <span class="nav-text">四、另一半战场：扰动预测与虚拟细胞挑战赛</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E5%86%B7%E9%9D%99%E5%89%82%EF%BC%9A%E8%AF%84%E6%B5%8B%E3%80%81%E5%81%8F%E5%B7%AE%E4%B8%8E%E4%B8%89%E6%9D%A1%E4%B8%8D%E8%83%BD%E5%9B%9E%E9%81%BF%E7%9A%84%E7%BA%A2%E7%BA%BF"><span class="nav-number">5.</span> <span class="nav-text">五、冷静剂：评测、偏差与三条不能回避的红线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E7%BB%93%E8%AF%AD"><span class="nav-number">6.</span> <span class="nav-text">六、结语</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">7.</span> <span class="nav-text">参考资料</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="copyright-info info-item">
+    &copy;&nbsp;2026
+    
+            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">YZDR</a>
+        
+    </div>
+
+    <div class="theme-info info-item">
+        由&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;驱动&nbsp;&&nbsp;主题&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+    </div>
+
+    
+
+    
+        <div class="count-info info-item">
+            
+                <span class="count-item border-box word">
+                    <span class="item-type border-box">总字数</span>
+                    <span class="item-value border-box word">103k</span>
+                </span>
+            
+
+            
+                <span class="count-item border-box uv">
+                    <span class="item-type border-box">访客数</span>
+                    <span class="item-value border-box uv" id="busuanzi_value_site_uv"></span>
+                </span>
+            
+
+            
+                <span class="count-item border-box pv">
+                    <span class="item-type border-box">访问量</span>
+                    <span class="item-value border-box pv" id="busuanzi_value_site_pv"></span>
+                </span>
+            
+        </div>
+    
+
+    
+        <div class="record-info info-item">
+            
+                
+                    <div class="record-item border-box">
+                        <a class=""
+                           target="_blank"
+                           href="https://beian.miit.gov.cn/"
+                        >
+                            湘ICP备2026001287号
+                        </a>
+                    </div>
+                
+            
+                
+                    <div class="record-item border-box">
+                        <a class=""
+                           target="_blank"
+                           href="https://beian.mps.gov.cn/#/query/webSearch?code=43072302000296"
+                        >
+                            湘公网安备43072302000296号
+                        </a>
+                    </div>
+                
+            
+        </div>
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+            <li class="tools-item flex-center go-to-comments">
+                <i class="fas fa-comment"></i>
+                <span class="post-comments-count"></span>
+            </li>
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box ">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <!-- toggle mode -->
+        
+            <li class="tools-item tool-toggle-theme-mode flex-center">
+                <i class="fas fa-moon"></i>
+            </li>
+        
+
+        <!-- rss -->
+        
+
+        <!-- to bottom -->
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        
+            <li class="tools-item go-to-comments-tablet flex-center">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E7%AC%AC%E4%B8%80%E8%AF%BE%EF%BC%9A%E6%8A%8A%E7%BB%86%E8%83%9E%E5%8F%98%E6%88%90%E2%80%9D%E5%8F%A5%E5%AD%90%E2%80%9D%EF%BC%8C%E8%BF%98%E6%98%AF%E5%8F%98%E6%88%90%E2%80%9D%E9%9B%86%E5%90%88%E2%80%9D%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">一、第一课：把细胞变成”句子”，还是变成”集合”？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81UCE-%E7%9A%84%E5%90%AF%E7%A4%BA%EF%BC%9A%E7%BB%86%E8%83%9E%E5%B5%8C%E5%85%A5%E8%A6%81%E8%83%BD%E2%80%9D%E8%B7%A8%E7%89%A9%E7%A7%8D%E6%90%AC%E8%BF%90%E2%80%9D"><span class="nav-number">2.</span> <span class="nav-text">二、UCE 的启示：细胞嵌入要能”跨物种搬运”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E7%A9%BA%E9%97%B4%E8%BF%99%E4%B8%80%E8%AF%BE%EF%BC%9ANicheformer-%E4%B8%8E-HEIST-%E7%9A%84%E4%B8%A4%E6%9D%A1%E8%A7%A3%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">三、空间这一课：Nicheformer 与 HEIST 的两条解法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%8F%A6%E4%B8%80%E5%8D%8A%E6%88%98%E5%9C%BA%EF%BC%9A%E6%89%B0%E5%8A%A8%E9%A2%84%E6%B5%8B%E4%B8%8E%E8%99%9A%E6%8B%9F%E7%BB%86%E8%83%9E%E6%8C%91%E6%88%98%E8%B5%9B"><span class="nav-number">4.</span> <span class="nav-text">四、另一半战场：扰动预测与虚拟细胞挑战赛</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E5%86%B7%E9%9D%99%E5%89%82%EF%BC%9A%E8%AF%84%E6%B5%8B%E3%80%81%E5%81%8F%E5%B7%AE%E4%B8%8E%E4%B8%89%E6%9D%A1%E4%B8%8D%E8%83%BD%E5%9B%9E%E9%81%BF%E7%9A%84%E7%BA%A2%E7%BA%BF"><span class="nav-number">5.</span> <span class="nav-text">五、冷静剂：评测、偏差与三条不能回避的红线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E7%BB%93%E8%AF%AD"><span class="nav-number">6.</span> <span class="nav-text">六、结语</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">7.</span> <span class="nav-text">参考资料</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
+</main>
+
+
+
+
+
+<!-- common js -->
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/toggle-theme.js"></script>
+
+<script src="/js/code-block.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+
+<!-- local search -->
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+<!-- lazyload -->
+
+
+<div class="">
+    <!-- home page -->
+    
+
+    <!-- post page -->
+    
+        <!-- post-helper -->
+        
+<script src="/js/post/post-helper.js"></script>
+
+
+        <!-- toc -->
+        
+            
+<script src="/js/post/toc.js"></script>
+
+        
+
+        <!-- copyright-info -->
+        
+
+        <!-- share -->
+        
+            
+<script src="/js/post/share.js"></script>
+
+        
+    
+
+    <!-- categories page -->
+    
+
+    <!-- links page -->
+    
+
+    <!-- photos page -->
+    
+
+    <!-- tools page -->
+    
+</div>
+
+<!-- mermaid -->
+
+
+<!-- pjax -->
+
+
+
+    
+        
+    
+
+</body>
+</html>
